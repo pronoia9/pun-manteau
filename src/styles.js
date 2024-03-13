@@ -5,5 +5,5 @@ export const themes = {
   dark: {},
 };
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 `;
