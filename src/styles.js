@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const themes = {
+export const themes = {
   light: {},
   dark: {},
 };
