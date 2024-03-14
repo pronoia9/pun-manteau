@@ -52,29 +52,51 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  *::-webkit-scrollbar {
+  ${
+    '' /* *::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;
     scrollbar-width: none;
+  } */
+  }
+
+  html {
   }
 
   body {
-    width: 100%;
-    min-width: 100vw;
-    height: 100%;
-    min-height: 100vh;
+    &, &:after {
+      width: 100%;
+      min-width: 100vw;
+      height: 100%;
+      min-height: 100vh;
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+    }
 
     ${'' /* Body; Inter Regular; 18px; 28px line */}
     font-family: var(--font) var(--font-fallback);
     font-size: ${rem(18)};
-    color: var(--c-font);
+    color: rgb(255, 255, 255);
     line-height: ${rem(28)};
 
     background-color: var(--c-secondary);
     background-image: var(--image);
-    background-position: center;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.4);
+    }
   }
 
   /* H1; Inter Bold; 200px; 200px Line; -5 Spacing */
@@ -122,5 +144,8 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${rem(15)};
     line-height: ${rem(28)};
     letter-spacing: ${rem(3)};
+  }
+
+  button {
   }
 `;
