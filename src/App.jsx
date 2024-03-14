@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { Quote, Time, Button, Overlay } from './components';
 import { GlobalStyles } from './styles';
-import { getTheme } from './utils';
+import { getTheme, rem } from './utils';
 
 function App() {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -13,8 +13,10 @@ function App() {
       <GlobalStyles />
       <Container>
         <Quote />
-        <Time />
-        <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+        <BottomContainer>
+          <Time />
+          <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+        </BottomContainer>
         {showOverlay && <Overlay />}
       </Container>
     </ThemeProvider>
@@ -23,4 +25,22 @@ function App() {
 
 export default App;
 
-const Container = styled.div``;
+const Container = styled.div`
+  width: 100%;
+  max-width: ${rem(1100)};
+  height: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  div {
+    width: 100%;
+  }
+`;
+
+const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
