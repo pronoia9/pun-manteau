@@ -50,17 +50,6 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  ${
-    '' /* *::-webkit-scrollbar {
-    display: none;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  } */
-  }
-
-  html {
-  }
-
   body {
     &, &:after {
       width: 100%;
