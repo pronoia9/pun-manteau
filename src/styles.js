@@ -1,27 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { rem } from './utils';
-
-export const themes = {
-  light: {
-    font:       { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
-    background: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
-    image: {
-      desktop:  '/images/bg-desktop-image-daytime.jpg',
-      tablet:   '/images/bg-tablet-image-daytime.jpg',
-      mobile:   '/images/bg-mobile-image-daytime.jpg'
-    }
-  },
-  dark: {
-    font:       { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
-    background: { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
-    image: {
-      desktop:  '/images/bg-desktop-image-nighttime.jpg',
-      tablet:   '/images/bg-tablet-image-nighttime.jpg',
-      mobile:   '/images/bg-mobile-image-nighttime.jpg'
-    }
-  },
-};
+import { themes, rem } from './utils';
 
 export const GlobalStyles = createGlobalStyle`
   ${'' /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */}
