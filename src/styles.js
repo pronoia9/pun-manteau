@@ -2,14 +2,14 @@ import { createGlobalStyle } from 'styled-components';
 
 export const themes = {
   light: {
-    font: { hex: '#000000', rgb: 'rgb(0,0,0)', hsl: 'hsl(0, 0%, 0%)' },
+    font:       { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
     background: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
-    secondary: { hex: '#303030', rgb: 'rgb(48, 48, 48)', hsl: 'hsl(0, 0%, 19%)' },
+    secondary:  { hex: '#303030', rgb: 'rgb(48, 48, 48)',    hsl: 'hsl(0, 0%, 19%)' },
   },
   dark: {
-    font: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
-    background: { hex: '#000000', rgb: 'rgb(0,0,0)', hsl: 'hsl(0, 0%, 0%)' },
-    secondary: { hex: '#303030', rgb: 'rgb(48, 48, 48)', hsl: 'hsl(0, 0%, 19%)' },
+    font:       { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
+    background: { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
+    secondary:  { hex: '#303030', rgb: 'rgb(48, 48, 48)',    hsl: 'hsl(0, 0%, 19%)' },
   },
 };
 
