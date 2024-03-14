@@ -14,7 +14,7 @@ function App() {
       <Container>
         <Quote />
         <Time />
-        <Button setShowOverlay={setShowOverlay} />
+        <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
         {showOverlay && <Overlay />}
       </Container>
     </ThemeProvider>
