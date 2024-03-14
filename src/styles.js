@@ -42,6 +42,14 @@ export const GlobalStyles = createGlobalStyle`
     --font: Inter;
     --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --image: url(${({ theme }) => theme.image.desktop});
+
+    @media (max-width: 768px) {
+      --image: url(${({ theme }) => theme.image.tablet});
+    }
+
+    @media (max-width: 480px) {
+      --image: url(${({ theme }) => theme.image.mobile});
+    }
   }
 
   *::-webkit-scrollbar {
