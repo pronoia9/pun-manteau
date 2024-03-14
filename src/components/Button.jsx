@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { rem } from './utils';
+import { rem } from '../utils';
 
 export const Button = ({ showOverlay, setShowOverlay }) => {
   const handleClick = () => {
@@ -17,24 +17,24 @@ export const Button = ({ showOverlay, setShowOverlay }) => {
 
 const Container = styled.button`
   padding: ${rem(8)} ${rem(9)};
-  position: relative;
+  padding-left: ${rem(20)};
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: ${rem(13)};
+  align-items: center;
   color: rgba(0, 0, 0, 1);
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: ${rem(5)};
   line-height: ${rem(28)};
-  fill: rgb(255, 255, 255);
   background: rgb(255, 255, 255);
   border-radius: ${rem(28)};
-
+  
   img {
-    content: '';
     width: ${rem(40)};
     height: ${rem(40)};
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    fill: rgb(255, 255, 255);
     background: var(--c-secondary);
     border-radius: 50%;
   }
