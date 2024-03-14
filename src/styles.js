@@ -26,7 +26,7 @@ export const themes = {
 };
 
 export const GlobalStyles = createGlobalStyle`
-  /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */
+  ${'' /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'); */}
   @font-face {
     font-family: Inter;
     font-style: normal;
@@ -56,7 +56,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     min-height: 100vh;
 
-    /* Body; Inter Regular; 18px; 28px line */
+    ${'' /* Body; Inter Regular; 18px; 28px line */}
     font-family: var(--font) var(--font-fallback);
     font-size: ${rem(18)};
     color: var(--c-font);
@@ -69,27 +69,27 @@ export const GlobalStyles = createGlobalStyle`
     background-size: cover;
   }
 
-  /* H1; Inter Bold; 200px; 200px Line; -5 Spacing */
+  ${'' /* H1; Inter Bold; 200px; 200px Line; -5 Spacing */}
   h1 {
   }
 
-  /* H2; Inter Bold; 56px; 68px Line */
+  ${'' /* H2; Inter Bold; 56px; 68px Line */}
   h2 {
   }
 
-  /* H3; Inter Bold; 24px; 28px Line; -4,8 Spacing; All Caps */
+  ${'' /* H3; Inter Bold; 24px; 28px Line; -4,8 Spacing; All Caps */}
   h3 {
   }
 
-  /* H4; Inter Regular; 20px; 28px Line; +4 Spacing */
+  ${'' /* H4; Inter Regular; 20px; 28px Line; +4 Spacing */}
   h4 {
   }
 
-  /* H5; Inter Bold; 18px; 28px Line */
+  ${'' /* H5; Inter Bold; 18px; 28px Line */}
   h5 {
   }
 
-  /* H6; Inter Bold; 15px; 28px Line; +3 Spacing */
+  ${'' /* H6; Inter Bold; 15px; 28px Line; +3 Spacing */}
   h6 {
   }
 `;
