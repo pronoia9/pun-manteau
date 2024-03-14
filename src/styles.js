@@ -81,7 +81,7 @@ export const GlobalStyles = createGlobalStyle`
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 1;
+      z-index: -1;
       background: rgba(0, 0, 0, 0.4);
     }
   }
@@ -131,9 +131,5 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${rem(15)};
     line-height: ${rem(28)};
     letter-spacing: ${rem(3)};
-  }
-
-  button {
-    background: rgb(255, 255, 255);
   }
 `;
