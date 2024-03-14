@@ -1,4 +1,4 @@
-import { themes } from "styles";
+import { themes } from './styles';
 
 // GENETAL UTILS
 export const lowerCase = (t) => `${t}`.toLowerCase();
