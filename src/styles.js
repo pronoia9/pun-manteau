@@ -5,11 +5,21 @@ export const themes = {
     font:       { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
     background: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
     secondary:  { hex: '#303030', rgb: 'rgb(48, 48, 48)',    hsl: 'hsl(0, 0%, 19%)' },
+    image: {
+      desktop:  '/images/bg-desktop-image-daytime.jpg',
+      tablet:   '/images/bg-tablet-image-daytime.jpg',
+      mobile:   '/images/bg-mobile-image-daytime.jpg'
+    }
   },
   dark: {
     font:       { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
     background: { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
     secondary:  { hex: '#303030', rgb: 'rgb(48, 48, 48)',    hsl: 'hsl(0, 0%, 19%)' },
+    image: {
+      desktop:  '/images/bg-desktop-image-nighttime.jpg',
+      tablet:   '/images/bg-tablet-image-nighttime.jpg',
+      mobile:   '/images/bg-mobile-image-nighttime.jpg'
+    }
   },
 };
 
@@ -20,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal;
     font-weight: 100 900;
     font-display: swap;
-    src: url('./assets/font/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+    src: url('/font/Inter-VariableFont_slnt,wght.ttf') format('truetype');
   }
 
   :root {
@@ -39,6 +49,15 @@ export const GlobalStyles = createGlobalStyle`
 
   ${'' /* Body; Inter Regular; 18px; 28px line */}
   body {
+    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    background-color: ${({ theme }) => theme.secondary.hex};
+    background-image: url(${({ theme }) => theme.image.desktop});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   ${'' /* H1; Inter Bold; 200px; 200px Line; -5 Spacing */}
