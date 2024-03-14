@@ -6,7 +6,7 @@ export const themes = {
   light: {
     font:       { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
     background: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
-    secondary:  { hex: '#303030', rgb: 'rgb(48, 48, 48)',    hsl: 'hsl(0, 0%, 19%)' },
+    // secondary:  { hex: '#303030', rgb: 'rgb(48, 48, 48)',    hsl: 'hsl(0, 0%, 19%)' },
     image: {
       desktop:  '/images/bg-desktop-image-daytime.jpg',
       tablet:   '/images/bg-tablet-image-daytime.jpg',
@@ -16,7 +16,6 @@ export const themes = {
   dark: {
     font:       { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
     background: { hex: '#000000', rgb: 'rgb(0,0,0)',         hsl: 'hsl(0, 0%, 0%)' },
-    secondary:  { hex: '#303030', rgb: 'rgb(48, 48, 48)',    hsl: 'hsl(0, 0%, 19%)' },
     image: {
       desktop:  '/images/bg-desktop-image-nighttime.jpg',
       tablet:   '/images/bg-tablet-image-nighttime.jpg',
@@ -38,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --c-font: ${({ theme }) => theme.font.rgb};
     --c-background: ${({ theme }) => theme.background.rgb};
-    --c-secondary: ${({ theme }) => theme.secondary.rgb};
+    --c-secondary: rgb(48, 48, 48);
     --font: Inter;
     --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --image: url(${({ theme }) => theme.image.desktop});
