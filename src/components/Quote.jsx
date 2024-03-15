@@ -12,7 +12,7 @@ export const Quote = () => {
     <Container>
       <Top>
         <Text>“{data?.content}”</Text>
-        <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void getQuote()} />
+        <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void getQuote(setData)} />
       </Top>
       <Author>{data?.author}</Author>
     </Container>
