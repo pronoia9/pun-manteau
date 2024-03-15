@@ -1,34 +1,17 @@
-import axios from 'axios';
 import styled from 'styled-components';
 
-import { rem } from '../utils';
+import { getQuote, rem } from '../utils';
 import { useEffect, useState } from 'react';
 
 export const Quote = () => {
   const [data, setData] = useState(null);
 
-  async function getQuote() {
-    try {
-      const response = await axios.get('https://api.quotable.io/quotes/random');
-      setData(response.data[0]);
-    } catch (error) {
-      console.error('Error getting a quote', error);
-      setData({
-        content:
-          'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.',
-        author: 'Ada Lovelace',
-      });
-    }
-  }
-
-  useEffect(() => { getQuote(); }, []);
+  useEffect(() => { !data && getQuote(setData); }, [data]);
 
   return (
     <Container>
       <Top>
-        <Text>
-          “{data?.content}”
-        </Text>
+        <Text>“{data?.content}”</Text>
         <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void getQuote()} />
       </Top>
       <Author>{data?.author}</Author>
@@ -50,10 +33,18 @@ const Top = styled.div`
   flex-direction: row;
   gap: ${rem(15.67)};
 
-  img {
+  img, svg {
     width: 16.67px;
     height: 16.67px;
     margin-top: ${rem(10.67)};
+    cursor: pointer;
+    scale: 1;
+    transition: 0.2s cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    
+    &:hover {
+      scale: 1.1;
+      filter: invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%);
+    }
   }
 `;
 
