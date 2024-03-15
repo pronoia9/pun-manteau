@@ -62,14 +62,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  div {
-    width: 100%;
-  }
 `;
 
 const BottomContainer = styled.div`
   margin-bottom: ${rem(98)};
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
 `;
