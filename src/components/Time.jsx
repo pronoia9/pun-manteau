@@ -11,7 +11,7 @@ export const Time = ({ time }) => {
   }, []);
 
   return (
-    ipBase && (
+    ipBase ? (
       <Container>
         <Text>
           <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
@@ -29,7 +29,7 @@ export const Time = ({ time }) => {
           In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
         </h3>
       </Container>
-    )
+    ) : <></>
   );
 };
 
