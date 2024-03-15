@@ -1,8 +1,15 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { getTimeHours, getTimeMinutes, getTimeSeconds, isNightTime, rem } from '../utils';
+import { defaultIpBase, fetchIpBase, getTimeHours, getTimeMinutes, getTimeSeconds, isNightTime, rem } from '../utils';
 
 export const Time = ({ time }) => {
+  const [ipBase, setIpBase] = useState(null);
+
+  useEffect(() => {
+    fetchIpBase().then((res) => void setIpBase(res || defaultIpBase));
+  }, []);
+
   return (
     <Container>
       <Text>
@@ -17,7 +24,7 @@ export const Time = ({ time }) => {
         <h5>BST</h5>
       </Clock>
 
-      <h3>In London, UK</h3>
+      <h3>In {ipBase.location.city.name}, {ipBase.location.country.alpha2}</h3>
     </Container>
   );
 };
@@ -47,7 +54,8 @@ const Clock = styled.div`
   align-items: end;
   gap: ${rem(11)};
 
-  h1, h5 {
+  h1,
+  h5 {
     display: inline-block;
   }
 
