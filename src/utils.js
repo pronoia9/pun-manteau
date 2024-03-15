@@ -94,6 +94,7 @@ export const getTimeOfDayIcon = (time) => {
   const hour = getTimeHours(time);
   if (hour >= 5 && hour < 18) return 'sun';
   if (hour >= 18 && hour < 5) return 'moon';
+  return 'ERR';
 };
 
 export const getTimeOfDayString = (time) => {
@@ -101,6 +102,7 @@ export const getTimeOfDayString = (time) => {
   if (hour >= 5 && hour < 12) return 'morning';
   if (hour >= 12 && hour < 18) return 'afternoon';
   if (hour >= 18 && hour < 5) return 'afternoon';
+  return 'ERR';
 };
 
 export const isNightTime = (time) => getTimeHours(time) >= 20 || getTimeHours(time) < 6;
