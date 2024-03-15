@@ -1,12 +1,12 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
-import { rem, updateQuote } from '../utils';
-import { useEffect, useState } from 'react';
+import { defaultQuote, rem, updateQuote } from '../utils';
 
 export const Quote = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(defaultQuote);
 
-  useEffect(() => { !data && updateQuote(setData); }, [data]);
+  // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
   return (
     <Container>
@@ -25,7 +25,7 @@ const Container = styled.div`
   /* display: flex;
   flex-direction: column;
   gap: ${rem(13)}; */
-  `;
+`;
 
 const Top = styled.div`
   /* width: ${rem(540)}; */
@@ -50,11 +50,9 @@ const Top = styled.div`
 `;
 
 const Text = styled.h5`
-  margin: 0;
   font-weight: normal;
 `;
 
 const Author = styled.h6`
-  margin: 0;
   letter-spacing: 0;
 `;
