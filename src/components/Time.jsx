@@ -24,7 +24,7 @@ export const Time = ({ time }) => {
         <h5>BST</h5>
       </Clock>
 
-      <h3>In {ipBase.location.city.name}, {ipBase.location.country.alpha2}</h3>
+      <h3>In {ipBase?.location.city.name}, {ipBase?.location.country.alpha2}</h3>
     </Container>
   );
 };
