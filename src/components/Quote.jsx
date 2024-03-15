@@ -1,17 +1,37 @@
+import axios from 'axios';
 import styled from 'styled-components';
 
 import { rem } from '../utils';
+import { useEffect, useState } from 'react';
 
 export const Quote = () => {
+  const [data, setData] = useState(null);
+
+  async function getQuote() {
+    try {
+      const response = await axios.get('https://api.quotable.io/quotes/random');
+      setData(response.data[0]);
+    } catch (error) {
+      console.error('Error getting a quote', error);
+      setData({
+        content:
+          'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.',
+        author: 'Ada Lovelace',
+      });
+    }
+  }
+
+  useEffect(() => { getQuote(); }, []);
+
   return (
     <Container>
       <Top>
         <Text>
-          “The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.”
+          “{data?.content}”
         </Text>
-        <img src='/icons/icon-refresh.svg' />
+        <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void getQuote()} />
       </Top>
-      <Author>Ada Lovelace</Author>
+      <Author>{data?.author}</Author>
     </Container>
   );
 };
