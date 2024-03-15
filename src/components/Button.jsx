@@ -29,7 +29,7 @@ const Container = styled.button`
   font-weight: bold;
   letter-spacing: ${rem(5)};
   line-height: ${rem(28)};
-  
+
   background: rgb(255, 255, 255);
   border-radius: ${rem(28)};
 
@@ -37,6 +37,7 @@ const Container = styled.button`
     width: ${rem(40)};
     height: ${rem(40)};
     border-radius: 50%;
+    transform: rotate(${({$showOverlay}) => $showOverlay ? '0' : '180'}deg);
   }
 
   &:hover {
