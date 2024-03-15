@@ -41,7 +41,6 @@ const Top = styled.div`
     margin-top: ${rem(10.67)};
     cursor: pointer;
     scale: 1;
-    transition: 0.2s cubic-bezier(0.445, 0.050, 0.550, 0.950);
     
     &:hover {
       scale: 1.1;
