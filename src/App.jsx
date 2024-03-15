@@ -71,4 +71,5 @@ const Container = styled.div`
 const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: ${rem(98)};
 `;
