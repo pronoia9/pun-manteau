@@ -43,10 +43,6 @@ export const GlobalStyles = createGlobalStyle`
     @media (max-width: ${rem(480)}) { --image: url(${({ theme }) => theme.image.mobile}); }
   }
 
-  * {
-    transition: 0.2s cubic-bezier(0.445, 0.050, 0.550, 0.950);
-  }
-
   body {
     &, &:after {
       width: 100%;
