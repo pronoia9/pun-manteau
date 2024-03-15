@@ -43,4 +43,5 @@ const Text = styled.h5`
 
 const Author = styled.h6`
   margin: 0;
+  letter-spacing: 0;
 `;
