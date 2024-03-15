@@ -19,7 +19,7 @@ export const Time = ({ time }) => {
 
       <Clock>
         <h1 key={time}>
-          {getTimeHours(time) || '23'}:{getTimeMinutes(time) || '14'}
+          {getTimeHours(time)}:{getTimeMinutes(time)}
         </h1>{' '}
         <h5>BST</h5>
       </Clock>
