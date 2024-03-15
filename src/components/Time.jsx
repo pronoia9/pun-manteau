@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { defaultIpBase, fetchIpBase, getTimeHours, getTimeMinutes, getTimeSeconds, isNightTime, rem } from '../utils';
+import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, defaultIpBase, fetchIpBase, rem } from '../utils';
 
 export const Time = ({ time }) => {
   const [ipBase, setIpBase] = useState(null);
@@ -13,8 +13,8 @@ export const Time = ({ time }) => {
   return (
     <Container>
       <Text>
-        <img src={`/icons/icon-${isNightTime(time) ? 'moon' : 'sun'}.svg`} />
-        <h4>Good {isNightTime(time) ? 'evening' : 'morning'}, it&apos;s currently</h4>
+        <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
+        <h4>Good {getTimeOfDayString(time)}, it&apos;s currently</h4>
       </Text>
 
       <Clock>
