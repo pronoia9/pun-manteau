@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { themes, rem } from './utils';
+import { rem } from './utils';
 
 export const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
