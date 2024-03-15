@@ -18,8 +18,8 @@ export const GlobalStyles = createGlobalStyle`
     --font: Inter;
     --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --image: url(${({ theme }) => theme.image.desktop});
-    @media (max-width: 768px) { --image: url(${({ theme }) => theme.image.tablet}); }
-    @media (max-width: 480px) { --image: url(${({ theme }) => theme.image.mobile}); }
+    @media (max-width: ${rem(768)}) { --image: url(${({ theme }) => theme.image.tablet}); }
+    @media (max-width: ${rem(480)}) { --image: url(${({ theme }) => theme.image.mobile}); }
   }
 
   body {
@@ -61,7 +61,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: bold;
     font-size: ${rem(200)};
     line-height: ${rem(200)};
-    letter-spacing: -5;
+    letter-spacing: ${rem(-5)};
   }
 
   h2 {
@@ -74,7 +74,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: bold;
     font-size: ${rem(24)};
     line-height: ${rem(28)};
-    letter-spacing: -4.8;
+    letter-spacing: ${rem(-4.8)};
     text-transform: uppercase;
   }
 
@@ -82,7 +82,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: normal;
     font-size: ${rem(20)};
     line-height: ${rem(28)};
-    letter-spacing: 4;
+    letter-spacing: ${rem(4)};
   }
 
   h5 {
@@ -95,6 +95,6 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: bold;
     font-size: ${rem(15)};
     line-height: ${rem(28)};
-    letter-spacing: 3;
+    letter-spacing: ${rem(3)};
   }
 `;
