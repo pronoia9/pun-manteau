@@ -73,6 +73,8 @@ export async function fetchTime() {
   }
 }
 
+export const defaultIpBase = 'London, UK';
+
 export async function fetchIpBase() {
   try {
     const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
