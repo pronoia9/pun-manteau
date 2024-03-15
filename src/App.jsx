@@ -17,16 +17,14 @@ function App() {
 
   // Set interval for the updating of the time that was fetched
   useEffect(() => {
-    const updateTime = () => {
+    // Start the interval to update time data every second
+    const id = setInterval(() => {
       setTime((prev) => {
         const now = new Date(prev.datetime);
         now.setSeconds(now.getSeconds() + 1);
         return { ...prev, datetime: now.toISOString() };
       });
-    };
-
-    // Start the interval to update time data every second
-    const id = setInterval(updateTime, 1000);
+    }, 1000);
     setIntervalId(id);
     // Clean up the interval when the component unmounts
     return () => void clearInterval(id);
