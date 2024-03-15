@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { rem } from '../utils';
+
 export const Quote = () => {
   return (
     <Container>
@@ -11,8 +13,19 @@ export const Quote = () => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  max-width: ${rem(540)};
+  margin-top: ${rem(56)};
+  display: flex;
+  flex-direction: column;
+  gap: ${rem(13)};
+`;
 
-const Text = styled.div``;
+const Text = styled.h5`
+  margin: 0;
+  font-weight: normal;
+`;
 
-const Author = styled.h6``;
+const Author = styled.h6`
+  margin: 0;
+`;
