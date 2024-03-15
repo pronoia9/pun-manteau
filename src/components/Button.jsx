@@ -34,7 +34,6 @@ const Container = styled.button`
     width: ${rem(40)};
     height: ${rem(40)};
     border-radius: 50%;
-    opacity: ${({ $showOverlay }) => (!$showOverlay ? '1' : '0.5')};
     transform: rotate(${({ $showOverlay }) => (!$showOverlay ? '180' : '0')}deg);
   }
 
