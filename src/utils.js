@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // GENETAL UTILS
 export const lowerCase = (t) => `${t}`.toLowerCase();
 
@@ -32,3 +34,20 @@ export const getTheme = (theme) => (theme === 'light' ? themes.light : themes.da
 export const isDarkTheme = (theme) => theme === 'dark';
 
 export const systemThemeChangeHandler = (e, setTheme) => { setTheme(e.matches ? 'dark' : 'light'); };
+
+// QUOTE
+const defaultQuote = {
+  content:
+    'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.',
+  author: 'Ada Lovelace',
+};
+
+export async function getQuote(setData) {
+  try {
+    const response = await axios.get('https://api.quotable.io/quotes/random');
+    setData(response.data[0]);
+  } catch (error) {
+    console.error('Error getting a quote', error);
+    setData(defaultQuote);
+  }
+}
