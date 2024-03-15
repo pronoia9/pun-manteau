@@ -5,7 +5,7 @@ import { Quote, Time, Button, Overlay } from './components';
 import { GlobalStyles } from './styles';
 import { getTheme, fetchTime, fetchIpBase, rem, defaultIpBase } from './utils';
 
-function App() {
+export default function App() {
   const [time, setTime] = useState(null);
   const [ipBase, setIpBase] = useState(null);
   const [showOverlay, setShowOverlay] = useState(false);
@@ -45,8 +45,6 @@ function App() {
     ) : <></>
   );
 }
-
-export default App;
 
 const Container = styled.div`
   width: 100%;
