@@ -69,7 +69,7 @@ const Container = styled.div`
 `;
 
 const BottomContainer = styled.div`
+  margin-bottom: ${rem(98)};
   display: flex;
   flex-direction: row;
-  margin-bottom: ${rem(98)};
 `;
