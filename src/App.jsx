@@ -29,14 +29,16 @@ function App() {
   return (
     <ThemeProvider theme={getTheme('dark')}>
       <GlobalStyles />
-      <Container>
-        <Quote />
-        <BottomContainer>
-          <Time time={time} />
-          <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-        </BottomContainer>
-        {showOverlay && <Overlay time={time} />}
-      </Container>
+      {time && (
+        <Container>
+          <Quote />
+          <BottomContainer>
+            <Time time={time} />
+            <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+          </BottomContainer>
+          {showOverlay && <Overlay time={time} />}
+        </Container>
+      )}
     </ThemeProvider>
   );
 }
