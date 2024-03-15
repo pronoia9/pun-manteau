@@ -19,12 +19,13 @@ export const Quote = () => {
 const Container = styled.div`
   max-width: ${rem(540)};
   margin-top: ${rem(56)};
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  gap: ${rem(13)};
+  gap: ${rem(13)}; */
 `;
 
 const Top = styled.div`
+  margin-bottom: ${rem(13)};
   display: flex;
   flex-direction: row;
   gap: ${rem(15.67)};
