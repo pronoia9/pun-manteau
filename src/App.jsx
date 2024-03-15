@@ -9,7 +9,7 @@ function App() {
   const [time, setTime] = useState(null);
   const [ipBase, setIpBase] = useState(null);
   const [showOverlay, setShowOverlay] = useState(false);
-  const [intervalId, setIntervalId] = useState(null);
+  const [, setIntervalId] = useState(null);
 
   useEffect(() => {
     // Fetch/set time
