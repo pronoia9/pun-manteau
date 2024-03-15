@@ -8,15 +8,15 @@ export const Quote = () => {
 
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
-  return (
+  return data ? (
     <Container>
       <Top>
-        <Text>“{data?.content}”</Text>
+        <Text>“{data.content}”</Text>
         <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void updateQuote(setData)} />
       </Top>
-      <Author>{data?.author}</Author>
+      <Author>{data.author}</Author>
     </Container>
-  );
+  ) : <></>;
 };
 
 const Container = styled.div`
