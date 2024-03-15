@@ -10,12 +10,9 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
-  // Set time state
+  // Fetch/set time state
   useEffect(() => {
-    (async () => {
-      const data = await fetchTime();
-      setTime(data);
-    })();
+    fetchTime().then((res) => void setTime(res)); // (async () => { const data = await fetchTime(); setTime(data); })();
   }, []);
 
   // Set interval for the updating of the time that was fetched
