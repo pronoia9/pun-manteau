@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 // GENETAL UTILS
 export const lowerCase = (t) => `${t}`.toLowerCase();
@@ -33,21 +33,42 @@ export const getTheme = (theme) => (theme === 'light' ? themes.light : themes.da
 
 export const isDarkTheme = (theme) => theme === 'dark';
 
-export const systemThemeChangeHandler = (e, setTheme) => { setTheme(e.matches ? 'dark' : 'light'); };
+export const systemThemeChangeHandler = (e, setTheme) => {
+  setTheme(e.matches ? 'dark' : 'light');
+};
 
 // QUOTE
-const defaultQuote = {
+export const defaultQuote = {
   content:
     'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.',
   author: 'Ada Lovelace',
 };
 
-export async function getQuote(setData) {
+export async function getQuote() {
   try {
     const response = await axios.get('https://api.quotable.io/quotes/random');
-    setData(response.data[0]);
+    return response.data[0];
   } catch (error) {
     console.error('Error getting a quote', error);
+  }
+}
+
+export async function updateQuote(setData) {
+  try {
+    setData(await getQuote());
+  } catch (error) {
+    console.error('Error setting a quote', error);
     setData(defaultQuote);
   }
 }
+
+// TIME
+export async function getTime() {
+  try {
+    const response = await axios.get('http://worldtimeapi.org/api/ip');
+    return response.data[0];
+  } catch (error) {
+    console.error('Error getting time', error);
+  }
+}
+

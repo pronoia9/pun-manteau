@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
-import { getQuote, rem } from '../utils';
+import { rem, updateQuote } from '../utils';
 import { useEffect, useState } from 'react';
 
 export const Quote = () => {
   const [data, setData] = useState(null);
 
-  useEffect(() => { !data && getQuote(setData); }, [data]);
+  useEffect(() => { !data && updateQuote(setData); }, [data]);
 
   return (
     <Container>
       <Top>
         <Text>“{data?.content}”</Text>
-        <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void getQuote(setData)} />
+        <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void updateQuote(setData)} />
       </Top>
       <Author>{data?.author}</Author>
     </Container>
