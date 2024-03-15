@@ -39,6 +39,7 @@ export const systemThemeChangeHandler = (e, setTheme) => {
 
 // QUOTE
 export const defaultQuote = {
+  id: 'default',
   content:
     'The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.',
   author: 'Ada Lovelace',
