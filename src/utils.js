@@ -73,6 +73,15 @@ export async function fetchTime() {
   }
 }
 
+export async function fetchIpBase() {
+  try {
+    const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
+    return response.data.data;
+  } catch (error) {
+    console.error('Error fetching from Ipbase', error);
+  }
+}
+
 export const getTimeHours = (time) => new Date(time?.datetime)?.getHours();
 
 export const getTimeMinutes = (time) => new Date(time?.datetime)?.getMinutes().toString().padStart(2, '0');
