@@ -10,14 +10,11 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
-  // Fetch/set time state
   useEffect(() => {
+    // Fetch/set time state
     fetchTime().then((res) => void setTime(res)); // (async () => { const data = await fetchTime(); setTime(data); })();
-  }, []);
 
-  // Set interval for the updating of the time that was fetched
-  useEffect(() => {
-    // Start the interval to update time data every second
+    // Set interval for the updating of the time that was fetched
     const id = setInterval(() => {
       setTime((prev) => {
         const now = new Date(prev.datetime);
@@ -25,10 +22,8 @@ function App() {
         return { ...prev, datetime: now.toISOString() };
       });
     }, 1000);
-    setIntervalId(id);
-    // Clean up the interval when the component unmounts
-    return () => void clearInterval(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setIntervalId(id); // Start the interval to update time data every second
+    return () => void clearInterval(id); // Clean up the interval when the component unmounts
   }, []);
 
   return (
