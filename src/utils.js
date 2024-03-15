@@ -64,6 +64,8 @@ export async function updateQuote(setData) {
 }
 
 // TIME
+export const defaultTime = null; // TODO
+
 export async function fetchTime() {
   try {
     const response = await axios.get('http://worldtimeapi.org/api/ip');
