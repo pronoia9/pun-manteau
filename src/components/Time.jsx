@@ -41,6 +41,11 @@ const Text = styled.div`
 `;
 
 const Clock = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  gap: ${rem(11)};
+
   h1, h5 {
     display: inline-block;
   }
@@ -48,6 +53,7 @@ const Clock = styled.div`
   h5 {
     font-size: ${rem(40)};
     font-weight: lighter;
+    line-height: ${rem(28 * 2)};
   }
 `;
 
