@@ -73,7 +73,7 @@ export async function fetchTime() {
   }
 }
 
-export const defaultIpBase = 'London, UK';
+export const defaultIpBase = { location: { city: { name: 'London' }, country: { alpha2: 'UK' } } };
 
 export async function fetchIpBase() {
   try {
