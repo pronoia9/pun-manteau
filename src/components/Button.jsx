@@ -8,7 +8,7 @@ export const Button = ({ showOverlay, setShowOverlay }) => {
   };
 
   return (
-    <Container onClick={handleClick}>
+    <Container onClick={handleClick} $showOverlay={showOverlay}>
       {!showOverlay ? 'MORE' : 'LESS'}
       <img src='/icons/icon-arrow-up.svg' />
     </Container>
@@ -17,24 +17,25 @@ export const Button = ({ showOverlay, setShowOverlay }) => {
 
 const Container = styled.button`
   padding: ${rem(8)} ${rem(9)} ${rem(8)} ${rem(20)};
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: ${rem(13)};
   align-items: center;
-  color: rgba(0, 0, 0, 1);
+
+  color: rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: ${rem(5)};
   line-height: ${rem(28)};
+  
   background: rgb(255, 255, 255);
   border-radius: ${rem(28)};
 
   img {
     width: ${rem(40)};
     height: ${rem(40)};
-    fill: rgb(255, 255, 255);
-    background: var(--c-secondary);
     border-radius: 50%;
   }
 
