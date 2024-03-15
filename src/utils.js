@@ -84,11 +84,11 @@ export async function fetchIpBase() {
   }
 }
 
-export const getTimeHours = (time) => new Date(time?.datetime)?.getHours();
+export const getTimeHours = (time) => time?.datetime ? new Date(time?.datetime)?.getHours() : '00';
 
-export const getTimeMinutes = (time) => new Date(time?.datetime)?.getMinutes().toString().padStart(2, '0');
+export const getTimeMinutes = (time) => time?.datetime ? new Date(time?.datetime)?.getMinutes().toString().padStart(2, '0') : '00';
 
-export const getTimeSeconds = (time) => new Date(time?.datetime)?.getSeconds().toString().padStart(2, '0');
+export const getTimeSeconds = (time) => time?.datetime ? new Date(time?.datetime)?.getSeconds().toString().padStart(2, '0') : '00';
 
 export const getTimeOfDayIcon = (time) => {
   const hour = getTimeHours(time);
