@@ -67,9 +67,16 @@ export async function updateQuote(setData) {
 export async function fetchTime() {
   try {
     const response = await axios.get('http://worldtimeapi.org/api/ip');
-    return response.data[0];
+    return response.data;
   } catch (error) {
     console.error('Error getting time', error);
   }
 }
 
+export const getTimeHours = (time) => new Date(time?.datetime)?.getHours();
+
+export const getTimeMinutes = (time) => new Date(time?.datetime)?.getMinutes().toString().padStart(2, '0');
+
+export const getTimeSeconds = (time) => new Date(time?.datetime)?.getSeconds().toString().padStart(2, '0');
+
+export const isNightTime = (time) => getTimeHours(time) >= 20 || getTimeHours(time) < 6;
