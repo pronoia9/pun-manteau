@@ -11,21 +11,25 @@ export const Time = ({ time }) => {
   }, []);
 
   return (
-    <Container>
-      <Text>
-        <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
-        <h4>Good {getTimeOfDayString(time)}, it&apos;s currently</h4>
-      </Text>
+    ipBase && (
+      <Container>
+        <Text>
+          <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
+          <h4>Good {getTimeOfDayString(time)}, it&apos;s currently</h4>
+        </Text>
 
-      <Clock>
-        <h1 key={time}>
-          {getTimeHours(time)}:{getTimeMinutes(time)}
-        </h1>{' '}
-        <h5>BST</h5>
-      </Clock>
+        <Clock>
+          <h1 key={time}>
+            {getTimeHours(time)}:{getTimeMinutes(time)}
+          </h1>{' '}
+          <h5>{time.abbreviation}</h5>
+        </Clock>
 
-      <h3>In {ipBase?.location.city.name}, {ipBase?.location.country.alpha2}</h3>
-    </Container>
+        <h3>
+          In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
+        </h3>
+      </Container>
+    )
   );
 };
 
