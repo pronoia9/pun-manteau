@@ -25,12 +25,14 @@ const Container = styled.div`
   /* display: flex;
   flex-direction: column;
   gap: ${rem(13)}; */
-`;
+  `;
 
 const Top = styled.div`
+  /* width: ${rem(540)}; */
   margin-bottom: ${rem(13)};
   display: flex;
   flex-direction: row;
+  /* justify-content: space-between; */
   gap: ${rem(15.67)};
 
   img, svg {
