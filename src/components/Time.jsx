@@ -17,7 +17,7 @@ export const Time = ({ time }) => {
         <h5>BST</h5>
       </Clock>
 
-      <Location>In London, UK</Location>
+      <h3>In London, UK</h3>
     </Container>
   );
 };
@@ -25,6 +25,7 @@ export const Time = ({ time }) => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  gap: ${rem(16)};
 `;
 
 const Text = styled.div`
@@ -56,5 +57,3 @@ const Clock = styled.div`
     line-height: ${rem(28 * 2)};
   }
 `;
-
-const Location = styled.h3``;
