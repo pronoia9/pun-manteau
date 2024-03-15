@@ -30,9 +30,9 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={getTheme('dark')}>
-      <GlobalStyles />
-      {time && ipBase && (
+    time && ipBase ? (
+      <ThemeProvider theme={getTheme('dark')}>
+        <GlobalStyles />
         <Container>
           <Quote />
           <BottomContainer $showOverlay={showOverlay}>
@@ -41,8 +41,8 @@ function App() {
           </BottomContainer>
           {showOverlay && <Overlay time={time} />}
         </Container>
-      )}
-    </ThemeProvider>
+      </ThemeProvider>
+    ) : <></>
   );
 }
 
