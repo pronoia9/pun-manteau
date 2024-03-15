@@ -13,8 +13,7 @@ function App() {
 
   useEffect(() => {
     // Fetch/set time
-    fetchTime().then((res) => void setTime(res)); // (async () => { const data = await fetchTime(); setTime(data); })();
-
+    fetchTime().then((res) => void setTime(res));
     // Fetch/set location info
     fetchIpBase().then((res) => void setIpBase(res || defaultIpBase));
 
