@@ -45,7 +45,7 @@ export const defaultQuote = {
   author: 'Ada Lovelace',
 };
 
-export async function getQuote() {
+export async function fetchQuote() {
   try {
     const response = await axios.get('https://api.quotable.io/quotes/random');
     return response.data[0];
@@ -56,7 +56,7 @@ export async function getQuote() {
 
 export async function updateQuote(setData) {
   try {
-    setData(await getQuote());
+    setData(await fetchQuote());
   } catch (error) {
     console.error('Error setting a quote', error);
     setData(defaultQuote);
@@ -64,7 +64,7 @@ export async function updateQuote(setData) {
 }
 
 // TIME
-export async function getTime() {
+export async function fetchTime() {
   try {
     const response = await axios.get('http://worldtimeapi.org/api/ip');
     return response.data[0];
