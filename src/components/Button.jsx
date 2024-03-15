@@ -16,8 +16,7 @@ export const Button = ({ showOverlay, setShowOverlay }) => {
 };
 
 const Container = styled.button`
-  padding: ${rem(8)} ${rem(9)};
-  padding-left: ${rem(20)};
+  padding: ${rem(8)} ${rem(9)} ${rem(8)} ${rem(20)};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,7 +29,7 @@ const Container = styled.button`
   line-height: ${rem(28)};
   background: rgb(255, 255, 255);
   border-radius: ${rem(28)};
-  
+
   img {
     width: ${rem(40)};
     height: ${rem(40)};
