@@ -1,35 +1,26 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, defaultIpBase, fetchIpBase, rem } from '../utils';
+import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem } from '../utils';
 
-export const Time = ({ time }) => {
-  const [ipBase, setIpBase] = useState(null);
-
-  useEffect(() => {
-    fetchIpBase().then((res) => void setIpBase(res || defaultIpBase));
-  }, []);
-
+export const Time = ({ time, ipBase }) => {
   return (
-    ipBase ? (
-      <Container>
-        <Text>
-          <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
-          <h4>Good {getTimeOfDayString(time)}, it&apos;s currently</h4>
-        </Text>
+    <Container>
+      <Text>
+        <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
+        <h4>Good {getTimeOfDayString(time)}, it&apos;s currently</h4>
+      </Text>
 
-        <Clock>
-          <h1 key={time}>
-            {getTimeHours(time)}:{getTimeMinutes(time)}
-          </h1>{' '}
-          <h5>{time.abbreviation}</h5>
-        </Clock>
+      <Clock>
+        <h1 key={time}>
+          {getTimeHours(time)}:{getTimeMinutes(time)}
+        </h1>{' '}
+        <h5>{time.abbreviation}</h5>
+      </Clock>
 
-        <h3>
-          In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
-        </h3>
-      </Container>
-    ) : <></>
+      <h3>
+        In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
+      </h3>
+    </Container>
   );
 };
 

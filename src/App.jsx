@@ -3,16 +3,20 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { Quote, Time, Button, Overlay } from './components';
 import { GlobalStyles } from './styles';
-import { fetchTime, getTheme, rem } from './utils';
+import { getTheme, fetchTime, fetchIpBase, rem, defaultIpBase } from './utils';
 
 function App() {
   const [time, setTime] = useState(null);
+  const [ipBase, setIpBase] = useState(null);
   const [showOverlay, setShowOverlay] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {
-    // Fetch/set time state
+    // Fetch/set time
     fetchTime().then((res) => void setTime(res)); // (async () => { const data = await fetchTime(); setTime(data); })();
+
+    // Fetch/set location info
+    fetchIpBase().then((res) => void setIpBase(res || defaultIpBase));
 
     // Set interval for the updating of the time that was fetched
     const id = setInterval(() => {
@@ -29,11 +33,11 @@ function App() {
   return (
     <ThemeProvider theme={getTheme('dark')}>
       <GlobalStyles />
-      {time && (
+      {time && ipBase && (
         <Container>
           <Quote />
           <BottomContainer $showOverlay={showOverlay}>
-            <Time time={time} />
+            <Time time={time} ipBase={ipBase} />
             <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
           </BottomContainer>
           {showOverlay && <Overlay time={time} />}
