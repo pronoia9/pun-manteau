@@ -90,4 +90,17 @@ export const getTimeMinutes = (time) => new Date(time?.datetime)?.getMinutes().t
 
 export const getTimeSeconds = (time) => new Date(time?.datetime)?.getSeconds().toString().padStart(2, '0');
 
+export const getTimeOfDayIcon = (time) => {
+  const hour = getTimeHours(time);
+  if (hour >= 5 && hour < 18) return 'sun';
+  if (hour >= 18 && hour < 5) return 'moon';
+};
+
+export const getTimeOfDayString = (time) => {
+  const hour = getTimeHours(time);
+  if (hour >= 5 && hour < 12) return 'morning';
+  if (hour >= 12 && hour < 18) return 'afternoon';
+  if (hour >= 18 && hour < 5) return 'afternoon';
+};
+
 export const isNightTime = (time) => getTimeHours(time) >= 20 || getTimeHours(time) < 6;
