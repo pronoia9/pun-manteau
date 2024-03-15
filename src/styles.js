@@ -99,7 +99,7 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: bold;
     font-size: ${rem(24)};
     line-height: ${rem(28)};
-    letter-spacing: ${rem(-4.8)};
+    letter-spacing: ${rem(4.8)};
     text-transform: uppercase;
   }
 
