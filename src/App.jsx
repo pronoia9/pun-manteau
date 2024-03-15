@@ -1,12 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { Quote, Time, Button, Overlay } from './components';
 import { GlobalStyles } from './styles';
-import { getTheme, rem } from './utils';
+import { fetchTime, getTheme, rem } from './utils';
 
 function App() {
+  const [time, setTime] = useState(null);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
+
+  // Set time state
+  useEffect(() => {
+    (async () => {
+      const data = await fetchTime();
+      setTime(data);
+    })();
+  }, []);
+
+  // Set interval for the updating of the time that was fetched
+  useEffect(() => {
+    const updateTime = () => {
+      setTime((prev) => {
+        const now = new Date(prev.datetime);
+        now.setSeconds(now.getSeconds() + 1);
+        return { ...prev, datetime: now.toISOString() };
+      });
+    };
+
+    // Start the interval to update time data every second
+    const id = setInterval(updateTime, 1000);
+    setIntervalId(id);
+    // Clean up the interval when the component unmounts
+    return () => void clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ThemeProvider theme={getTheme('dark')}>
@@ -14,10 +42,10 @@ function App() {
       <Container>
         <Quote />
         <BottomContainer>
-          <Time />
+          <Time time={time} />
           <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
         </BottomContainer>
-        {showOverlay && <Overlay />}
+        {showOverlay && <Overlay time={time} />}
       </Container>
     </ThemeProvider>
   );
@@ -34,7 +62,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   div {
     width: 100%;
   }
