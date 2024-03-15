@@ -3,12 +3,8 @@ import styled from 'styled-components';
 import { rem } from '../utils';
 
 export const Button = ({ showOverlay, setShowOverlay }) => {
-  const handleClick = () => {
-    setShowOverlay((prev) => !prev);
-  };
-
   return (
-    <Container onClick={handleClick} $showOverlay={showOverlay}>
+    <Container onClick={() => void setShowOverlay((prev) => !prev)} $showOverlay={showOverlay}>
       {!showOverlay ? 'MORE' : 'LESS'}
       <img src='/icons/icon-arrow-up.svg' />
     </Container>
