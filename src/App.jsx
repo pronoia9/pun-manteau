@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     time && ipBase ? (
-      <ThemeProvider theme={getTheme('dark')}>
+      <ThemeProvider theme={getTheme(time)}>
         <GlobalStyles />
         <Container>
           <Quote />
