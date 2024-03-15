@@ -32,7 +32,7 @@ function App() {
       {time && (
         <Container>
           <Quote />
-          <BottomContainer>
+          <BottomContainer $showOverlay={showOverlay}>
             <Time time={time} />
             <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
           </BottomContainer>
@@ -57,7 +57,7 @@ const Container = styled.div`
 `;
 
 const BottomContainer = styled.div`
-  margin-bottom: ${rem(98)};
+  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
