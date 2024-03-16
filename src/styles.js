@@ -44,12 +44,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    width: 100%;
-    min-width: 100vw;
-    height: 100%;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
+    &, #root {
+      width: 100%;
+      min-width: 100vw;
+      height: 100%;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
 
     font-family: var(--font) var(--font-fallback);
     font-size: ${rem(18)};
