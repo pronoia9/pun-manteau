@@ -49,15 +49,13 @@ export const GlobalStyles = createGlobalStyle`
       min-width: 100vw;
       height: 100%;
       min-height: 100vh;
-      position: relative;
-      overflow: hidden;
     }
-
 
     font-family: var(--font) var(--font-fallback);
     font-size: ${rem(18)};
     color: rgb(255, 255, 255);
     line-height: ${rem(28)};
+    overflow: hidden;
   }
 
   h1 {
