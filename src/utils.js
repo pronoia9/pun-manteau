@@ -50,13 +50,15 @@ export const defaultTime = {
   week_number: 11,
 };
 
+// TODO: Temporarily disabled api calls
 export async function fetchTime() {
-  try {
-    const response = await axios.get('http://worldtimeapi.org/api/ip');
-    return response.data;
-  } catch (error) {
-    console.error('Error getting time', error);
-  }
+  return defaultTime;
+  // try {
+  //   const response = await axios.get('http://worldtimeapi.org/api/ip');
+  //   return response.data;
+  // } catch (error) {
+  //   console.error('Error getting time', error);
+  // }
 }
 
 export const defaultIpBase = {
@@ -197,13 +199,15 @@ export const defaultIpBase = {
   },
 };
 
+// TODO: Temporarily disabled api calls
 export async function fetchIpBase() {
-  try {
-    const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
-    return response.data.data;
-  } catch (error) {
-    console.error('Error fetching from Ipbase', error);
-  }
+  return defaultIpBase;
+  // try {
+  //   const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
+  //   return response.data.data;
+  // } catch (error) {
+  //   console.error('Error fetching from Ipbase', error);
+  // }
 }
 
 export const getTimeHours = (time) => (time?.datetime ? new Date(time?.datetime)?.getHours() : '00');
