@@ -33,20 +33,25 @@ export default function App() {
     time && ipBase ? (
       <ThemeProvider theme={getTheme(time)}>
         <GlobalStyles />
-        <Container>
+
+        <Flexbox>
           <Quote />
-          <BottomContainer $showOverlay={showOverlay}>
+          <BottomPart $showOverlay={showOverlay}>
             <Time time={time} ipBase={ipBase} />
             <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-          </BottomContainer>
-          {showOverlay && <Overlay time={time} ipBase={ipBase} />}
-        </Container>
+          </BottomPart>
+        </Flexbox>
+        
+        {showOverlay && <Overlay time={time} ipBase={ipBase} />}
+
+        <Background />
+
       </ThemeProvider>
     ) : <></>
   );
 }
 
-const Container = styled.div`
+const Flexbox = styled.div`
   width: 100%;
   max-width: ${rem(1100)};
   height: 100%;
@@ -57,10 +62,34 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const BottomContainer = styled.div`
+const BottomPart = styled.div`
   margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
+`;
+
+const Background = styled.div`
+  &, &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  background-color: var(--c-secondary);
+  background-image: var(--image);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  &:after {
+    content: '';
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  z-index: -1;
 `;

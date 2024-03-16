@@ -44,38 +44,17 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    &, &:after {
-      width: 100%;
-      min-width: 100vw;
-      height: 100%;
-      min-height: 100vh;
-      position: relative;
-      margin: 0;
-      overflow: hidden;
-    }
-    
+    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
     font-family: var(--font) var(--font-fallback);
     font-size: ${rem(18)};
     color: rgb(255, 255, 255);
     line-height: ${rem(28)};
-
-    background-color: var(--c-secondary);
-    background-image: var(--image);
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      background: rgba(0, 0, 0, 0.4);
-    }
   }
 
   h1 {
