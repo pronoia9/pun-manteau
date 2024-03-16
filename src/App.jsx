@@ -39,7 +39,7 @@ export default function App() {
             <Time time={time} ipBase={ipBase} />
             <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
           </BottomContainer>
-          {showOverlay && <Overlay time={time} />}
+          {showOverlay && <Overlay time={time} ipBase={ipBase} />}
         </Container>
       </ThemeProvider>
     ) : <></>
