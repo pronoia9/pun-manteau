@@ -45,10 +45,8 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     &, #root {
-      width: 100%;
-      min-width: 100vw;
-      height: 100%;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
     }
 
     font-family: var(--font) var(--font-fallback);
