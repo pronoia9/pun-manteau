@@ -32,7 +32,23 @@ export async function updateQuote(setData) {
 }
 
 // TIME
-export const defaultTime = null; // TODO
+export const defaultTime = {
+  abbreviation: 'EDT',
+  client_ip: '185.199.102.104',
+  datetime: '2024-03-16T13:44:31.289554-04:00',
+  day_of_week: 6,
+  day_of_year: 76,
+  dst: true,
+  dst_from: '2024-03-10T07:00:00+00:00',
+  dst_offset: 3600,
+  dst_until: '2024-11-03T06:00:00+00:00',
+  raw_offset: -18000,
+  timezone: 'America/New_York',
+  unixtime: 1710611071,
+  utc_datetime: '2024-03-16T17:44:31.289554+00:00',
+  utc_offset: '-04:00',
+  week_number: 11,
+};
 
 export async function fetchTime() {
   try {
