@@ -71,6 +71,14 @@ const Clock = styled.div`
 
   h1 {
     display: inline-block;
+
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(175)};
+    }
+
+    @media (max-width: ${rem(480)}) {
+      font-size: ${rem(100)};
+    }
   }
 
   h5 {
@@ -78,5 +86,13 @@ const Clock = styled.div`
     font-size: ${rem(40)};
     font-weight: lighter;
     line-height: ${rem(28 * 2)};
+
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(32)};
+    }
+
+    @media (max-width: ${rem(480)}) {
+      font-size: ${rem(15)};
+    }
   }
 `;
