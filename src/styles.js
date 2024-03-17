@@ -35,7 +35,7 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --c-font: ${({ theme }) => theme.font.rgb};
     --c-background: ${({ theme }) => theme.background.rgb};
-    --c-secondary: rgb(48, 48, 48); /* hex: '#303030', rgb: 'rgb(48, 48, 48)', hsl: 'hsl(0, 0%, 19%)' */
+    --c-secondary: ${({ theme }) => theme.secondary.rgb};
     --font: Inter;
     --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --image: url(${({ theme }) => theme.image.desktop});

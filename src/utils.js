@@ -221,6 +221,7 @@ export const themes = {
   light: {
     font: { hex: '#000000', rgb: 'rgb(0,0,0)', hsl: 'hsl(0, 0%, 0%)' },
     background: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
+    secondary: { hex: '#303030', rgb: 'rgb(48, 48, 48)', hsl: 'hsl(0, 0%, 19%)' },
     image: {
       desktop: '/images/bg-desktop-image-daytime.jpg',
       tablet: '/images/bg-tablet-image-daytime.jpg',
@@ -230,6 +231,7 @@ export const themes = {
   dark: {
     font: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
     background: { hex: '#000000', rgb: 'rgb(0,0,0)', hsl: 'hsl(0, 0%, 0%)' },
+    secondary: { hex: '#FFFFFF', rgb: 'rgb(255, 255, 255)', hsl: 'hsl(0, 0%, 100%)' },
     image: {
       desktop: '/images/bg-desktop-image-nighttime.jpg',
       tablet: '/images/bg-tablet-image-nighttime.jpg',
