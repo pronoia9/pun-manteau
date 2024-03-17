@@ -47,7 +47,7 @@ const Container = styled.div`
     }
 
     span {
-      @media (max-width: ${rem(550)}) {
+      @media (max-width: ${rem(600)}) {
         display: none;
       }
     }
