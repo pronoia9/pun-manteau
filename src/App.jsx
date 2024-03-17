@@ -33,8 +33,8 @@ export default function App() {
     <ThemeProvider theme={getTheme(time)}>
       <GlobalStyles />
 
-      <Flexbox>
-        <Quote />
+      <Flexbox $showOverlay={showOverlay}>
+        {!showOverlay && <Quote />}
         <BottomPart $showOverlay={showOverlay}>
           <Time time={time} ipBase={ipBase} />
           <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
@@ -57,7 +57,7 @@ const Flexbox = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: ${({ $showOverlay }) => !$showOverlay ? 'space-between' : 'center'};
 `;
 
 const BottomPart = styled.div`
@@ -69,7 +69,8 @@ const BottomPart = styled.div`
 `;
 
 const Background = styled.div`
-  &, &:after {
+  &,
+  &:after {
     position: absolute;
     top: 0;
     right: 0;
