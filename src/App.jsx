@@ -33,9 +33,9 @@ export default function App() {
     <ThemeProvider theme={getTheme(time)}>
       <GlobalStyles />
 
-      <Flexbox $showOverlay={showOverlay}>
+      <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
         {!showOverlay && <Quote />}
-        <BottomPart $showOverlay={showOverlay}>
+        <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
           <Time time={time} ipBase={ipBase} />
           <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
         </BottomPart>
@@ -43,7 +43,7 @@ export default function App() {
 
       {showOverlay && <Overlay time={time} ipBase={ipBase} />}
 
-      <Background />
+      <Background className='app-background' />
     </ThemeProvider>
   ) : (
     <></>
