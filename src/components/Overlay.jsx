@@ -69,10 +69,11 @@ const Group = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${rem(42)};
-
+  
   @media (max-width: ${rem(1000)}) {
     padding: 0 ${rem(48)}; /* Right group's left space */
     margin: ${rem(119)} 0;
+    gap: ${rem(48)};
   }
 
   @media (max-width: ${rem(560)}) {
