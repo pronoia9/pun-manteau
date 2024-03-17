@@ -57,7 +57,7 @@ const Flexbox = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: ${({ $showOverlay }) => !$showOverlay ? 'space-between' : 'center'};
+  justify-content: ${({ $showOverlay }) => !$showOverlay ? 'space-between' : 'end'};
 `;
 
 const BottomPart = styled.div`
