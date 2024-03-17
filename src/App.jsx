@@ -89,5 +89,5 @@ const Background = styled.div`
     background: rgba(0, 0, 0, 0.4);
   }
 
-  z-index: -2;
+  z-index: -3;
 `;
