@@ -1,26 +1,28 @@
 import styled from 'styled-components';
 
-export const Group = ({ title, subtitle }) => (
-  <GroupContainer>
+import { rem } from '../utils';
+
+export const GroupItem = ({ title, subtitle }) => (
+  <Item>
     <h6>{title}</h6>
     <h2>{subtitle}</h2>
-  </GroupContainer>
+  </Item>
 );
 
 export const Overlay = ({ time }) => {
   return (
     <Container>
-      <Left>
-        <Group title='Current Timezone' subtitle={time.timezone} />
-        <Group title='Day of the Year' subtitle={time.day_of_year} />
-      </Left>
+      <Group>
+        <GroupItem title='Current Timezone' subtitle={time.timezone} />
+        <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
+      </Group>
 
       <HR />
 
-      <Right>
-        <Group title='Day of the Week' subtitle={time.day_of_week} />
-        <Group title='Week Number' subtitle={time.week_number} />
-      </Right>
+      <Group>
+        <GroupItem title='Day of the Week' subtitle={time.day_of_week} />
+        <GroupItem title='Week Number' subtitle={time.week_number} />
+      </Group>
     </Container>
   );
 };
@@ -56,13 +58,35 @@ const Container = styled.div`
   }
 `;
 
-const GroupContainer = styled.div`
+const Group = styled.div`
+  margin-top: ${rem(74)};
+  margin-bottom: ${rem(74)};
+  padding-left: ${rem(94)};
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: ${rem(42)};
+
+  &:first-child {
+    padding-left: ${rem(165)};
+  }
 `;
 
-const Left = styled.div``;
+const Item = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${rem(9)};
 
-const Right = styled(Left)``;
+  h6 {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+`;
 
-const HR = styled.div``;
+const HR = styled.div`
+  margin-top: ${rem(74)};
+  margin-bottom: ${rem(74)};
+  width: 1px;
+  background-color: var(--c-secondary);
+  opacity: 0.2;
+`;
