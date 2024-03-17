@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { rem } from '../utils';
-
 export const Group = ({ title, subtitle }) => (
   <GroupContainer>
     <h6>{title}</h6>
