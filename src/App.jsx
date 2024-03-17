@@ -76,6 +76,18 @@ const BottomPart = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
+
+  @media (max-width: ${rem(1000)}) {
+    margin-bottom: ${rem(64)};
+    flex-direction: column;
+    align-items: start;
+    gap: ${rem(80)};
+  }
+
+  @media (max-width: ${rem(480)}) {
+    margin-bottom: ${rem(40)};
+    gap: ${rem(48)};
+  }
 `;
 
 const Background = styled.div`
