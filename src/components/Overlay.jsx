@@ -26,7 +26,7 @@ export const Overlay = ({ time }) => {
 };
 
 const Container = styled.div`
-  height: 400px;
+  /* width: 100%; */
   display: flex;
   flex-direction: row;
   color: var(--c-font);
