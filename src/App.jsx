@@ -51,12 +51,23 @@ export default function App() {
 }
 
 const Flexbox = styled.div`
-  margin-left: ${rem(165)};
-  margin-right: ${rem(165)};
+  margin: 0 ${rem(165)};
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: ${({ $showOverlay }) => (!$showOverlay ? 'space-between' : 'end')};
+
+  @media (max-width: ${rem(1200)}) {
+    margin: 0 ${rem(64)};
+  }
+
+  @media (max-width: ${rem(768)}) {
+    margin: 0 ${rem(64)};
+  }
+
+  @media (max-width: ${rem(480)}) {
+    margin: 0 ${rem(26)};
+  }
 `;
 
 const BottomPart = styled.div`
