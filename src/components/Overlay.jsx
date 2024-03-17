@@ -61,7 +61,7 @@ const OverlayBackgroundBlur = styled.div`
 
 const Background = styled(OverlayBackgroundBlur)`
   background-color: var(--c-background);
-  opacity: 0.5;
+  opacity: 0.75;
 `;
 
 const Blur = styled(OverlayBackgroundBlur)`
