@@ -40,7 +40,7 @@ const Container = styled.div`
     font-weight: normal;
 
     @media (max-width: ${rem(560)}) {
-      font-size: ${rem(12)};
+      font-size: ${rem(18)};
       line-height: 3ch;
     }
   }
