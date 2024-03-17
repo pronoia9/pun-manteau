@@ -43,12 +43,13 @@ export const GlobalStyles = createGlobalStyle`
     @media (max-width: ${rem(480)}) { --image: url(${({ theme }) => theme.image.mobile}); }
   }
 
-  body {
-    &, #root {
-      width: 100vw;
-      height: 100vh;
-    }
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
+  body {
     #root {
       display: flex;
       flex-direction: column;
@@ -58,7 +59,6 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${rem(18)};
     color: rgb(255, 255, 255);
     line-height: ${rem(28)};
-    overflow: hidden;
   }
 
   h1 {
