@@ -28,11 +28,15 @@ export const Overlay = ({ time }) => {
 };
 
 const Container = styled.div`
-  /* width: 100%; */
   display: flex;
   flex-direction: row;
-  color: var(--c-font);
   position: relative;
+  color: var(--c-font);
+
+  @media (max-width: ${rem(560)}) {
+    flex-direction: column;
+    gap: ${rem(16)};
+  }
 
   &:before,
   &:after {
@@ -59,16 +63,37 @@ const Container = styled.div`
 `;
 
 const Group = styled.div`
-  margin-top: ${rem(74)};
-  margin-bottom: ${rem(74)};
-  padding-left: ${rem(94)};
+  margin: ${rem(74)} 0; /* Top/Bottom space */
+  padding: 0 0 0 ${rem(94)}; /* Right space */
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: ${rem(42)};
 
+  @media (max-width: ${rem(1000)}) {
+    padding: 0;
+    margin: ${rem(119)} 0;
+  }
+
+  @media (max-width: ${rem(560)}) {
+    margin: ${rem(48)} 0;
+  }
+
+  /* Left space */
   &:first-child {
-    padding-left: ${rem(165)};
+    padding: 0 0 0 ${rem(165)};
+
+    @media (max-width: ${rem(1230)}) {
+      &:first-child {
+        padding: 0 0 0 ${rem(64)};
+      }
+    }
+
+    @media (max-width: ${rem(560)}) {
+      &:first-child {
+        padding: 0 0 0 ${rem(26)};
+      }
+    }
   }
 `;
 
@@ -77,9 +102,40 @@ const Item = styled.div`
   flex-direction: column;
   gap: ${rem(9)};
 
+  @media (max-width: ${rem(1000)}) {
+    gap: 0;
+  }
+
+  @media (max-width: ${rem(560)}) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Title */
   h6 {
     font-weight: normal;
     text-transform: uppercase;
+
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(13)};
+      line-height: 2ch;
+    }
+
+    @media (max-width: ${rem(560)}) {
+      font-size: ${rem(10)};
+    }
+  }
+
+  /* Subtitle */
+  h2 {
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(40)};
+      line-height: 2ch;
+    }
+
+    @media (max-width: ${rem(560)}) {
+      font-size: ${rem(20)};
+    }
   }
 `;
 
@@ -89,4 +145,8 @@ const HR = styled.div`
   width: 1px;
   background-color: var(--c-secondary);
   opacity: 0.2;
+
+  @media (max-width: ${rem(1230)}) {
+    display: none;
+  }
 `;
