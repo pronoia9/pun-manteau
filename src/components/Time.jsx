@@ -45,6 +45,12 @@ const Container = styled.div`
     @media (max-width: ${rem(480)}) {
       font-size: ${rem(15)};
     }
+
+    span {
+      @media (max-width: ${rem(550)}) {
+        display: none;
+      }
+    }
   }
 
   /* Time */
@@ -100,12 +106,6 @@ const Text = styled.div`
   img {
     width: auto;
     height: ${rem(24)};
-  }
-
-  span {
-    @media (max-width: ${rem(550)}) {
-      display: none;
-    }
   }
 `;
 
