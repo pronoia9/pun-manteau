@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from '../utils';
 
 export const GroupItem = ({ title, subtitle }) => (
-  <Item>
+  <Item className='overlay-group-item'>
     <h6>{title}</h6>
     <h2>{subtitle}</h2>
   </Item>
@@ -11,15 +11,15 @@ export const GroupItem = ({ title, subtitle }) => (
 
 export const Overlay = ({ time }) => {
   return (
-    <Container>
-      <Group>
+    <Container className='overlay-container'>
+      <Group className='overlay-group'>
         <GroupItem title='Current Timezone' subtitle={time.timezone} />
         <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
       </Group>
 
       <HR />
 
-      <Group>
+      <Group className='overlay-group'>
         <GroupItem title='Day of the Week' subtitle={time.day_of_week} />
         <GroupItem title='Week Number' subtitle={time.week_number} />
       </Group>
