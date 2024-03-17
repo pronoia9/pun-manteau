@@ -10,49 +10,57 @@ export const Quote = () => {
 
   return data ? (
     <Container>
-      <Top>
-        <Text>“{data.content}”</Text>
-        <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void updateQuote(setData)} />
-      </Top>
-      <Author>{data.author}</Author>
+      <div>
+        <h5>“{data.content}”</h5>
+        <h6>{data.author}</h6>
+      </div>
+      <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void updateQuote(setData)} />
     </Container>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 };
 
 const Container = styled.div`
   max-width: ${rem(540)};
   margin-top: ${rem(56)};
-  /* display: flex;
-  flex-direction: column;
-  gap: ${rem(13)}; */
-`;
-
-const Top = styled.div`
-  /* width: ${rem(540)}; */
-  margin-bottom: ${rem(13)};
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   gap: ${rem(15.67)};
 
-  img, svg {
+  /* Quote & Author Wrapper */
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: ${rem(13)};
+  }
+
+  /* Quote */
+  h5 {
+    font-weight: normal;
+
+    @media (max-width: ${rem(560)}) {
+      font-size: ${rem(12)};
+      line-height: 3ch;
+    }
+  }
+
+  /* Author */
+  h6 {
+    letter-spacing: 0;
+  }
+
+  /* Refresh */
+  img {
     width: 16.67px;
     height: 16.67px;
     margin-top: ${rem(10.67)};
     cursor: pointer;
     scale: 1;
-    
+
     &:hover {
       scale: 1.1;
       filter: invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%);
     }
   }
-`;
-
-const Text = styled.h5`
-  font-weight: normal;
-`;
-
-const Author = styled.h6`
-  letter-spacing: 0;
 `;
