@@ -4,8 +4,8 @@ import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem
 
 export const Time = ({ time, ipBase }) => {
   return (
-    <Container className='CONTAINER'>
-      <Text className='TEXT'>
+    <Container className='time-container'>
+      <Text className='time-text'>
         <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
         <h4>
           Good {getTimeOfDayString(time)}
@@ -13,7 +13,7 @@ export const Time = ({ time, ipBase }) => {
         </h4>
       </Text>
 
-      <Clock className='CLOCK'>
+      <Clock className='time-clock'>
         <h1 key={time}>
           {getTimeHours(time)}:{getTimeMinutes(time)}
         </h1>{' '}
