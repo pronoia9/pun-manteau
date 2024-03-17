@@ -7,7 +7,10 @@ export const Time = ({ time, ipBase }) => {
     <Container className='CONTAINER'>
       <Text className='TEXT'>
         <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
-        <h4>Good {getTimeOfDayString(time)}<span>, it&apos;s currently</span></h4>
+        <h4>
+          Good {getTimeOfDayString(time)}
+          <span>, it&apos;s currently</span>
+        </h4>
       </Text>
 
       <Clock className='CLOCK'>
@@ -17,9 +20,9 @@ export const Time = ({ time, ipBase }) => {
         <h5>{time.abbreviation}</h5>
       </Clock>
 
-      <Location>
+      <h3>
         In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
-      </Location>
+      </h3>
     </Container>
   );
 };
@@ -28,9 +31,62 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${rem(16)};
-  
+
   @media (max-width: ${rem(1000)}) {
     gap: ${rem(0)};
+  }
+
+  /* Into text */
+  h4 {
+    @media (max-width: ${rem(768)}) {
+      font-size: ${rem(18)};
+    }
+
+    @media (max-width: ${rem(480)}) {
+      font-size: ${rem(15)};
+    }
+  }
+
+  /* Time */
+  h1 {
+    display: inline-block;
+
+    @media (max-width: ${rem(700)}) {
+      font-size: ${rem(150)};
+      line-height: ${rem(150)};
+    }
+
+    @media (max-width: ${rem(510)}) {
+      font-size: ${rem(100)};
+      line-height: ${rem(125)};
+    }
+  }
+
+  /* IDK, daylight savings? */
+  h5 {
+    display: inline-block;
+    font-size: ${rem(40)};
+    font-weight: lighter;
+    line-height: ${rem(28 * 2)};
+
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(32)};
+    }
+
+    @media (max-width: ${rem(510)}) {
+      font-size: ${rem(15)};
+    }
+  }
+
+  /* Location */
+  h3 {
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(18)};
+    }
+
+    @media (max-width: ${rem(510)}) {
+      font-size: ${rem(15)};
+    }
   }
 `;
 
@@ -46,16 +102,6 @@ const Text = styled.div`
     height: ${rem(24)};
   }
 
-  h4 {
-    @media (max-width: ${rem(768)}) {
-      font-size: ${rem(18)};
-    }
-
-    @media (max-width: ${rem(480)}) {
-      font-size: ${rem(15)};
-    }
-  }
-
   span {
     @media (max-width: ${rem(550)}) {
       display: none;
@@ -68,43 +114,4 @@ const Clock = styled.div`
   flex-direction: row;
   align-items: end;
   gap: ${rem(11)};
-
-  h1 {
-    display: inline-block;
-
-    @media (max-width: ${rem(700)}) {
-      font-size: ${rem(150)};
-      line-height: ${rem(150)};
-    }
-
-    @media (max-width: ${rem(480)}) {
-      font-size: ${rem(100)};
-      line-height: ${rem(125)};
-    }
-  }
-
-  h5 {
-    display: inline-block;
-    font-size: ${rem(40)};
-    font-weight: lighter;
-    line-height: ${rem(28 * 2)};
-
-    @media (max-width: ${rem(1000)}) {
-      font-size: ${rem(32)};
-    }
-
-    @media (max-width: ${rem(480)}) {
-      font-size: ${rem(15)};
-    }
-  }
-`;
-
-const Location = styled.h3`
-  @media (max-width: ${rem(1000)}) {
-    font-size: ${rem(18)};
-  }
-
-  @media (max-width: ${rem(480)}) {
-    font-size: ${rem(15)};
-  }
 `;
