@@ -29,25 +29,24 @@ export default function App() {
     return () => void clearInterval(id); // Clean up the interval when the component unmounts
   }, []);
 
-  return (
-    time && ipBase ? (
-      <ThemeProvider theme={getTheme(time)}>
-        <GlobalStyles />
+  return time && ipBase ? (
+    <ThemeProvider theme={getTheme(time)}>
+      <GlobalStyles />
 
-        <Flexbox>
-          <Quote />
-          <BottomPart $showOverlay={showOverlay}>
-            <Time time={time} ipBase={ipBase} />
-            <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-          </BottomPart>
-        </Flexbox>
-        
-        {showOverlay && <Overlay time={time} ipBase={ipBase} />}
+      <Flexbox>
+        <Quote />
+        <BottomPart $showOverlay={showOverlay}>
+          <Time time={time} ipBase={ipBase} />
+          <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+        </BottomPart>
+      </Flexbox>
 
-        <Background />
+      {showOverlay && <Overlay time={time} ipBase={ipBase} />}
 
-      </ThemeProvider>
-    ) : <></>
+      <Background />
+    </ThemeProvider>
+  ) : (
+    <></>
   );
 }
 
@@ -55,7 +54,6 @@ const Flexbox = styled.div`
   width: 100%;
   max-width: ${rem(1100)};
   height: 100%;
-  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -63,7 +61,7 @@ const Flexbox = styled.div`
 `;
 
 const BottomPart = styled.div`
-  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
+  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56 + 400)};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -91,5 +89,5 @@ const Background = styled.div`
     background: rgba(0, 0, 0, 0.4);
   }
 
-  z-index: -1;
+  z-index: -2;
 `;
