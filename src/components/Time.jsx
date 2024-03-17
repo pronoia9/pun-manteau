@@ -57,7 +57,7 @@ const Text = styled.div`
   }
 
   span {
-    @media (max-width: ${rem(540)}) {
+    @media (max-width: ${rem(550)}) {
       display: none;
     }
   }
@@ -72,10 +72,11 @@ const Clock = styled.div`
   h1 {
     display: inline-block;
 
-    @media (max-width: ${rem(1000)}) {
-      font-size: ${rem(175)};
+    @media (max-width: ${rem(700)}) {
+      font-size: ${rem(150)};
+      line-height: ${rem(150)};
     }
-    
+
     @media (max-width: ${rem(480)}) {
       font-size: ${rem(100)};
       line-height: ${rem(125)};
