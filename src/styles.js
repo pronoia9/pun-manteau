@@ -47,7 +47,11 @@ export const GlobalStyles = createGlobalStyle`
     &, #root {
       width: 100vw;
       height: 100vh;
-      position: relative;
+    }
+
+    #root {
+      display: flex;
+      flex-direction: row;
     }
 
     font-family: var(--font) var(--font-fallback);
