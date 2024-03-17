@@ -7,7 +7,7 @@ export const Time = ({ time, ipBase }) => {
     <Container>
       <Text>
         <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
-        <h4>Good {getTimeOfDayString(time)}, it&apos;s currently</h4>
+        <h4>Good {getTimeOfDayString(time)}<span>, it&apos;s currently</span></h4>
       </Text>
 
       <Clock>
@@ -41,6 +41,22 @@ const Text = styled.div`
     width: auto;
     height: ${rem(24)};
   }
+
+  h4 {
+    @media (max-width: ${rem(768)}) {
+      font-size: ${rem(18)};
+    }
+
+    @media (max-width: ${rem(480)}) {
+      font-size: ${rem(15)};
+    }
+  }
+
+  span {
+    @media (max-width: ${rem(540)}) {
+      visibility: hidden;
+    }
+  }
 `;
 
 const Clock = styled.div`
@@ -49,8 +65,7 @@ const Clock = styled.div`
   align-items: end;
   gap: ${rem(11)};
 
-  h1,
-  h5 {
+  h1, h5 {
     display: inline-block;
   }
 
