@@ -9,7 +9,7 @@ export const Quote = () => {
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
   return data ? (
-    <Container>
+    <Container className='quote-container'>
       <div>
         <h5>“{data.content}”</h5>
         <h6>{data.author}</h6>
