@@ -65,7 +65,7 @@ const Flexbox = styled.div`
     margin: 0 ${rem(64)};
   }
 
-  @media (max-width: ${rem(510)}) {
+  @media (max-width: ${rem(560)}) {
     margin: 0 ${rem(26)};
   }
 `;
@@ -84,7 +84,7 @@ const BottomPart = styled.div`
     gap: ${rem(80)};
   }
 
-  @media (max-width: ${rem(510)}) {
+  @media (max-width: ${rem(560)}) {
     margin-bottom: ${rem(40)};
     gap: ${rem(48)};
   }

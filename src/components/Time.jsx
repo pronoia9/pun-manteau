@@ -62,7 +62,7 @@ const Container = styled.div`
       line-height: ${rem(150)};
     }
 
-    @media (max-width: ${rem(510)}) {
+    @media (max-width: ${rem(560)}) {
       font-size: ${rem(100)};
       line-height: ${rem(125)};
     }
@@ -79,7 +79,7 @@ const Container = styled.div`
       font-size: ${rem(32)};
     }
 
-    @media (max-width: ${rem(510)}) {
+    @media (max-width: ${rem(560)}) {
       font-size: ${rem(15)};
     }
   }
@@ -90,7 +90,7 @@ const Container = styled.div`
       font-size: ${rem(18)};
     }
 
-    @media (max-width: ${rem(510)}) {
+    @media (max-width: ${rem(560)}) {
       font-size: ${rem(15)};
     }
   }
