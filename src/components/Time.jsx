@@ -17,9 +17,9 @@ export const Time = ({ time, ipBase }) => {
         <h5>{time.abbreviation}</h5>
       </Clock>
 
-      <h3>
+      <Location>
         In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
-      </h3>
+      </Location>
     </Container>
   );
 };
@@ -58,7 +58,7 @@ const Text = styled.div`
 
   span {
     @media (max-width: ${rem(540)}) {
-      visibility: hidden;
+      display: none;
     }
   }
 `;
@@ -75,9 +75,10 @@ const Clock = styled.div`
     @media (max-width: ${rem(1000)}) {
       font-size: ${rem(175)};
     }
-
+    
     @media (max-width: ${rem(480)}) {
       font-size: ${rem(100)};
+      line-height: ${rem(125)};
     }
   }
 
@@ -94,5 +95,15 @@ const Clock = styled.div`
     @media (max-width: ${rem(480)}) {
       font-size: ${rem(15)};
     }
+  }
+`;
+
+const Location = styled.h3`
+  @media (max-width: ${rem(1000)}) {
+    font-size: ${rem(18)};
+  }
+
+  @media (max-width: ${rem(480)}) {
+    font-size: ${rem(15)};
   }
 `;
