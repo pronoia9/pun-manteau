@@ -4,13 +4,13 @@ import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem
 
 export const Time = ({ time, ipBase }) => {
   return (
-    <Container>
-      <Text>
+    <Container className='CONTAINER'>
+      <Text className='TEXT'>
         <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
         <h4>Good {getTimeOfDayString(time)}<span>, it&apos;s currently</span></h4>
       </Text>
 
-      <Clock>
+      <Clock className='CLOCK'>
         <h1 key={time}>
           {getTimeHours(time)}:{getTimeMinutes(time)}
         </h1>{' '}
@@ -28,6 +28,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${rem(16)};
+  
+  @media (max-width: ${rem(1000)}) {
+    gap: ${rem(0)};
+  }
 `;
 
 const Text = styled.div`
@@ -65,11 +69,12 @@ const Clock = styled.div`
   align-items: end;
   gap: ${rem(11)};
 
-  h1, h5 {
+  h1 {
     display: inline-block;
   }
 
   h5 {
+    display: inline-block;
     font-size: ${rem(40)};
     font-weight: lighter;
     line-height: ${rem(28 * 2)};
