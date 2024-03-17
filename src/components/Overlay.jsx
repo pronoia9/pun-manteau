@@ -64,14 +64,14 @@ const Container = styled.div`
 
 const Group = styled.div`
   margin: ${rem(74)} 0; /* Top/Bottom space */
-  padding: 0 0 0 ${rem(94)}; /* Right group's left space */
+  padding: 0 ${rem(94)}; /* Right group's left space */
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: ${rem(42)};
 
   @media (max-width: ${rem(1000)}) {
-    padding: 0 0 0 ${rem(48)}; /* Right group's left space */
+    padding: 0 ${rem(48)}; /* Right group's left space */
     margin: ${rem(119)} 0;
   }
 
