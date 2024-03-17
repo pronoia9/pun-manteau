@@ -53,7 +53,7 @@ export default function App() {
 const Flexbox = styled.div`
   width: 100%;
   max-width: ${rem(1100)};
-  height: 100%;
+  flex: 1;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@ const Flexbox = styled.div`
 `;
 
 const BottomPart = styled.div`
-  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56 + 400)};
+  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
