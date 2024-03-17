@@ -4,7 +4,7 @@ import { rem } from '../utils';
 
 export const Button = ({ showOverlay, setShowOverlay }) => {
   return (
-    <Container onClick={() => void setShowOverlay((prev) => !prev)} $showOverlay={showOverlay}>
+    <Container className='button-container' onClick={() => void setShowOverlay((prev) => !prev)} $showOverlay={showOverlay}>
       <h5>{!showOverlay ? 'MORE' : 'LESS'}</h5>
       <img src='/icons/icon-arrow-up.svg' />
     </Container>
