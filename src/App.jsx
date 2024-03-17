@@ -57,7 +57,7 @@ const Flexbox = styled.div`
   flex-direction: column;
   justify-content: ${({ $showOverlay }) => (!$showOverlay ? 'space-between' : 'end')};
 
-  @media (max-width: ${rem(1200)}) {
+  @media (max-width: ${rem(1230)}) {
     margin: 0 ${rem(64)};
   }
 
