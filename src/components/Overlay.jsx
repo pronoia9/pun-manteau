@@ -25,13 +25,12 @@ export const Overlay = ({ time }) => {
       </Right>
 
       <Background />
-      <Mask />
+      <Blur />
     </Container>
   );
 };
 
 const Container = styled.div`
-  /* width: 100%; */
   display: flex;
   flex-direction: row;
   color: var(--c-font);
@@ -49,7 +48,7 @@ const Right = styled(Left)``;
 
 const HR = styled.div``;
 
-const Background = styled.div`
+const OverlayBackgroundBlur = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -58,25 +57,13 @@ const Background = styled.div`
   bottom: 0;
   left: 0;
   z-index: -1;
-
-  background-color: var(--c-secondary);
-  background-image: var(--image);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 `;
 
-const Mask = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-
+const Background = styled(OverlayBackgroundBlur)`
   background-color: var(--c-background);
   opacity: 0.5;
+`;
+
+const Blur = styled(OverlayBackgroundBlur)`
+  backdrop-filter: blur(40.77px);
 `;
