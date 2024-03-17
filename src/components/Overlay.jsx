@@ -71,8 +71,8 @@ const Group = styled.div`
   gap: ${rem(42)};
   
   @media (max-width: ${rem(1000)}) {
-    padding: 0 ${rem(48)}; /* Right group's left space */
     margin: ${rem(119)} 0;
+    padding: 0 ${rem(48)}; /* Right group's left space */
     gap: ${rem(48)};
   }
 
