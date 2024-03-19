@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 
 import { Quote, Time, Button, Overlay } from './components';
 import { GlobalStyles } from './styles';
@@ -33,17 +34,19 @@ export default function App() {
     <ThemeProvider theme={getTheme(time)}>
       <GlobalStyles />
 
-      <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
-        {!showOverlay && <Quote />}
-        <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
-          <Time time={time} ipBase={ipBase} />
-          <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-        </BottomPart>
-      </Flexbox>
+      <AnimatePresence>
+        <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
+          {!showOverlay && <Quote />}
+          <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
+            <Time time={time} ipBase={ipBase} />
+            <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+          </BottomPart>
+        </Flexbox>
 
-      {showOverlay && <Overlay time={time} ipBase={ipBase} />}
+        {showOverlay && <Overlay time={time} ipBase={ipBase} />}
 
-      <Background className='app-background' />
+        <Background className='app-background' />
+      </AnimatePresence>
     </ThemeProvider>
   ) : (
     <></>
