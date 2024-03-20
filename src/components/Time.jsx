@@ -55,8 +55,6 @@ const Container = styled(motion.div)`
 
   /* Time */
   h1 {
-    display: inline-block;
-
     @media (max-width: ${rem(700)}) {
       font-size: ${rem(150)};
       line-height: ${rem(150)};
@@ -70,7 +68,6 @@ const Container = styled(motion.div)`
 
   /* IDK, daylight savings? */
   h5 {
-    display: inline-block;
     font-size: ${rem(40)};
     font-weight: lighter;
     line-height: ${rem(28 * 2)};
