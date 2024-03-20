@@ -17,10 +17,6 @@ export const appMotion = {
 export const quoteMotion = {
   container: { variants: {} },
 
-  quote: { variants: {} },
-
-  author: { variants: {} },
-
   button: (initial = 'hidden') => ({
     initial,
     whileHover: 'hover',
