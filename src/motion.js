@@ -1,3 +1,10 @@
+//--- APP
+export const appMotion = {
+  container: {},
+  
+  background: {},
+};
+
 //--- QUOTE
 export const quoteMotion = {
   container: { variants: {} },
