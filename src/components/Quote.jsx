@@ -9,9 +9,11 @@ import { SplitText } from './SplitText';
 export const Quote = () => {
   const [data, setData] = useState(defaultQuote);
   const [initial, setInitial] = useState('hidden');
+  const [showAuthor, setShowAuthor] = useState(false);
   const controls = useAnimationControls();
 
   const handleClick = () => {
+    setShowAuthor(false);
     updateQuote(setData);
     controls.start('move');
   };
@@ -27,8 +29,8 @@ export const Quote = () => {
   return data ? (
     <Container className='quote-container' {...quoteMotion.container}>
       <div>
-        <SplitText elementType='h5' text={`“${data.content}”`} key={data.content} />
-        <SplitText elementType='h6' text={data.author} key={data.author} />
+        <SplitText elementType='h5' text={`“${data.content}”`} speed={0.015} key={data.content} onAnimationComplete={() => void setShowAuthor(true)} />
+        {showAuthor && <SplitText elementType='h6' text={data.author} speed={0.02} />}
       </div>
       <motion.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
     </Container>
