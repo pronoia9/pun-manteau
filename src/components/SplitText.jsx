@@ -15,12 +15,15 @@ export const SplitText = ({ text, elementType = 'span', speed, textOptions = {},
           </motion.span>
         ))}
 
-      {(children && `${children}`.length) &&
+      {children && typeof children === 'string' ? (
         `${children}`.split('').map((c, index) => (
           <motion.span key={`split-text-${children}-${index}-${c}`} {...textType.char} {...charOptions} {...childrenProps}>
             {c}
           </motion.span>
-        ))}
+        ))
+      ) : (
+        <>{children}</>
+      )}
     </Element>
   ) : (
     <></>
