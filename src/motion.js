@@ -3,11 +3,7 @@ export const appMotion = {
   container: {
     initial: 'hidden',
     animate: 'show',
-    variants: {
-      transition: {
-        staggerChildren: 0.25,
-      },
-    },
+    variants: { transition: { staggerChildren: 0.25 } },
   },
 
   background: {},
@@ -15,7 +11,15 @@ export const appMotion = {
 
 //--- QUOTE
 export const quoteMotion = {
-  container: { variants: {} },
+  container: {
+    initial: 'hidden',
+    animate: 'show',
+    exit: 'out',
+    variants: {
+      hidden: { opacity: 0 },
+      show: { opacity: 1, transition: { staggerChildren: 5, delayChildren: 1 } },
+    },
+  },
 
   button: (initial = 'hidden') => ({
     initial,
@@ -91,8 +95,8 @@ export const overlayMotion = {
 
 //--- UTILS
 export const textType = {
-  text: (speed = 0.05) => ({ initial: 'hidden', animate: 'show', variants: staggerContainer(speed) }),
-  char: { variants: textVariant() },
+  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
+  char: { variants: { ...textVariant() } },
 };
 
 export function textVariant(transition = {}) {
