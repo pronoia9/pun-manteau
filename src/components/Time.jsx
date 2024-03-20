@@ -3,27 +3,29 @@ import { motion } from 'framer-motion';
 
 import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem } from '../utils';
 import { timeMotion } from '../motion';
+import { SplitText } from './SplitText';
 
 export const Time = ({ time, ipBase }) => {
   return (
     <Container className='time-container' {...timeMotion.container}>
       <Text className='time-text'>
         <motion.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
-        <motion.h4 {...timeMotion.text}>
-          Good {getTimeOfDayString(time)}
-          <span>, it&apos;s currently</span>
-        </motion.h4>
+        <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
+          , it&apos;s currently
+        </SplitText>
       </Text>
 
       <Clock className='time-clock'>
         <motion.h1 key={time} {...timeMotion.time}>
-          {getTimeHours(time)}<motion.span {...timeMotion.blink}>:</motion.span>{getTimeMinutes(time)}
+          {getTimeHours(time)}
+          <motion.span {...timeMotion.blink}>:</motion.span>
+          {getTimeMinutes(time)}
         </motion.h1>{' '}
         <motion.h5 {...timeMotion.zone}>{time.abbreviation}</motion.h5>
       </Clock>
 
       <motion.h3 {...timeMotion.location}>
-        In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
+        <SplitText text={`In ${ipBase.location.city.name}, ${ipBase.location.country.alpha2}`} />
       </motion.h3>
     </Container>
   );
@@ -48,7 +50,7 @@ const Container = styled(motion.div)`
       font-size: ${rem(15)};
     }
 
-    span {
+    .extra {
       @media (max-width: ${rem(600)}) {
         display: none;
       }
