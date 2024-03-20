@@ -1,7 +1,15 @@
 //--- APP
 export const appMotion = {
-  container: {},
-  
+  container: {
+    initial: 'hidden',
+    animate: 'show',
+    variants: {
+      transition: {
+        staggerChildren: 0.25,
+      },
+    },
+  },
+
   background: {},
 };
 
@@ -51,10 +59,10 @@ export const timeMotion = {
   time: {},
 
   blink: {},
-  
+
   zone: {},
 
-  location: {}
+  location: {},
 };
 
 //--- BUTTON
@@ -84,3 +92,51 @@ export const overlayMotion = {
 
   subtitle: { variants: {} },
 };
+
+//--- UTILS
+export const textType = {
+  text: (speed = 0.05) => ({ initial: 'hidden', animate: 'show', variants: staggerContainer(speed) }),
+  char: { variants: textVariant() },
+};
+
+export function textVariant(transition = {}) {
+  return {
+    hidden: { y: -50, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
+  };
+}
+
+export function zoomIn(transition = {}) {
+  return {
+    hidden: { scale: 0, opacity: 0 },
+    show: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
+  };
+}
+
+export function fadeIn(direction, amount = '100px', transition = {}) {
+  return {
+    hidden: {
+      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+      opacity: 0,
+    },
+    show: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
+  };
+}
+
+export function slideIn(direction, amount = '100%', transition = {}) {
+  return {
+    hidden: {
+      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+    },
+    show: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
+  };
+}
+
+export function staggerContainer(staggerChildren = 0.25, delayChildren = 0, transition = {}) {
+  return {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
+  };
+}
