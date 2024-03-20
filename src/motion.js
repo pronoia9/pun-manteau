@@ -50,7 +50,14 @@ export const quoteMotion = {
 
 //--- TIME
 export const timeMotion = {
-  container: {},
+  container: {
+    initial: 'hidden',
+    animate: 'show',
+    variants: {
+      show: { transition: { staggerChildren: 0.5 } },
+      transition: { staggerChildren: 0.5 },
+    },
+  },
 
   icon: {},
 
@@ -58,11 +65,7 @@ export const timeMotion = {
 
   time: {},
 
-  blink: {},
-
   zone: {},
-
-  location: {},
 };
 
 //--- BUTTON
@@ -77,10 +80,13 @@ export const buttonMotion = {
 //--- OVERLAY
 export const overlayMotion = {
   container: {
+    initial: 'hidden',
+    animate: 'show',
+    exit: 'out',
     variants: {
-      initial: { opacity: 0, y: 200 },
-      animate: { opacity: 1, y: 0, transition: { type: 'tween', duration: 1 } },
-      exit: { opacity: 0, y: 200, transition: { type: 'tween', duration: 1 } },
+      hidden: { opacity: 0, y: 200 },
+      show: { opacity: 1, y: 0, transition: { type: 'tween', duration: 0.75 } },
+      out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.5 } },
     },
   },
 
