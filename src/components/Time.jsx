@@ -10,7 +10,7 @@ export const Time = ({ time, ipBase }) => {
     <Container className='time-container' {...timeMotion.container}>
       <Text className='time-text'>
         <motion.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
-        <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }} {...timeMotion.text}>
+        <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
           , it&apos;s currently
         </SplitText>
       </Text>
