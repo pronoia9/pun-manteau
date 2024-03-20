@@ -26,8 +26,8 @@ export const Quote = () => {
   return data ? (
     <Container className='quote-container' {...quoteMotion.container}>
       <div>
-        <h5 {...quoteMotion.quote}>“{data.content}”</h5>
-        <h6 {...quoteMotion.author}>{data.author}</h6>
+        <motion.h5 {...quoteMotion.quote}>“{data.content}”</motion.h5>
+        <motion.h6 {...quoteMotion.author}>{data.author}</motion.h6>
       </div>
       <motion.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
     </Container>
