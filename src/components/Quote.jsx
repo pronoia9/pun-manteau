@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { motion, useAnimationControls } from 'framer-motion';
 
 import { defaultQuote, rem, updateQuote } from '../utils';
+import { quoteMotion } from '../motion';
 
 export const Quote = () => {
   const [data, setData] = useState(defaultQuote);
+  const [initial, setInitial] = useState('hidden');
   const controls = useAnimationControls();
 
   const handleClick = () => {
@@ -13,43 +15,21 @@ export const Quote = () => {
     controls.start('move');
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => void controls.start('intro'), []);
+  useEffect(() => {
+    controls.start('show');
+    setInitial('show'); // using state to set the initial from hidden to show after 1st animation cause after click/tap/etc it goes back to hidden if its not set to show as default
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
   return data ? (
-    <Container className='quote-container'>
+    <Container className='quote-container' {...quoteMotion.container}>
       <div>
-        <h5>“{data.content}”</h5>
-        <h6>{data.author}</h6>
+        <h5 {...quoteMotion.quote}>“{data.content}”</h5>
+        <h6 {...quoteMotion.author}>{data.author}</h6>
       </div>
-      <motion.img
-        src='/icons/icon-refresh.svg'
-        alt='refresh'
-        onClick={handleClick}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={controls}
-        whileHover={{
-          scale: 1.2,
-          filter: 'invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%)',
-          rotate: [0, 0, 180, 360],
-          transition: { rotate: { type: 'tween', delay: 5, duration: 1, repeat: Infinity, repeatDelay: 5 } },
-        }}
-        whileTap={{
-          scale: 0.9,
-          filter: 'invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%)',
-          rotate: [0, 0, 180, 360],
-          transition: { type: 'tween', duration: 0.75 },
-        }}
-        variants={{
-          intro: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5 } },
-          move: {
-            rotate: [0, 0, 180, 360],
-            transition: { type: 'spring' },
-          },
-        }}
-      />
+      <motion.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
     </Container>
   ) : (
     <></>
