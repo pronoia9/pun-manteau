@@ -5,10 +5,10 @@ import { textType } from '../motion';
 export const SplitText = ({ text, elementType = 'span', speed, br = null, childrenProps = {}, children, ...props }) => {
   const Element = motion[elementType]; // Dynamically select the appropriate motion element
 
-  return text || children ? (
+  return (
     <Element className='split-text' {...textType.text(speed)} {...props}>
-      {text &&
-        `${text}`.split('').map((c, index) => (
+      {(text || typeof children === 'string') &&
+        `${text || children}`.split('').map((c, index) => (
           <motion.span key={`split-text-${children}-${index}-${c}`} {...textType.char} {...childrenProps}>
             {c}
           </motion.span>
@@ -16,17 +16,7 @@ export const SplitText = ({ text, elementType = 'span', speed, br = null, childr
 
       {br && <br />}
 
-      {children && typeof children === 'string' ? (
-        `${children}`.split('').map((c, index) => (
-          <motion.span key={`split-text-${children}-${index}-${c}`} {...textType.char} {...childrenProps}>
-            {c}
-          </motion.span>
-        ))
-      ) : (
-        <>{children}</>
-      )}
+      {children}
     </Element>
-  ) : (
-    <></>
   );
 };
