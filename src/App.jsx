@@ -30,28 +30,29 @@ export default function App() {
     return () => void clearInterval(id); // Clean up the interval when the component unmounts
   }, []);
 
-  return time && ipBase ? (
+  return (
     <ThemeProvider theme={getTheme(time)}>
       <GlobalStyles />
 
       <AnimatePresence>
         <Container className='app-container' layout>
-          <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
-            {!showOverlay && <Quote />}
-            <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
-              <Time time={time} ipBase={ipBase} />
-              <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-            </BottomPart>
-          </Flexbox>
+          {time && ipBase && (
+            <>
+              <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
+                {!showOverlay && <Quote />}
+                <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
+                  <Time time={time} ipBase={ipBase} />
+                  <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+                </BottomPart>
+              </Flexbox>
 
-          {showOverlay && <Overlay time={time} ipBase={ipBase} />}
-
+              {showOverlay && <Overlay time={time} ipBase={ipBase} />}
+            </>
+          )}
           <Background className='app-background' />
         </Container>
       </AnimatePresence>
     </ThemeProvider>
-  ) : (
-    <></>
   );
 }
 
@@ -101,7 +102,8 @@ const BottomPart = styled.div`
 `;
 
 const Background = styled.div`
-  &, &:after {
+  &,
+  &:after {
     position: absolute;
     top: 0;
     right: 0;
