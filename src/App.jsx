@@ -35,7 +35,7 @@ export default function App() {
       <GlobalStyles />
 
       <AnimatePresence>
-        <Container layout>
+        <Container className='app-container' layout>
           <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
             {!showOverlay && <Quote />}
             <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
