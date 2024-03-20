@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
 
 import { textType } from '../motion';
 
@@ -28,13 +27,4 @@ export const SplitText = ({ text, elementType = 'span', speed, textOptions = {},
   ) : (
     <></>
   );
-};
-
-SplitText.propTypes = {
-  text: PropTypes.string,
-  elementType: PropTypes.string,
-  speed: PropTypes.number,
-  textOptions: PropTypes.object,
-  charOptions: PropTypes.object,
-  children: PropTypes.node,
 };
