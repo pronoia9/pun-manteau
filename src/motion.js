@@ -5,7 +5,13 @@ export const quoteMotion = {};
 export const timeMotion = {};
 
 //--- BUTTON
-export const buttonMotion = {};
+export const buttonMotion = {
+  container: { variants: {} },
+  
+  text: { variants: {} },
+
+  image: { variants: {} },
+};
 
 //--- OVERLAY
 export const overlayMotion = {
