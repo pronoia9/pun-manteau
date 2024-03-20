@@ -101,7 +101,7 @@ const BottomPart = styled.div`
   }
 `;
 
-const Background = styled.div`
+const Background = styled(m.div)`
   &,
   &:after {
     position: absolute;
