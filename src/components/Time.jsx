@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem } from '../utils';
+import { SplitText } from '../components';
 import { timeMotion } from '../motion';
-import { SplitText } from './SplitText';
+import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem } from '../utils';
 
 export const Time = ({ time, ipBase }) => {
   return (
@@ -16,17 +16,13 @@ export const Time = ({ time, ipBase }) => {
       </Text>
 
       <Clock className='time-clock'>
-        <motion.h1 key={time} {...timeMotion.time}>
-          {getTimeHours(time)}
-          <motion.span {...timeMotion.blink}>:</motion.span>
-          {getTimeMinutes(time)}
-        </motion.h1>{' '}
-        <motion.h5 {...timeMotion.zone}>{time.abbreviation}</motion.h5>
+        <SplitText elementType='h1' key={time} text={`${getTimeHours(time)}:${getTimeMinutes(time)}`} />{' '}
+        <motion.h5 {...timeMotion.zone}>
+          {time.abbreviation}
+        </motion.h5>
       </Clock>
 
-      <motion.h3 {...timeMotion.location}>
-        <SplitText text={`In ${ipBase.location.city.name}, ${ipBase.location.country.alpha2}`} />
-      </motion.h3>
+      <SplitText elementType='h3' text={`In ${ipBase.location.city.name}, ${ipBase.location.country.alpha2}`} />
     </Container>
   );
 };
@@ -100,7 +96,7 @@ const Container = styled(motion.div)`
   }
 `;
 
-const Text = styled(motion.div)`
+const Text = styled.div`
   display: flex;
   flex-direction: row;
   gap: ${rem(17.63)};
@@ -113,7 +109,7 @@ const Text = styled(motion.div)`
   }
 `;
 
-const Clock = styled(motion.div)`
+const Clock = styled.div`
   display: flex;
   flex-direction: row;
   align-items: end;
