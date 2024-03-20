@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { motion, useAnimationControls } from 'framer-motion';
 
@@ -11,7 +11,10 @@ export const Quote = () => {
   const handleClick = () => {
     updateQuote(setData);
     controls.start('move');
-  }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => void controls.start('intro'), []);
 
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
@@ -25,7 +28,7 @@ export const Quote = () => {
         src='/icons/icon-refresh.svg'
         alt='refresh'
         onClick={handleClick}
-        initial={{ scale: 1 }}
+        initial={{ scale: 0, opacity: 0 }}
         animate={controls}
         whileHover={{
           scale: 1.2,
@@ -40,6 +43,7 @@ export const Quote = () => {
           transition: { type: 'tween', duration: 0.75 },
         }}
         variants={{
+          intro: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5 } },
           move: {
             rotate: [0, 0, 180, 360],
             transition: { type: 'spring' },
