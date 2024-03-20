@@ -1,33 +1,35 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem } from '../utils';
+import { timeMotion } from '../motion';
 
 export const Time = ({ time, ipBase }) => {
   return (
-    <Container className='time-container'>
+    <Container className='time-container' {...timeMotion.container}>
       <Text className='time-text'>
-        <img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} />
-        <h4>
+        <motion.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
+        <motion.h4 {...timeMotion.text}>
           Good {getTimeOfDayString(time)}
           <span>, it&apos;s currently</span>
-        </h4>
+        </motion.h4>
       </Text>
 
       <Clock className='time-clock'>
-        <h1 key={time}>
-          {getTimeHours(time)}:{getTimeMinutes(time)}
-        </h1>{' '}
-        <h5>{time.abbreviation}</h5>
+        <motion.h1 key={time} {...timeMotion.time}>
+          {getTimeHours(time)}<motion.span {...timeMotion.blink}>:</motion.span>{getTimeMinutes(time)}
+        </motion.h1>{' '}
+        <motion.h5 {...timeMotion.zone}>{time.abbreviation}</motion.h5>
       </Clock>
 
-      <h3>
+      <motion.h3 {...timeMotion.location}>
         In {ipBase.location.city.name}, {ipBase.location.country.alpha2}
-      </h3>
+      </motion.h3>
     </Container>
   );
 };
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: ${rem(16)};
@@ -96,7 +98,7 @@ const Container = styled.div`
   }
 `;
 
-const Text = styled.div`
+const Text = styled(motion.div)`
   display: flex;
   flex-direction: row;
   gap: ${rem(17.63)};
@@ -109,7 +111,7 @@ const Text = styled.div`
   }
 `;
 
-const Clock = styled.div`
+const Clock = styled(motion.div)`
   display: flex;
   flex-direction: row;
   align-items: end;
