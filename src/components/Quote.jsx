@@ -36,7 +36,7 @@ export const Quote = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   /* width: 100%; */
   max-width: ${rem(540)};
   margin-top: ${rem(56)};
