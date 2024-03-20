@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { AnimatePresence, m } from 'framer-motion';
 
 import { Quote, Time, Button, Overlay } from './components';
+import { appMotion } from './motion';
 import { GlobalStyles } from './styles';
 import { getTheme, fetchTime, fetchIpBase, defaultTime, defaultIpBase, rem } from './utils';
 
@@ -35,7 +36,7 @@ export default function App() {
       <GlobalStyles />
 
       <AnimatePresence>
-        <Container className='app-container' layout>
+        <Container className='app-container' layout {...appMotion.container}>
           {time && ipBase && (
             <>
               <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
@@ -49,7 +50,7 @@ export default function App() {
               {showOverlay && <Overlay time={time} ipBase={ipBase} />}
             </>
           )}
-          <Background className='app-background' />
+          <Background className='app-background' {...appMotion.background} />
         </Container>
       </AnimatePresence>
     </ThemeProvider>
