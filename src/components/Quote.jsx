@@ -4,6 +4,7 @@ import { motion, useAnimationControls } from 'framer-motion';
 
 import { defaultQuote, rem, updateQuote } from '../utils';
 import { quoteMotion } from '../motion';
+import { SplitText } from './SplitText';
 
 export const Quote = () => {
   const [data, setData] = useState(defaultQuote);
@@ -26,8 +27,8 @@ export const Quote = () => {
   return data ? (
     <Container className='quote-container' {...quoteMotion.container}>
       <div>
-        <motion.h5 {...quoteMotion.quote}>“{data.content}”</motion.h5>
-        <motion.h6 {...quoteMotion.author}>{data.author}</motion.h6>
+        <SplitText elementType='h5' text={`“${data.content}”`} key={data.content} />
+        <SplitText elementType='h6' text={data.author} key={data.author} />
       </div>
       <motion.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
     </Container>
