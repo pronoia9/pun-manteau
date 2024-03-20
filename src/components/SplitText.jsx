@@ -1,17 +1,29 @@
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 import { textType } from '../motion';
 
-export const SplitText = ({ text, speed, textOptions = {}, charOptions = {}, children }) => {
+export const SplitText = ({ text, elementType = 'span', speed, textOptions = {}, charOptions = {}, children, ...props }) => {
+  const Element = motion[elementType]; // Dynamically select the appropriate motion element
+
   return text || children ? (
-    <motion.span className='split-text' {...textType.text(speed)} {...textOptions}>
+    <Element className='split-text' {...textType.text(speed)} {...textOptions} {...props}>
       {`${text ? text : children}`.split('').map((c, index) => (
         <motion.span key={`split-text-${children}-${index}-${c}`} {...textType.char} {...charOptions}>
           {c}
         </motion.span>
       ))}
-    </motion.span>
+    </Element>
   ) : (
     <></>
   );
+};
+
+SplitText.propTypes = {
+  text: PropTypes.string,
+  elementType: PropTypes.string,
+  speed: PropTypes.number,
+  textOptions: PropTypes.object,
+  charOptions: PropTypes.object,
+  children: PropTypes.node,
 };
