@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { motion, useAnimationControls } from 'framer-motion';
 
 import { defaultQuote, rem, updateQuote } from '../utils';
 
 export const Quote = () => {
   const [data, setData] = useState(defaultQuote);
+  const controls = useAnimationControls();
+
+  const handleClick = () => {
+    updateQuote(setData);
+    controls.start('move');
+  }
 
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
@@ -14,7 +21,31 @@ export const Quote = () => {
         <h5>“{data.content}”</h5>
         <h6>{data.author}</h6>
       </div>
-      <img src='/icons/icon-refresh.svg' alt='refresh' onClick={() => void updateQuote(setData)} />
+      <motion.img
+        src='/icons/icon-refresh.svg'
+        alt='refresh'
+        onClick={handleClick}
+        initial={{ scale: 1 }}
+        animate={controls}
+        whileHover={{
+          scale: 1.2,
+          filter: 'invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%)',
+          rotate: [0, 0, 180, 360],
+          transition: { rotate: { type: 'tween', delay: 5, duration: 1, repeat: Infinity, repeatDelay: 5 } },
+        }}
+        whileTap={{
+          scale: 0.9,
+          filter: 'invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%)',
+          rotate: [0, 0, 180, 360],
+          transition: { type: 'tween', duration: 0.75 },
+        }}
+        variants={{
+          move: {
+            rotate: [0, 0, 180, 360],
+            transition: { type: 'spring' },
+          },
+        }}
+      />
     </Container>
   ) : (
     <></>
@@ -22,10 +53,12 @@ export const Quote = () => {
 };
 
 const Container = styled.div`
+  /* width: 100%; */
   max-width: ${rem(540)};
   margin-top: ${rem(56)};
   display: flex;
   flex-direction: row;
+  /* justify-content: space-between; */
   gap: ${rem(15.67)};
 
   /* Quote & Author Wrapper */
@@ -56,11 +89,5 @@ const Container = styled.div`
     height: 16.67px;
     margin-top: ${rem(10.67)};
     cursor: pointer;
-    scale: 1;
-
-    &:hover {
-      scale: 1.1;
-      filter: invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%);
-    }
   }
 `;
