@@ -1,25 +1,27 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { rem } from '../utils';
+import { overlayMotion } from '../motion';
 
 export const GroupItem = ({ title, subtitle }) => (
-  <Item className='overlay-group-item'>
-    <h6>{title}</h6>
-    <h2>{subtitle}</h2>
+  <Item className='overlay-group-item' {...overlayMotion.item}>
+    <motion.h6 {...overlayMotion.title}>{title}</motion.h6>
+    <motion.h2 {...overlayMotion.subtitle}>{subtitle}</motion.h2>
   </Item>
 );
 
 export const Overlay = ({ time }) => {
   return (
-    <Container className='overlay-container'>
-      <Group className='overlay-group'>
+    <Container className='overlay-container' {...overlayMotion.container}>
+      <Group className='overlay-group' {...overlayMotion.group}>
         <GroupItem title='Current Timezone' subtitle={time.timezone} />
         <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
       </Group>
 
       <HR />
 
-      <Group className='overlay-group'>
+      <Group className='overlay-group' {...overlayMotion.group}>
         <GroupItem title='Day of the Week' subtitle={time.day_of_week} />
         <GroupItem title='Week Number' subtitle={time.week_number} />
       </Group>
@@ -27,7 +29,7 @@ export const Overlay = ({ time }) => {
   );
 };
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: row;
   position: relative;
@@ -69,7 +71,7 @@ const Group = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${rem(42)};
-  
+
   @media (max-width: ${rem(1000)}) {
     margin: ${rem(119)} 0;
     padding: 0 ${rem(32)}; /* Right group's left space */
