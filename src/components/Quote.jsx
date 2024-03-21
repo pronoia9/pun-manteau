@@ -6,9 +6,9 @@ import { defaultQuote, rem, updateQuote } from '../utils';
 import { quoteMotion } from '../motion';
 import { SplitText } from './SplitText';
 
-export const Quote = ({ showOverlay }) => {
+export const Quote = (/*{ showOverlay }*/) => {
   const [data, setData] = useState(defaultQuote);
-  const [initial, setInitial] = useState('hidden');
+  const [initialMotion, setInitialMotion] = useState('hidden');
   const [showAuthor, setShowAuthor] = useState(false);
   const controls = useAnimationControls();
 
@@ -20,26 +20,26 @@ export const Quote = ({ showOverlay }) => {
 
   useEffect(() => {
     controls.start('show');
-    setInitial('show'); // using state to set the initial from hidden to show after 1st animation cause after click/tap/etc it goes back to hidden if its not set to show as default
+    setInitialMotion('show'); // using state to set the initial from hidden to show after 1st animation cause after click/tap/etc it goes back to hidden if its not set to show as default
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
   return (
-    (data && !showOverlay) && (
+    data && (
       <Container className='quote-container' layout {...quoteMotion.container}>
         <div>
           <SplitText
             elementType='h5'
             text={`“${data.content}”`}
-            speed={0.015}
+            speed={0.01}
             key={data.content}
             onAnimationComplete={() => void setShowAuthor(true)}
           />
-          {showAuthor && <SplitText elementType='h6' text={data.author} speed={0.02} />}
+          {showAuthor && <SplitText elementType='h6' text={data.author} speed={0.015} />}
         </div>
-        <m.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
+        <m.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initialMotion)} />
       </Container>
     )
   );
