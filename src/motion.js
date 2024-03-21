@@ -5,6 +5,11 @@ const directionX = (direction, amount) => (direction === 'left' ? `-${amount}` :
 
 const directionY = (direction, amount) => (direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0);
 
+export const staggerContainer = (staggerChildren = 0.25, delayChildren = 0, transition = {}) => ({
+  [props.initial]: { opacity: 0 },
+  [props.animate]: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
+});
+
 export const zoomIn = (transition = {}) => ({
   [props.initial]: { scale: 0, opacity: 0 },
   [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
@@ -20,13 +25,8 @@ export const slideIn = (direction, amount = '100%', transition = {}) => ({
   [props.animate]: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
 });
 
-export const staggerContainer = (staggerChildren = 0.25, delayChildren = 0, transition = {}) => ({
-  [props.initial]: { opacity: 0 },
-  [props.animate]: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
-});
-
 export const splitTextMotion = {
-  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
+  text: (speed = 0.05) => ({ variants: staggerContainer(speed) }),
   char: {
     variants: {
       [props.initial]: { y: -50, opacity: 0 },
