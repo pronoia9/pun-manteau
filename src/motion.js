@@ -71,7 +71,7 @@ export const overlayMotion = {
     variants: {
       hidden: { opacity: 0, y: 200 },
       show: { opacity: 1, y: 0, transition: { type: 'tween', duration: 0.75 } },
-      out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.5 } },
+      out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.25 } },
     },
   },
   group: {},
