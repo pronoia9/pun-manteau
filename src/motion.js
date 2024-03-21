@@ -1,6 +1,47 @@
 const props = { initial: 'hidden', animate: 'show', exit: 'out', whileHover: 'hover', whileTap: 'tap' };
 
-//--- APP
+/***********************************  UTILS START  ***********************************/
+export const zoomIn = (transition = {}) => ({
+  [props.initial]: { scale: 0, opacity: 0 },
+  [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
+});
+
+export const fadeIn = (direction, amount = '100px', transition = {}) => ({
+  [props.initial]: {
+    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+    opacity: 0,
+  },
+  [props.animate]: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
+});
+
+export const slideIn = (direction, amount = '100%', transition = {}) => ({
+  [props.initial]: {
+    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+  },
+  [props.animate]: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
+});
+
+export const staggerContainer = (staggerChildren = 0.25, delayChildren = 0, transition = {}) => ({
+  [props.initial]: { opacity: 0 },
+  [props.animate]: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
+});
+
+export const splitTextMotion = {
+  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
+  char: {
+    variants: {
+      [props.initial]: { y: -50, opacity: 0 },
+      [props.animate]: { y: 0, opacity: 1, transition: { type: 'spring' } },
+    },
+  },
+};
+/************************************  UTILS END  ************************************/
+//
+//
+//
+/************************************  APP START  ************************************/
 export const appMotion = {
   container: { initial: 'hidden', animate: 'show', exit: 'out', variants: staggerContainer(0.25) },
   wrapper: { variants: staggerContainer(0.25) },
@@ -39,8 +80,11 @@ export const quoteMotion = {
     };
   },
 };
-
-//--- TIME
+/*************************************  APP END  *************************************/
+//
+//
+//
+/***********************************  TIME START  ************************************/
 export const timeMotion = {
   container: {
     variants: {
@@ -51,15 +95,21 @@ export const timeMotion = {
   icon: { variants: zoomIn() },
   zone: { variants: fadeIn() },
 };
-
-//--- BUTTON
+/************************************  TIME END  *************************************/
+//
+//
+//
+/**********************************  BUTTON START  ***********************************/
 export const buttonMotion = {
   container: {},
   text: {},
   image: {},
 };
-
-//--- OVERLAY
+/***********************************  BUTTON END  ************************************/
+//
+//
+//
+/**********************************  OVERLAY START  **********************************/
 export const overlayMotion = {
   container: {
     variants: {
@@ -72,49 +122,4 @@ export const overlayMotion = {
   group: { variants: staggerContainer(1) },
   item: { variants: staggerContainer(0.75) },
 };
-
-//--- UTILS
-export const splitTextMotion = {
-  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
-  char: {
-    variants: {
-      [props.initial]: { y: -50, opacity: 0 },
-      [props.animate]: { y: 0, opacity: 1, transition: { type: 'spring' } },
-    },
-  },
-};
-
-export function zoomIn(transition = {}) {
-  return {
-    [props.initial]: { scale: 0, opacity: 0 },
-    [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
-  };
-}
-
-export function fadeIn(direction, amount = '100px', transition = {}) {
-  return {
-    [props.initial]: {
-      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-      opacity: 0,
-    },
-    [props.animate]: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
-  };
-}
-
-export function slideIn(direction, amount = '100%', transition = {}) {
-  return {
-    [props.initial]: {
-      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-    },
-    [props.animate]: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
-  };
-}
-
-export function staggerContainer(staggerChildren = 0.25, delayChildren = 0, transition = {}) {
-  return {
-    [props.initial]: { opacity: 0 },
-    [props.animate]: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
-  };
-}
+/***********************************  OVERLAY END  ***********************************/
