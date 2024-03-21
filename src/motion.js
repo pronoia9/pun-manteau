@@ -29,10 +29,13 @@ export const quoteMotion = {
         hidden: { scale: 0, opacity: 0 },
         show: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5 } },
         hover: {
-          scale: 1.2,
+          scale: [1.1, 1, 1.1],
           filter,
           rotate: [0, 0, 180, 360],
-          transition: { rotate: { type: 'tween', delay: 5, duration: 1, repeat: Infinity, repeatDelay: 5 } },
+          transition: {
+            rotate: { type: 'tween', delay: 5, duration: 1, repeat: Infinity, repeatDelay: 5 },
+            scale: { repeat: Infinity }
+          },
         },
         tap: { scale: 0.9, filter, rotate: [0, 0, 180, 360], transition: { type: 'tween', duration: 0.75 } },
         move: { rotate: [0, 0, 180, 360], transition: { type: 'spring' } },
