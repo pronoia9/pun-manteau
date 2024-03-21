@@ -1,25 +1,22 @@
+/***********************************  UTILS START  ***********************************/
 const props = { initial: 'hidden', animate: 'show', exit: 'out', whileHover: 'hover', whileTap: 'tap' };
 
-/***********************************  UTILS START  ***********************************/
+const directionX = (direction, amount) => (direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0);
+
+const directionY = (direction, amount) => (direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0);
+
 export const zoomIn = (transition = {}) => ({
   [props.initial]: { scale: 0, opacity: 0 },
   [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
 });
 
 export const fadeIn = (direction, amount = '100px', transition = {}) => ({
-  [props.initial]: {
-    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-    opacity: 0,
-  },
-  [props.animate]: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
+  [props.initial]: { opacity: 0, x: directionX(direction, amount), y: directionY(direction, amount) },
+  [props.animate]: { opacity: 1, x: 0, y: 0, transition: { type: 'spring', ...transition } },
 });
 
 export const slideIn = (direction, amount = '100%', transition = {}) => ({
-  [props.initial]: {
-    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-  },
+  [props.initial]: { x: directionX(direction, amount), y: directionY(direction, amount) },
   [props.animate]: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
 });
 
