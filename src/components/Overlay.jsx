@@ -22,7 +22,7 @@ export const Overlay = ({ time, showOverlay }) => {
             <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
           </Group>
 
-          <HR />
+          <HR {...overlayMotion.hr} />
 
           <Group className='overlay-group' {...overlayMotion.group}>
             <GroupItem title='Day of the Week' subtitle={time.day_of_week} />
