@@ -3,9 +3,9 @@ export const appMotion = {
   container: {
     initial: 'hidden',
     animate: 'show',
-    variants: { transition: staggerContainer(0.25) },
+    variants: staggerContainer(0.25),
   },
-  wrapper: { variants: { transition: staggerContainer(0.25) } },
+  wrapper: { variants: staggerContainer(0.25) },
   background: { variants: fadeIn() },
 };
 
@@ -74,14 +74,12 @@ export const overlayMotion = {
     exit: 'out',
     variants: {
       hidden: { opacity: 0, y: 200 },
-      show: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75 } },
+      show: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75, staggerChildren: 2 } },
       out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.25 } },
     },
   },
-  group: {},
-  item: {},
-  title: {},
-  subtitle: {},
+  group: { variants: staggerContainer(1) },
+  item: { variants: staggerContainer(0.75) },
 };
 
 //--- UTILS
