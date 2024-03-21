@@ -1,48 +1,8 @@
-//--- UTILS
-export const zoomIn = (transition = {}) => ({
-  hidden: { scale: 0, opacity: 0 },
-  show: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
-});
-
-export const fadeIn = (direction, amount = '100px', transition = {}) => ({
-  hidden: {
-    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-    opacity: 0,
-  },
-  show: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
-});
-
-export const slideIn = (direction, amount = '100%', transition = {}) => ({
-  hidden: {
-    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-  },
-  show: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
-});
-
-export const staggerContainer = (staggerChildren = 0.25, delayChildren = 0, transition = {}) => ({
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
-});
-
-export const splitTextMotion = {
-  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
-  char: {
-    variants: {
-      hidden: { y: -50, opacity: 0 },
-      show: { y: 0, opacity: 1, transition: { type: 'spring' } },
-    },
-  },
-};
+const props = { initial: 'hidden', animate: 'show', exit: 'out', whileHover: 'hover', whileTap: 'tap' };
 
 //--- APP
 export const appMotion = {
-  container: {
-    initial: 'hidden',
-    animate: 'show',
-    variants: staggerContainer(0.25),
-  },
+  container: { initial: 'hidden', animate: 'show', variants: staggerContainer(0.25) },
   wrapper: { variants: staggerContainer(0.25) },
   background: { variants: fadeIn() },
 };
@@ -54,8 +14,8 @@ export const quoteMotion = {
     animate: 'show',
     exit: 'out',
     variants: {
-      hidden: { opacity: 0 },
-      show: { opacity: 1, transition: { staggerChildren: 5, delayChildren: 1 } },
+      [props.initial]: { opacity: 0 },
+      [props.animate]: { opacity: 1, transition: { staggerChildren: 5, delayChildren: 1 } },
     },
   },
   button: (initial = 'hidden') => {
@@ -65,8 +25,8 @@ export const quoteMotion = {
       whileHover: 'hover',
       whileTap: 'tap',
       variants: {
-        hidden: { scale: 0, opacity: 0 },
-        show: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5 } },
+        [props.initial]: { scale: 0, opacity: 0 },
+        [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5 } },
         hover: {
           scale: [1.1, 1, 1.1],
           filter,
@@ -89,7 +49,7 @@ export const timeMotion = {
     initial: 'hidden',
     animate: 'show',
     variants: {
-      show: { transition: { staggerChildren: 0.5 } },
+      [props.animate]: { transition: { staggerChildren: 0.5 } },
       transition: { staggerChildren: 0.5 },
     },
   },
@@ -111,12 +71,58 @@ export const overlayMotion = {
     animate: 'show',
     exit: 'out',
     variants: {
-      hidden: { opacity: 0, y: 200 },
-      show: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75, staggerChildren: 1.25 } },
+      [props.initial]: { opacity: 0, y: 200 },
+      [props.animate]: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75, staggerChildren: 1.25 } },
       out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.25 } },
     },
   },
-  hr: { variants: { ...fadeIn(), show: { opacity: 0.2 } } },
+  hr: { variants: { ...fadeIn(), [props.animate]: { opacity: 0.2 } } },
   group: { variants: staggerContainer(1) },
   item: { variants: staggerContainer(0.75) },
 };
+
+//--- UTILS
+export const splitTextMotion = {
+  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
+  char: {
+    variants: {
+      [props.initial]: { y: -50, opacity: 0 },
+      [props.animate]: { y: 0, opacity: 1, transition: { type: 'spring' } },
+    },
+  },
+};
+
+export function zoomIn(transition = {}) {
+  return {
+    [props.initial]: { scale: 0, opacity: 0 },
+    [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
+  };
+}
+
+export function fadeIn(direction, amount = '100px', transition = {}) {
+  return {
+    [props.initial]: {
+      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+      opacity: 0,
+    },
+    [props.animate]: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
+  };
+}
+
+export function slideIn(direction, amount = '100%', transition = {}) {
+  return {
+    [props.initial]: {
+      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+    },
+    [props.animate]: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
+  };
+}
+
+export function staggerContainer(staggerChildren = 0.25, delayChildren = 0, transition = {}) {
+  return {
+    [props.initial]: { opacity: 0 },
+    [props.animate]: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
+  };
+}
