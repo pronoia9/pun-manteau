@@ -54,11 +54,9 @@ export const quoteMotion = {
     const filter = 'invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%)';
     return {
       initial,
-      whileHover: 'hover',
-      whileTap: 'tap',
       variants: {
         [props.initial]: { scale: 0, opacity: 0 },
-        [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5 } },
+        [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5, delay: 4 } },
         hover: {
           scale: [1.1, 1, 1.1],
           filter,
