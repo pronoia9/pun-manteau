@@ -7,8 +7,8 @@ import { rem } from '../utils';
 
 export const GroupItem = ({ title, subtitle }) => (
   <Item className='overlay-group-item' {...overlayMotion.item}>
-    <SplitText elementType='h6' {...overlayMotion.title} text={title} />
-    <SplitText elementType='h2' {...overlayMotion.subtitle} text={subtitle} />
+    <SplitText elementType='h6' text={title} />
+    <SplitText elementType='h2' text={subtitle} />
   </Item>
 );
 
