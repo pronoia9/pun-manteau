@@ -11,7 +11,7 @@ export const GroupItem = ({ title, subtitle }) => (
   </Item>
 );
 
-export const Overlay = ({ time, ipBase, showOverlay }) => {
+export const Overlay = ({ time, showOverlay }) => {
   return (
     <AnimatePresence>
       {showOverlay && (
