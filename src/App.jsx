@@ -36,7 +36,7 @@ export default function App() {
       <GlobalStyles />
 
       <LazyMotion features={domAnimation}>
-        <Container className='app-container' layout {...appMotion.container}>
+        <Container className='app-container' {...appMotion.container}>
           {time && ipBase && (
             <>
               <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
