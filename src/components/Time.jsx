@@ -7,7 +7,7 @@ import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem
 
 export const Time = ({ time, ipBase }) => {
   return (
-    <Container className='time-container' {...timeMotion.container} layout>
+    <Container className='time-container' layout {...timeMotion.container}>
       <Text className='time-text'>
         <m.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
         <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
