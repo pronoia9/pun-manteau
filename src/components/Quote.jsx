@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { m, useAnimationControls } from 'framer-motion';
 
-import { defaultQuote, rem, updateQuote } from '../utils';
+import { SplitText } from '../components';
 import { quoteMotion } from '../motion';
-import { SplitText } from './SplitText';
+import { defaultQuote, rem, updateQuote } from '../utils';
 
 export const Quote = (/*{ showOverlay }*/) => {
   const [data, setData] = useState(defaultQuote);
