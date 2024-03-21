@@ -86,15 +86,13 @@ export const overlayMotion = {
 //--- UTILS
 export const textType = {
   text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
-  char: { variants: { ...textVariant() } },
+  char: {
+    variants: {
+      hidden: { y: -50, opacity: 0 },
+      show: { y: 0, opacity: 1, transition: { type: 'spring' } },
+    },
+  },
 };
-
-export function textVariant(transition = {}) {
-  return {
-    hidden: { y: -50, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
-  };
-}
 
 export function zoomIn(transition = {}) {
   return {
