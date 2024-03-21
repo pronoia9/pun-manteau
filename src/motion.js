@@ -3,9 +3,10 @@ export const appMotion = {
   container: {
     initial: 'hidden',
     animate: 'show',
-    variants: { transition: { staggerChildren: 0.25 } },
+    variants: { transition: staggerContainer(0.25) },
   },
-  background: {},
+  wrapper: { variants: { transition: staggerContainer(0.25) } },
+  background: { variants: fadeIn() },
 };
 
 //--- QUOTE
@@ -34,7 +35,7 @@ export const quoteMotion = {
           rotate: [0, 0, 180, 360],
           transition: {
             rotate: { type: 'tween', delay: 5, duration: 1, repeat: Infinity, repeatDelay: 5 },
-            scale: { repeat: Infinity }
+            scale: { repeat: Infinity },
           },
         },
         tap: { scale: 0.9, filter, rotate: [0, 0, 180, 360], transition: { type: 'tween', duration: 0.75 } },
