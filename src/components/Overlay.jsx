@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { rem } from '../utils';
 import { overlayMotion } from '../motion';
@@ -11,21 +11,25 @@ export const GroupItem = ({ title, subtitle }) => (
   </Item>
 );
 
-export const Overlay = ({ time }) => {
+export const Overlay = ({ time, ipBase, showOverlay }) => {
   return (
-    <Container className='overlay-container' {...overlayMotion.container}>
-      <Group className='overlay-group' {...overlayMotion.group}>
-        <GroupItem title='Current Timezone' subtitle={time.timezone} />
-        <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
-      </Group>
+    <AnimatePresence>
+      {showOverlay && (
+        <Container className='overlay-container' {...overlayMotion.container}>
+          <Group className='overlay-group' {...overlayMotion.group}>
+            <GroupItem title='Current Timezone' subtitle={time.timezone} />
+            <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
+          </Group>
 
-      <HR />
+          <HR />
 
-      <Group className='overlay-group' {...overlayMotion.group}>
-        <GroupItem title='Day of the Week' subtitle={time.day_of_week} />
-        <GroupItem title='Week Number' subtitle={time.week_number} />
-      </Group>
-    </Container>
+          <Group className='overlay-group' {...overlayMotion.group}>
+            <GroupItem title='Day of the Week' subtitle={time.day_of_week} />
+            <GroupItem title='Week Number' subtitle={time.week_number} />
+          </Group>
+        </Container>
+      )}
+    </AnimatePresence>
   );
 };
 
