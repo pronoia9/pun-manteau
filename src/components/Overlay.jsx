@@ -69,7 +69,7 @@ const Container = styled(m.div)`
   }
 `;
 
-const Group = styled.div`
+const Group = styled(m.div)`
   margin: ${rem(74)} 0; /* Top/Bottom space */
   padding: 0 ${rem(94)}; /* Right group's left space */
   flex: 1;
@@ -105,7 +105,7 @@ const Group = styled.div`
   }
 `;
 
-const Item = styled.div`
+const Item = styled(m.div)`
   display: flex;
   flex-direction: column;
   gap: ${rem(9)};
@@ -147,7 +147,7 @@ const Item = styled.div`
   }
 `;
 
-const HR = styled.div`
+const HR = styled(m.div)`
   margin-top: ${rem(74)};
   margin-bottom: ${rem(74)};
   width: 1px;
