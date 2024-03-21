@@ -1,3 +1,41 @@
+//--- UTILS
+export const zoomIn = (transition = {}) => ({
+  hidden: { scale: 0, opacity: 0 },
+  show: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
+});
+
+export const fadeIn = (direction, amount = '100px', transition = {}) => ({
+  hidden: {
+    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+    opacity: 0,
+  },
+  show: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
+});
+
+export const slideIn = (direction, amount = '100%', transition = {}) => ({
+  hidden: {
+    x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
+    y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
+  },
+  show: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
+});
+
+export const staggerContainer = (staggerChildren = 0.25, delayChildren = 0, transition = {}) => ({
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
+});
+
+export const splitTextMotion = {
+  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
+  char: {
+    variants: {
+      hidden: { y: -50, opacity: 0 },
+      show: { y: 0, opacity: 1, transition: { type: 'spring' } },
+    },
+  },
+};
+
 //--- APP
 export const appMotion = {
   container: {
@@ -82,49 +120,3 @@ export const overlayMotion = {
   group: { variants: staggerContainer(1) },
   item: { variants: staggerContainer(0.75) },
 };
-
-//--- UTILS
-export const splitTextMotion = {
-  text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
-  char: {
-    variants: {
-      hidden: { y: -50, opacity: 0 },
-      show: { y: 0, opacity: 1, transition: { type: 'spring' } },
-    },
-  },
-};
-
-export function zoomIn(transition = {}) {
-  return {
-    hidden: { scale: 0, opacity: 0 },
-    show: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
-  };
-}
-
-export function fadeIn(direction, amount = '100px', transition = {}) {
-  return {
-    hidden: {
-      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-      opacity: 0,
-    },
-    show: { x: 0, y: 0, opacity: 1, transition: { type: 'spring', ...transition } },
-  };
-}
-
-export function slideIn(direction, amount = '100%', transition = {}) {
-  return {
-    hidden: {
-      x: direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0,
-      y: direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0,
-    },
-    show: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
-  };
-}
-
-export function staggerContainer(staggerChildren = 0.25, delayChildren = 0, transition = {}) {
-  return {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren, delayChildren, ...transition } },
-  };
-}
