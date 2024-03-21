@@ -57,9 +57,9 @@ export const timeMotion = {
 
 //--- BUTTON
 export const buttonMotion = {
-  container: { variants: {} },
-  text: { variants: {} },
-  image: { variants: {} },
+  container: {},
+  text: {},
+  image: {},
 };
 
 //--- OVERLAY
@@ -74,10 +74,10 @@ export const overlayMotion = {
       out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.5 } },
     },
   },
-  group: { variants: {} },
-  item: { variants: {} },
-  title: { variants: {} },
-  subtitle: { variants: {} },
+  group: {},
+  item: {},
+  title: {},
+  subtitle: {},
 };
 
 //--- UTILS
