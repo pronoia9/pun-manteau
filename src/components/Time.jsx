@@ -9,20 +9,20 @@ export const Time = ({ time, ipBase }) => {
   return (
     <Container className='time-container' {...timeMotion.container}>
       <Text className='time-text'>
-        <motion.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
-        <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
+        <motion.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} layout />
+        <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }} layout>
           , it&apos;s currently
         </SplitText>
       </Text>
 
       <Clock className='time-clock'>
-        <SplitText elementType='h1' key={time} text={`${getTimeHours(time)}:${getTimeMinutes(time)}`} />{' '}
-        <motion.h5 {...timeMotion.zone}>
+        <SplitText elementType='h1' key={time} text={`${getTimeHours(time)}:${getTimeMinutes(time)}`} layout />{' '}
+        <motion.h5 {...timeMotion.zone} layout>
           {time.abbreviation}
         </motion.h5>
       </Clock>
 
-      <SplitText elementType='h3' text={`In ${ipBase.location.city.name}, ${ipBase.location.country.alpha2}`} />
+      <SplitText elementType='h3' text={`In ${ipBase.location.city.name}, ${ipBase.location.country.alpha2}`} layout />
     </Container>
   );
 };
