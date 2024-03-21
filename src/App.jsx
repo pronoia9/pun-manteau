@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { AnimatePresence, m } from 'framer-motion';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
 
 import { Quote, Time, Button, Overlay } from './components';
 import { appMotion } from './motion';
@@ -35,7 +35,7 @@ export default function App() {
     <ThemeProvider theme={getTheme(time)}>
       <GlobalStyles />
 
-      <AnimatePresence>
+      <LazyMotion features={domAnimation}>
         <Container className='app-container' layout {...appMotion.container}>
           {time && ipBase && (
             <>
@@ -47,12 +47,12 @@ export default function App() {
                 </BottomPart>
               </Flexbox>
 
-              {showOverlay && <Overlay time={time} ipBase={ipBase} />}
+              <Overlay time={time} ipBase={ipBase} showOverlay={showOverlay} />
             </>
           )}
           <Background className='app-background' {...appMotion.background} />
         </Container>
-      </AnimatePresence>
+      </LazyMotion>
     </ThemeProvider>
   );
 }
