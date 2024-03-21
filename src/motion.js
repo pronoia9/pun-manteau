@@ -109,7 +109,7 @@ export const overlayMotion = {
     variants: {
       [props.initial]: { opacity: 0, y: 200 },
       [props.animate]: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75, staggerChildren: 1.25 } },
-      out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.25 } },
+      [props.exit]: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.25 } },
     },
   },
   hr: { variants: { ...fadeIn(), [props.animate]: { opacity: 0.2 } } },
