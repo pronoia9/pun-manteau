@@ -1,11 +1,11 @@
 /***********************************  UTILS START  ***********************************/
 const props = { initial: 'hidden', animate: 'show', exit: 'out', whileHover: 'hover', whileTap: 'tap' };
 
-const directions = (direction, amount) => ({ x: directionX(direction, amount), y: directionY(direction, amount) });
-
 const directionX = (direction, amount) => (direction === 'left' ? -amount : direction === 'right' ? amount : 0);
 
 const directionY = (direction, amount) => (direction === 'up' ? amount : direction === 'down' ? -amount : 0);
+
+const directions = (direction, amount) => ({ x: directionX(direction, amount), y: directionY(direction, amount) });
 
 export const staggerContainer = (staggerChildren = 0.25, delayChildren = 0, transition = {}) => ({
   [props.initial]: { opacity: 0 },
