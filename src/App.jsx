@@ -42,7 +42,7 @@ export default function App() {
               <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
                 <Quote showOverlay={showOverlay} />
 
-                <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
+                <BottomPart className='app-bottom-part' $showOverlay={showOverlay} {...appMotion.wrapper}>
                   <Time time={time} ipBase={ipBase} />
                   <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
                 </BottomPart>
@@ -83,7 +83,7 @@ const Flexbox = styled.div`
   }
 `;
 
-const BottomPart = styled.div`
+const BottomPart = styled(m.div)`
   margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
   display: flex;
   flex-direction: row;
