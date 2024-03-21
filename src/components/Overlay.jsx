@@ -38,6 +38,7 @@ const Container = styled(m.div)`
   flex-direction: row;
   position: relative;
   color: var(--c-font);
+  z-index: 1;
 
   @media (max-width: ${rem(560)}) {
     flex-direction: column;

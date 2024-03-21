@@ -61,6 +61,7 @@ export default function App() {
 const Container = styled(m.div)`
   display: flex;
   flex-direction: column;
+  background-color: var(--c-background);
 `;
 
 const Flexbox = styled.div`
@@ -69,6 +70,7 @@ const Flexbox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: ${({ $showOverlay }) => (!$showOverlay ? 'space-between' : 'end')};
+  z-index: 1;
 
   @media (max-width: ${rem(1230)}) {
     margin: 0 ${rem(64)};
@@ -124,6 +126,4 @@ const Background = styled(m.div)`
     content: '';
     background: rgba(0, 0, 0, 0.4);
   }
-
-  z-index: -3;
 `;
