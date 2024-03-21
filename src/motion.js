@@ -2,7 +2,7 @@ const props = { initial: 'hidden', animate: 'show', exit: 'out', whileHover: 'ho
 
 //--- APP
 export const appMotion = {
-  container: { initial: 'hidden', animate: 'show', variants: staggerContainer(0.25) },
+  container: { initial: 'hidden', animate: 'show', exit: 'out', variants: staggerContainer(0.25) },
   wrapper: { variants: staggerContainer(0.25) },
   background: { variants: fadeIn() },
 };
@@ -10,9 +10,6 @@ export const appMotion = {
 //--- QUOTE
 export const quoteMotion = {
   container: {
-    initial: 'hidden',
-    animate: 'show',
-    exit: 'out',
     variants: {
       [props.initial]: { opacity: 0 },
       [props.animate]: { opacity: 1, transition: { staggerChildren: 5, delayChildren: 1 } },
@@ -46,8 +43,6 @@ export const quoteMotion = {
 //--- TIME
 export const timeMotion = {
   container: {
-    initial: 'hidden',
-    animate: 'show',
     variants: {
       [props.animate]: { transition: { staggerChildren: 0.5 } },
       transition: { staggerChildren: 0.5 },
@@ -67,9 +62,6 @@ export const buttonMotion = {
 //--- OVERLAY
 export const overlayMotion = {
   container: {
-    initial: 'hidden',
-    animate: 'show',
-    exit: 'out',
     variants: {
       [props.initial]: { opacity: 0, y: 200 },
       [props.animate]: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75, staggerChildren: 1.25 } },
