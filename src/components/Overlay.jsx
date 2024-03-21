@@ -14,7 +14,7 @@ export const GroupItem = ({ title, subtitle }) => (
 export const Overlay = ({ time, ipBase, showOverlay }) => {
   return (
     <AnimatePresence>
-      {showOverlay ? (
+      {showOverlay && (
         <Container className='overlay-container' {...overlayMotion.container}>
           <Group className='overlay-group' {...overlayMotion.group}>
             <GroupItem title='Current Timezone' subtitle={time.timezone} />
@@ -28,7 +28,7 @@ export const Overlay = ({ time, ipBase, showOverlay }) => {
             <GroupItem title='Week Number' subtitle={time.week_number} />
           </Group>
         </Container>
-      ) : <></>}
+      )}
     </AnimatePresence>
   );
 };
