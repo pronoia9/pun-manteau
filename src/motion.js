@@ -57,7 +57,7 @@ export const quoteMotion = {
       variants: {
         [props.initial]: { scale: 0, opacity: 0 },
         [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5, delay: 4 } },
-        hover: {
+        [props.whileHover]: {
           scale: [1.1, 1, 1.1],
           filter,
           rotate: [0, 0, 180, 360],
@@ -66,7 +66,7 @@ export const quoteMotion = {
             scale: { repeat: Infinity },
           },
         },
-        tap: { scale: 0.9, filter, rotate: [0, 0, 180, 360], transition: { type: 'tween', duration: 0.75 } },
+        [props.whileTap]: { scale: 0.9, filter, rotate: [0, 0, 180, 360], transition: { type: 'tween', duration: 0.75 } },
         move: { rotate: [0, 0, 180, 360], transition: { type: 'spring' } },
       },
     };
