@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { AnimatePresence, m } from 'framer-motion';
 
-import { rem } from '../utils';
+import { SplitText } from '../components';
 import { overlayMotion } from '../motion';
+import { rem } from '../utils';
 
 export const GroupItem = ({ title, subtitle }) => (
   <Item className='overlay-group-item' {...overlayMotion.item}>
-    <m.h6 {...overlayMotion.title}>{title}</m.h6>
-    <m.h2 {...overlayMotion.subtitle}>{subtitle}</m.h2>
+    <SplitText elementType='h6' {...overlayMotion.title} text={title} />
+    <SplitText elementType='h2' {...overlayMotion.subtitle} text={subtitle} />
   </Item>
 );
 
