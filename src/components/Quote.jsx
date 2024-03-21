@@ -6,7 +6,7 @@ import { SplitText } from '../components';
 import { quoteMotion } from '../motion';
 import { defaultQuote, rem, updateQuote } from '../utils';
 
-export const Quote = (/*{ showOverlay }*/) => {
+export const Quote = ({ showOverlay }) => {
   const [data, setData] = useState(defaultQuote);
   const [initialMotion, setInitialMotion] = useState('hidden');
   const [showAuthor, setShowAuthor] = useState(false);
@@ -28,7 +28,7 @@ export const Quote = (/*{ showOverlay }*/) => {
 
   return (
     data && (
-      <Container className='quote-container' layout {...quoteMotion.container}>
+      <Container className='quote-container' $showOverlay={showOverlay} layout {...quoteMotion.container}>
         <div>
           <SplitText
             elementType='h5'
@@ -53,6 +53,7 @@ const Container = styled(m.div)`
   flex-direction: row;
   /* justify-content: space-between; */
   gap: ${rem(15.67)};
+  display: ${({ $showOverlay }) => ($showOverlay ? 'none' : '')};
 
   /* Quote & Author Wrapper */
   div {
