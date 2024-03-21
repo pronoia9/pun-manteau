@@ -64,7 +64,6 @@ const Container = styled(m.div)`
 
 const Flexbox = styled.div`
   margin: 0 ${rem(165)};
-  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 - 56 : 0)};
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -84,8 +83,7 @@ const Flexbox = styled.div`
 `;
 
 const BottomPart = styled.div`
-  /* margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)}; */
-  margin-bottom: ${rem(56)};
+  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
