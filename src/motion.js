@@ -74,10 +74,11 @@ export const overlayMotion = {
     exit: 'out',
     variants: {
       hidden: { opacity: 0, y: 200 },
-      show: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75, staggerChildren: 2 } },
+      show: { opacity: 0.75, y: 0, transition: { type: 'tween', duration: 0.75, staggerChildren: 1.25 } },
       out: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.25 } },
     },
   },
+  hr: { variants: { ...fadeIn(), show: { opacity: 0.2 } } },
   group: { variants: staggerContainer(1) },
   item: { variants: staggerContainer(0.75) },
 };
