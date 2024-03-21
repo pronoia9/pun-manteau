@@ -1,9 +1,11 @@
 /***********************************  UTILS START  ***********************************/
 const props = { initial: 'hidden', animate: 'show', exit: 'out', whileHover: 'hover', whileTap: 'tap' };
 
-const directionX = (direction, amount) => (direction === 'left' ? `-${amount}` : direction === 'right' ? `${amount}` : 0);
+const directions = (direction, amount) => ({ x: directionX(direction, amount), y: directionY(direction, amount) });
 
-const directionY = (direction, amount) => (direction === 'up' ? `${amount}` : direction === 'down' ? `-${amount}` : 0);
+const directionX = (direction, amount) => (direction === 'left' ? -amount : direction === 'right' ? amount : 0);
+
+const directionY = (direction, amount) => (direction === 'up' ? amount : direction === 'down' ? -amount : 0);
 
 export const staggerContainer = (staggerChildren = 0.25, delayChildren = 0, transition = {}) => ({
   [props.initial]: { opacity: 0 },
@@ -16,23 +18,18 @@ export const zoomIn = (transition = {}) => ({
 });
 
 export const fadeIn = (direction, amount = '100px', transition = {}) => ({
-  [props.initial]: { opacity: 0, x: directionX(direction, amount), y: directionY(direction, amount) },
+  [props.initial]: { opacity: 0, ...directions(direction, amount) },
   [props.animate]: { opacity: 1, x: 0, y: 0, transition: { type: 'spring', ...transition } },
 });
 
 export const slideIn = (direction, amount = '100%', transition = {}) => ({
-  [props.initial]: { x: directionX(direction, amount), y: directionY(direction, amount) },
+  [props.initial]: { ...directions(direction, amount) },
   [props.animate]: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
 });
 
 export const splitTextMotion = {
   text: (speed = 0.05) => ({ variants: staggerContainer(speed) }),
-  char: {
-    variants: {
-      [props.initial]: { y: -50, opacity: 0 },
-      [props.animate]: { y: 0, opacity: 1, transition: { type: 'spring' } },
-    },
-  },
+  char: { variants: fadeIn('down', 50) },
 };
 /************************************  UTILS END  ************************************/
 //
