@@ -6,7 +6,7 @@ import { defaultQuote, rem, updateQuote } from '../utils';
 import { quoteMotion } from '../motion';
 import { SplitText } from './SplitText';
 
-export const Quote = () => {
+export const Quote = ({ showOverlay }) => {
   const [data, setData] = useState(defaultQuote);
   const [initial, setInitial] = useState('hidden');
   const [showAuthor, setShowAuthor] = useState(false);
@@ -26,16 +26,22 @@ export const Quote = () => {
 
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
-  return data ? (
-    <Container className='quote-container' {...quoteMotion.container}>
-      <div>
-        <SplitText elementType='h5' text={`“${data.content}”`} speed={0.015} key={data.content} onAnimationComplete={() => void setShowAuthor(true)} />
-        {showAuthor && <SplitText elementType='h6' text={data.author} speed={0.02} />}
-      </div>
-      <m.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
-    </Container>
-  ) : (
-    <></>
+  return (
+    (data && !showOverlay) && (
+      <Container className='quote-container' layout {...quoteMotion.container}>
+        <div>
+          <SplitText
+            elementType='h5'
+            text={`“${data.content}”`}
+            speed={0.015}
+            key={data.content}
+            onAnimationComplete={() => void setShowAuthor(true)}
+          />
+          {showAuthor && <SplitText elementType='h6' text={data.author} speed={0.02} />}
+        </div>
+        <m.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
+      </Container>
+    )
   );
 };
 

@@ -40,7 +40,8 @@ export default function App() {
           {time && ipBase && (
             <>
               <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
-                {!showOverlay && <Quote />}
+                <Quote showOverlay={showOverlay} />
+
                 <BottomPart className='app-bottom-part' $showOverlay={showOverlay}>
                   <Time time={time} ipBase={ipBase} />
                   <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
