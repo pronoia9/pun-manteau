@@ -84,7 +84,7 @@ export const overlayMotion = {
 };
 
 //--- UTILS
-export const textType = {
+export const splitTextMotion = {
   text: (speed = 0.05) => ({ variants: { ...staggerContainer(speed) } }),
   char: {
     variants: {
