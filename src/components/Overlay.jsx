@@ -55,17 +55,16 @@ const Container = styled(m.div)`
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: -1;
   }
 
   &:before {
     background-color: var(--c-background);
     opacity: 0.75;
-    z-index: -2;
   }
 
   &:after {
     backdrop-filter: blur(10px);
-    z-index: -1;
   }
 `;
 
