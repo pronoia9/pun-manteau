@@ -46,12 +46,14 @@ export const Quote = ({ showOverlay }) => {
 };
 
 const Container = styled(m.div)`
-  /* width: 100%; */
+  /* Disable to remove space between quote and refresh button */
+  width: 100%;
+  justify-content: space-between;
+
   max-width: ${rem(540)};
   margin-top: ${rem(56)};
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   gap: ${rem(15.67)};
   display: ${({ $showOverlay }) => ($showOverlay ? 'none' : '')};
 
