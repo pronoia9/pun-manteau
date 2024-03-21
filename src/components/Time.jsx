@@ -20,7 +20,7 @@ export const Time = ({ time, ipBase }) => {
         <m.h5 {...timeMotion.zone}>{time.abbreviation}</m.h5>
       </Clock>
 
-      <SplitText elementType='h3' text={`In ${ipBase.location.city.name}, ${ipBase.location.country.alpha2}`} />
+      <SplitText elementType='h3' text={`In ${ipBase.location.city.name}, ${ipBase.location.country.fips}`} />
     </Container>
   );
 };
