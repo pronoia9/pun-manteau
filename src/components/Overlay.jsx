@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 
 import { rem } from '../utils';
 import { overlayMotion } from '../motion';
 
 export const GroupItem = ({ title, subtitle }) => (
   <Item className='overlay-group-item' {...overlayMotion.item}>
-    <motion.h6 {...overlayMotion.title}>{title}</motion.h6>
-    <motion.h2 {...overlayMotion.subtitle}>{subtitle}</motion.h2>
+    <m.h6 {...overlayMotion.title}>{title}</m.h6>
+    <m.h2 {...overlayMotion.subtitle}>{subtitle}</m.h2>
   </Item>
 );
 
@@ -33,7 +33,7 @@ export const Overlay = ({ time, ipBase, showOverlay }) => {
   );
 };
 
-const Container = styled(motion.div)`
+const Container = styled(m.div)`
   display: flex;
   flex-direction: row;
   position: relative;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 import { buttonMotion } from '../motion';
 import { rem } from '../utils';
@@ -12,13 +12,13 @@ export const Button = ({ showOverlay, setShowOverlay }) => {
       $showOverlay={showOverlay}
       {...buttonMotion.container}
     >
-      <motion.h5 {...buttonMotion.text}>{!showOverlay ? 'MORE' : 'LESS'}</motion.h5>
-      <motion.img src='/icons/icon-arrow-up.svg' alt='arrow' {...buttonMotion.image} />
+      <m.h5 {...buttonMotion.text}>{!showOverlay ? 'MORE' : 'LESS'}</m.h5>
+      <m.img src='/icons/icon-arrow-up.svg' alt='arrow' {...buttonMotion.image} />
     </Container>
   );
 };
 
-const Container = styled(motion.button)`
+const Container = styled(m.button)`
   padding: ${rem(8)} ${rem(9)} ${rem(8)} ${rem(20)};
 
   display: flex;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { motion, useAnimationControls } from 'framer-motion';
+import { m, useAnimationControls } from 'framer-motion';
 
 import { defaultQuote, rem, updateQuote } from '../utils';
 import { quoteMotion } from '../motion';
@@ -32,14 +32,14 @@ export const Quote = () => {
         <SplitText elementType='h5' text={`“${data.content}”`} speed={0.015} key={data.content} onAnimationComplete={() => void setShowAuthor(true)} />
         {showAuthor && <SplitText elementType='h6' text={data.author} speed={0.02} />}
       </div>
-      <motion.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
+      <m.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initial)} />
     </Container>
   ) : (
     <></>
   );
 };
 
-const Container = styled(motion.div)`
+const Container = styled(m.div)`
   /* width: 100%; */
   max-width: ${rem(540)};
   margin-top: ${rem(56)};
