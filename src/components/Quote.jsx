@@ -51,7 +51,6 @@ const Container = styled(motion.div)`
   justify-content: space-between;
 
   max-width: ${rem(540)};
-  margin-top: ${rem(56)};
   display: flex;
   flex-direction: row;
   gap: ${rem(15.67)};
