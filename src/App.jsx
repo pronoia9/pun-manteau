@@ -82,8 +82,6 @@ const Flexbox = styled(motion.div)`
 
 const BottomPart = styled(motion.div)`
   flex: 1;
-  justify-self: end;
-
   display: flex;
   flex-direction: row;
   align-items: end;
