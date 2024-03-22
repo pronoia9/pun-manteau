@@ -63,44 +63,42 @@ const Container = styled(motion.div)`
 `;
 
 const Flexbox = styled(motion.div)`
-  margin: ${rem(56)} ${rem(165)};
+  margin: ${rem(56)} ${rem(165)} ${({ $showOverlay }) => ($showOverlay ? rem(56) : rem(98))};
+  
   flex: 1;
+  justify-self: end;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
 
   @media (max-width: ${rem(1230)}) {
-    margin: 0 ${rem(64)};
-  }
-
-  @media (max-width: ${rem(768)}) {
-    margin: 0 ${rem(64)};
+    margin: ${rem(80)} ${rem(64)} ${rem(64)};
   }
 
   @media (max-width: ${rem(560)}) {
-    margin: 0 ${rem(26)};
+    margin: ${rem(31.67)} ${rem(26)} ${rem(40)};
   }
 `;
 
 const BottomPart = styled(motion.div)`
-  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 42 : 0)};
   flex: 1;
   justify-self: end;
+
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: end;
+  justify-content: space-between;
 
   @media (max-width: ${rem(1000)}) {
-    margin-bottom: ${rem(64)};
     flex-direction: column;
     align-items: start;
+    justify-content: end;
     gap: ${rem(80)};
   }
 
   @media (max-width: ${rem(560)}) {
-    margin-bottom: ${rem(40)};
     gap: ${rem(48)};
   }
 `;
