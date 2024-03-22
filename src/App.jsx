@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { LazyMotion, domAnimation, m } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { Quote, Time, Button, Overlay } from './components';
 import { appMotion } from './motion';
@@ -35,36 +35,34 @@ export default function App() {
     <ThemeProvider theme={getTheme(time)}>
       <GlobalStyles />
 
-      <LazyMotion features={domAnimation}>
-        <Container className='app-container' {...appMotion.container}>
-          {time && ipBase && (
-            <>
-              <Flexbox className='app-flexbox' $showOverlay={showOverlay}>
-                <Quote showOverlay={showOverlay} />
+      <Container className='app-container' {...appMotion.container}>
+        {time && ipBase && (
+          <>
+            <Flexbox className='app-flexbox' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
+              <Quote showOverlay={showOverlay} />
 
-                <BottomPart className='app-bottom-part' $showOverlay={showOverlay} {...appMotion.wrapper}>
-                  <Time time={time} ipBase={ipBase} />
-                  <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
-                </BottomPart>
-              </Flexbox>
+              <BottomPart className='app-bottom-part' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
+                <Time time={time} ipBase={ipBase} />
+                <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
+              </BottomPart>
+            </Flexbox>
 
-              <Overlay time={time} showOverlay={showOverlay} />
-            </>
-          )}
-          <Background className='app-background' {...appMotion.background} />
-        </Container>
-      </LazyMotion>
+            <Overlay time={time} showOverlay={showOverlay} />
+          </>
+        )}
+        <Background className='app-background' {...appMotion.background} />
+      </Container>
     </ThemeProvider>
   );
 }
 
-const Container = styled(m.div)`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   background-color: var(--c-background);
 `;
 
-const Flexbox = styled.div`
+const Flexbox = styled(motion.div)`
   margin: 0 ${rem(165)};
   flex: 1;
   display: flex;
@@ -85,7 +83,7 @@ const Flexbox = styled.div`
   }
 `;
 
-const BottomPart = styled(m.div)`
+const BottomPart = styled(motion.div)`
   margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
   display: flex;
   flex-direction: row;
@@ -105,7 +103,7 @@ const BottomPart = styled(m.div)`
   }
 `;
 
-const Background = styled(m.div)`
+const Background = styled(motion.div)`
   &,
   &:after {
     position: absolute;
