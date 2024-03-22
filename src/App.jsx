@@ -59,15 +59,13 @@ export default function App() {
 const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  justify-content: end;
   background-color: var(--c-background);
 `;
 
 const Flexbox = styled(motion.div)`
   margin: ${rem(56)} ${rem(165)} ${({ $showOverlay }) => ($showOverlay ? rem(56) : rem(98))};
-  
   flex: 1;
-  justify-self: end;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
