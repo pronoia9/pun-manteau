@@ -72,12 +72,7 @@ export const quoteMotion = {
 //
 /***********************************  TIME START  ************************************/
 export const timeMotion = {
-  container: {
-    variants: {
-      [props.animate]: { transition: { staggerChildren: 0.5 } },
-      transition: { staggerChildren: 0.5 },
-    },
-  },
+  container: { variants: staggerContainer(0.5) },
   icon: { variants: zoomIn() },
   zone: { variants: fadeIn() },
 };
@@ -103,7 +98,7 @@ export const overlayMotion = {
       [props.exit]: { opacity: 0, y: 200, transition: { type: 'tween', duration: 0.25 } },
     },
   },
-  hr: { variants: { ...fadeIn(), [props.animate]: { opacity: 0.2 } } },
+  hr: { variants: fadeIn(null, null, null, { opacity: 0.2 }, { type: 'tween', ease: 'easeInOut', delay: 2 }) },
   group: { variants: staggerContainer(1) },
   item: { variants: staggerContainer(0.75) },
 };
