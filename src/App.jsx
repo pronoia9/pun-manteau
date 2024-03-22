@@ -60,6 +60,7 @@ export default function App() {
 
 const Container = styled(m.div)`
   display: flex;
+  flex-direction: column;
   background-color: var(--c-background);
 `;
 
