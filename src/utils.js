@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 // GENETAL UTILS
-export const lowerCase = (t) => `${t}`.toLowerCase();
-
 export const rem = (val) => `${parseInt(val) / 16}rem`;
 
 // QUOTE
