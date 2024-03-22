@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal;
     font-weight: 100 900;
     font-display: swap;
-    src: url('/font/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+    src: url('/font/Inter-VariableFont.ttf') format('truetype');
   }
 
   :root {
