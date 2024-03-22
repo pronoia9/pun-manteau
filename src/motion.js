@@ -93,7 +93,7 @@ export const timeMotion = {
 //
 /**********************************  BUTTON START  ***********************************/
 export const buttonMotion = {
-  container: { variants: zoomIn({ delay: 2.75, staggerChildren: 0.33, delayChildren: 0.33 }) },
+  container: { variants: zoomIn({ delay: 2.75, staggerChildren: 0.33, delayChildren: 2.75 + 0.33 }) },
   image: { variants: fadeIn() },
 };
 /***********************************  BUTTON END  ************************************/
