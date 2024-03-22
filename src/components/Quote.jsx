@@ -28,7 +28,7 @@ export const Quote = ({ showOverlay }) => {
 
   return (
     data && (
-      <Container className='quote-container' $showOverlay={showOverlay} layout {...quoteMotion.container}>
+      <Container className='quote-container' $showOverlay={showOverlay} {...quoteMotion.container}>
         <div>
           <SplitText
             elementType='h5'
