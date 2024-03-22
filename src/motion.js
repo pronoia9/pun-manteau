@@ -44,19 +44,13 @@ export const appMotion = {
 
 //--- QUOTE
 export const quoteMotion = {
-  container: {
-    variants: {
-      [props.initial]: { opacity: 0 },
-      [props.animate]: { opacity: 1, transition: { staggerChildren: 5, delayChildren: 1 } },
-    },
-  },
+  container: { variants: fadeIn(null, null, {}, {}, { staggerChildren: 5, delayChildren: 1 }) },
   button: (initial = 'hidden') => {
     const filter = 'invert(20%) sepia(243%) saturate(1576%) hue-rotate(-21deg) brightness(137%) contrast(73%)';
     return {
       initial,
       variants: {
-        [props.initial]: { scale: 0, opacity: 0 },
-        [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', bounce: 0.5, delay: 4 } },
+        ...zoomIn({ type: 'spring', bounce: 0.5, delay: 4 }),
         [props.whileHover]: {
           scale: [1.1, 1, 1.1],
           filter,
