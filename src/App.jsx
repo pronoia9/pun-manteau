@@ -63,11 +63,11 @@ const Container = styled(motion.div)`
 `;
 
 const Flexbox = styled(motion.div)`
-  margin: 0 ${rem(165)};
+  margin: ${rem(56)} ${rem(165)};
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: ${({ $showOverlay }) => (!$showOverlay ? 'space-between' : 'end')};
+  justify-content: space-between;
   z-index: 1;
 
   @media (max-width: ${rem(1230)}) {
@@ -84,7 +84,9 @@ const Flexbox = styled(motion.div)`
 `;
 
 const BottomPart = styled(motion.div)`
-  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 98 : 56)};
+  margin-bottom: ${({ $showOverlay }) => rem(!$showOverlay ? 42 : 0)};
+  flex: 1;
+  justify-self: end;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
