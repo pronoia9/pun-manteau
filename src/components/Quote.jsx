@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { m, useAnimationControls } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 
 import { SplitText } from '../components';
 import { quoteMotion } from '../motion';
@@ -39,13 +39,13 @@ export const Quote = ({ showOverlay }) => {
           />
           {showAuthor && <SplitText elementType='h6' text={data.author} speed={0.015} />}
         </div>
-        <m.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initialMotion)} />
+        <motion.img src='/icons/icon-refresh.svg' alt='refresh' onClick={handleClick} animate={controls} {...quoteMotion.button(initialMotion)} />
       </Container>
     )
   );
 };
 
-const Container = styled(m.div)`
+const Container = styled(motion.div)`
   /* Disable to remove space between quote and refresh button */
   width: 100%;
   justify-content: space-between;

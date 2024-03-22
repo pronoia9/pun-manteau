@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AnimatePresence, m } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { SplitText } from '../components';
 import { overlayMotion } from '../motion';
@@ -16,7 +16,7 @@ export const Overlay = ({ time, showOverlay }) => {
   return (
     <AnimatePresence>
       {showOverlay && (
-        <Container className='overlay-container' {...overlayMotion.container}>
+        <Container className='overlay-container' layout {...overlayMotion.container}>
           <Group className='overlay-group' {...overlayMotion.group}>
             <GroupItem title='Current Timezone' subtitle={time.timezone} />
             <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
@@ -34,7 +34,7 @@ export const Overlay = ({ time, showOverlay }) => {
   );
 };
 
-const Container = styled(m.div)`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: row;
   position: relative;
@@ -69,7 +69,7 @@ const Container = styled(m.div)`
   }
 `;
 
-const Group = styled(m.div)`
+const Group = styled(motion.div)`
   margin: ${rem(74)} 0; /* Top/Bottom space */
   padding: 0 ${rem(94)}; /* Right group's left space */
   flex: 1;
@@ -105,7 +105,7 @@ const Group = styled(m.div)`
   }
 `;
 
-const Item = styled(m.div)`
+const Item = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: ${rem(9)};
@@ -147,7 +147,7 @@ const Item = styled(m.div)`
   }
 `;
 
-const HR = styled(m.div)`
+const HR = styled(motion.div)`
   margin-top: ${rem(74)};
   margin-bottom: ${rem(74)};
   width: 1px;

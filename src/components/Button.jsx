@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { m, animate } from 'framer-motion';
+import { motion, animate } from 'framer-motion';
 
 import { SplitText } from '../components';
 import { buttonMotion } from '../motion';
@@ -24,15 +24,16 @@ export const Button = ({ showOverlay, setShowOverlay }) => {
       onMouseDown={whileHolding}
       onMouseUp={reset}
       $showOverlay={showOverlay}
+      layout
       {...buttonMotion.container}
     >
       <SplitText elementType='h5' text={!showOverlay ? 'MORE' : 'LESS'} />
-      <m.img ref={imgRef} src='/icons/icon-arrow-up.svg' alt='arrow' {...buttonMotion.image} />
+      <motion.img ref={imgRef} src='/icons/icon-arrow-up.svg' alt='arrow' {...buttonMotion.image} />
     </Container>
   );
 };
 
-const Container = styled(m.button)`
+const Container = styled(motion.button)`
   padding: ${rem(8)} ${rem(9)} ${rem(8)} ${rem(9 + 13)};
 
   display: flex;

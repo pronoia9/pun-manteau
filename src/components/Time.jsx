@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { SplitText } from '../components';
 import { timeMotion } from '../motion';
@@ -9,7 +9,7 @@ export const Time = ({ time, ipBase }) => {
   return (
     <Container className='time-container' layout {...timeMotion.container}>
       <Text className='time-text'>
-        <m.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
+        <motion.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
         <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
           , it&apos;s currently
         </SplitText>
@@ -17,7 +17,7 @@ export const Time = ({ time, ipBase }) => {
 
       <Clock className='time-clock'>
         <SplitText elementType='h1' key={time} text={`${getTimeHours(time)}:${getTimeMinutes(time)}`} />{' '}
-        <m.h5 {...timeMotion.zone}>{time.abbreviation}</m.h5>
+        <motion.h5 {...timeMotion.zone}>{time.abbreviation}</motion.h5>
       </Clock>
 
       <SplitText elementType='h3' text={`In ${ipBase.location.city.name}, ${ipBase.location.country.fips}`} />
@@ -25,7 +25,7 @@ export const Time = ({ time, ipBase }) => {
   );
 };
 
-const Container = styled(m.div)`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: ${rem(16)};
