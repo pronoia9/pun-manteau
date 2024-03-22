@@ -17,14 +17,14 @@ export const zoomIn = (transition = {}) => ({
   [props.animate]: { scale: 1, opacity: 1, transition: { type: 'spring', ...transition } },
 });
 
-export const fadeIn = (direction, amount = '100px', transition = {}) => ({
-  [props.initial]: { opacity: 0, ...directions(direction, amount) },
-  [props.animate]: { opacity: 1, x: 0, y: 0, transition: { type: 'spring', ...transition } },
+export const fadeIn = (direction, amount = '100px', initial = {}, animate = {}, transition = {}) => ({
+  [props.initial]: { opacity: 0, ...(direction ? directions(direction, amount) : {}), ...initial },
+  [props.animate]: { opacity: 1, ...(direction ? { x: 0, y: 0 } : {}), ...animate, transition: { type: 'spring', ...transition } },
 });
 
-export const slideIn = (direction, amount = '100%', transition = {}) => ({
-  [props.initial]: { ...directions(direction, amount) },
-  [props.animate]: { x: 0, y: 0, transition: { type: 'spring', ...transition } },
+export const slideIn = (direction, amount = '100%', initial = {}, animate = {}, transition = {}) => ({
+  [props.initial]: { ...(direction ? directions(direction, amount) : {}), ...initial },
+  [props.animate]: { ...(direction ? { x: 0, y: 0 } : {}), ...animate, transition: { type: 'spring', ...transition } },
 });
 
 export const splitTextMotion = {
