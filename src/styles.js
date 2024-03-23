@@ -23,14 +23,6 @@ export const GlobalStyles = createGlobalStyle`
   blockquote:before, blockquote:after,
   q:before, q:after { content: ''; content: none; }
   table { border-collapse: collapse; border-spacing: 0; }
-  
-  @font-face {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url('/font/Inter-VariableFont.ttf') format('truetype');
-  }
 
   :root {
     --c-font: ${({ theme }) => theme.font.rgb};
@@ -50,7 +42,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: var(--font) var(--font-fallback);
+    font-family: var(--font), var(--font-fallback);
     font-size: ${rem(18)};
     color: rgb(255, 255, 255);
     line-height: ${rem(28)};
