@@ -44,7 +44,7 @@ export async function fetchTime() {
     const response = await axios.get('http://worldtimeapi.org/api/ip');
     return response.data;
   } catch (error) {
-    console.error('Error getting time', error);
+    // console.error('Error getting time', error);
     return defaultTime;
   }
 }
@@ -54,7 +54,7 @@ export async function fetchIpBase() {
     const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
     return response?.data?.data;
   } catch (error) {
-    console.error('Error fetching from Ipbase', error);
+    // console.error('Error fetching from Ipbase', error);
     return null;
   }
 }
