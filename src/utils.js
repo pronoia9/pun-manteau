@@ -31,12 +31,12 @@ export async function updateQuote(setData) {
 
 // TIME
 export const defaultTime = {
-  abbreviation: 'GMT',
+  abbreviation: '',
   datetime: new Date(),
-  day_of_week: 6,
-  day_of_year: 76,
-  timezone: 'Europe/London',
-  week_number: 11,
+  day_of_week: '??',
+  day_of_year: '??',
+  timezone: 'Error',
+  week_number: '??',
 };
 
 export async function fetchTime() {
