@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Quote, Time, Button, Overlay } from './components';
 import { appMotion } from './motion';
 import { GlobalStyles } from './styles';
-import { getTheme, fetchTime, fetchIpBase, defaultTime, defaultIpBase, rem } from './utils';
+import { getTheme, fetchTime, fetchIpBase, rem } from './utils';
 
 export default function App() {
   const [time, setTime] = useState(null);
@@ -15,9 +15,9 @@ export default function App() {
 
   useEffect(() => {
     // Fetch/set time
-    fetchTime().then((res) => void setTime(res || defaultTime));
+    fetchTime().then((res) => void setTime(res));
     // Fetch/set location info
-    fetchIpBase().then((res) => void setIpBase(res || defaultIpBase));
+    fetchIpBase().then((res) => void setIpBase(res));
 
     // Set interval for the updating of the time that was fetched
     const id = setInterval(() => {
