@@ -172,13 +172,13 @@ export const defaultIpBase = {
 
 // TODO: Temporarily disabled api calls
 export async function fetchIpBase() {
-  return defaultIpBase;
-  // try {
-  //   const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
-  //   return response.data.data;
-  // } catch (error) {
-  //   console.error('Error fetching from Ipbase', error);
-  // }
+  try {
+    const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
+    const data = response.data.data;
+    return data || defaultIpBase;
+  } catch (error) {
+    console.error('Error fetching from Ipbase', error);
+  }
 }
 
 export const getTimeHours = (datetime) => new Date(datetime || null).getHours();
