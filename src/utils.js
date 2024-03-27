@@ -30,23 +30,23 @@ export async function updateQuote(setData) {
 }
 
 // TIME
-  const defaultTime = {
-    abbreviation: 'GMT',
-    // client_ip: '91.196.223.134',
-    datetime: new Date(),
-    day_of_week: 6,
-    day_of_year: 76,
-    // dst: false,
-    // dst_from: null,
-    // dst_offset: 0,
-    // dst_until: null,
-    // raw_offset: 0,
-    timezone: 'Europe/London',
-    // unixtime: 1710611520,
-    // utc_datetime: '2024-03-16T17:52:00.384357+00:00',
-    // utc_offset: '+00:00',
-    week_number: 11,
-  };
+export const defaultTime = {
+  abbreviation: 'GMT',
+  // client_ip: '91.196.223.134',
+  datetime: new Date(),
+  day_of_week: 6,
+  day_of_year: 76,
+  // dst: false,
+  // dst_from: null,
+  // dst_offset: 0,
+  // dst_until: null,
+  // raw_offset: 0,
+  timezone: 'Europe/London',
+  // unixtime: 1710611520,
+  // utc_datetime: '2024-03-16T17:52:00.384357+00:00',
+  // utc_offset: '+00:00',
+  week_number: 11,
+};
 
 export async function fetchTime() {
   try {
@@ -190,22 +190,22 @@ export async function fetchIpBase() {
   // }
 }
 
-export const getTimeHours = (time) => (time?.datetime ? new Date(time?.datetime)?.getHours() : '00');
+export const getTimeHours = (datetime) => new Date(datetime || null).getHours();
 
-export const getTimeMinutes = (time) => (time?.datetime ? new Date(time?.datetime)?.getMinutes().toString().padStart(2, '0') : '00');
+export const getTimeMinutes = (datetime) => new Date(datetime || null).getMinutes().toString().padStart(2, '0');
 
-export const getTimeSeconds = (time) => (time?.datetime ? new Date(time?.datetime)?.getSeconds().toString().padStart(2, '0') : '00');
+export const getTimeSeconds = (datetime) => new Date(datetime || null).getSeconds().toString().padStart(2, '0');
 
-export const isNightTime = (time) => {
-  const hour = getTimeHours(time);
+export const isNightTime = (datetime) => {
+  const hour = getTimeHours(datetime);
   if (hour >= 5 && hour < 18) return false;
   if (hour >= 18 && hour < 5) return true;
 };
 
-export const getTimeOfDayIcon = (time) => (isNightTime(time) ? 'moon' : 'sun');
+export const getTimeOfDayIcon = (datetime) => (isNightTime(datetime) ? 'moon' : 'sun');
 
-export const getTimeOfDayString = (time) => {
-  const hour = getTimeHours(time);
+export const getTimeOfDayString = (datetime) => {
+  const hour = getTimeHours(datetime);
   if (hour >= 5 && hour < 12) return 'morning';
   if (hour >= 12 && hour < 18) return 'afternoon';
   if (hour >= 18 && hour < 5) return 'afternoon';
