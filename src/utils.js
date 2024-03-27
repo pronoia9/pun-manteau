@@ -49,124 +49,16 @@ export async function fetchTime() {
 }
 
 export const defaultIpBase = {
-  ip: '91.196.223.134',
-  hostname: null,
-  type: 'v4',
-  range_type: {
-    type: 'PUBLIC',
-    description: 'Public address',
-  },
-  connection: {
-    asn: 136787,
-    organization: 'TEFINCOM S.A.',
-    isp: 'Tefincom S.A.',
-    range: '91.196.220.0/22',
-  },
   location: {
-    geonames_id: 101750367,
-    latitude: 51.50852966308594,
-    longitude: -0.12574000656604767,
-    zip: 'WC2N',
-    continent: {
-      code: 'EU',
-      name: 'Europe',
-      name_translated: 'Europe',
-      geonames_id: 6255148,
-      wikidata_id: 'Q46',
-    },
     country: {
-      alpha2: 'GB',
-      alpha3: 'GBR',
-      calling_codes: ['+44'],
-      currencies: [
-        {
-          symbol: '£',
-          name: 'British Pound Sterling',
-          symbol_native: '£',
-          decimal_digits: 2,
-          rounding: 0,
-          code: 'GBP',
-          name_plural: 'British pounds sterling',
-          type: 'fiat',
-        },
-      ],
-      emoji: ':flag_gb:',
-      ioc: 'GBR',
-      languages: [
-        {
-          name: 'English',
-          name_native: 'English',
-        },
-        {
-          name: 'Cornish',
-          name_native: 'Kernewek',
-        },
-        {
-          name: 'Irish',
-          name_native: 'Gaeilge',
-        },
-        {
-          name: 'Gaelic',
-          name_native: 'Gaelic',
-        },
-        {
-          name: 'Welsh',
-          name_native: 'Cymraeg',
-        },
-      ],
-      name: 'United Kingdom',
-      name_translated: 'United Kingdom',
-      timezones: ['Europe/London'],
-      is_in_european_union: false,
-      fips: 'UK',
-      geonames_id: 85633159,
-      hasc_id: 'GB',
-      wikidata_id: 'Q145',
+      alpha2: null, // 'GB',
+      alpha3: null, // 'GBR',
+      name: null, // 'United Kingdom',
+      fips: null, // 'UK',
     },
     city: {
-      fips: null,
-      alpha2: null,
-      geonames_id: 101750367,
-      hasc_id: null,
-      wikidata_id: 'Q84',
-      name: 'London',
-      name_translated: 'London',
+      name: null, // 'London',
     },
-    region: {
-      fips: null,
-      alpha2: null,
-      geonames_id: 1360698645,
-      hasc_id: null,
-      wikidata_id: null,
-      name: 'Greater London',
-      name_translated: 'Greater London',
-    },
-  },
-  tlds: ['.uk'],
-  timezone: {
-    id: 'Europe/London',
-    current_time: '2024-03-16T17:51:30+00:00',
-    code: 'GMT',
-    is_daylight_saving: false,
-    gmt_offset: 0,
-  },
-  security: {
-    is_anonymous: null,
-    is_datacenter: null,
-    is_vpn: null,
-    is_bot: null,
-    is_abuser: null,
-    is_known_attacker: null,
-    is_proxy: null,
-    is_spam: null,
-    is_tor: null,
-    proxy_type: null,
-    is_icloud_relay: null,
-    threat_score: null,
-  },
-  domains: {
-    count: null,
-    domains: [],
   },
 };
 
@@ -174,8 +66,7 @@ export const defaultIpBase = {
 export async function fetchIpBase() {
   try {
     const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
-    const data = response.data.data;
-    return data || defaultIpBase;
+    return response?.data?.data || defaultIpBase;
   } catch (error) {
     console.error('Error fetching from Ipbase', error);
   }
