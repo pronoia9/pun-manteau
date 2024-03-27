@@ -32,19 +32,10 @@ export async function updateQuote(setData) {
 // TIME
 export const defaultTime = {
   abbreviation: 'GMT',
-  // client_ip: '91.196.223.134',
   datetime: new Date(),
   day_of_week: 6,
   day_of_year: 76,
-  // dst: false,
-  // dst_from: null,
-  // dst_offset: 0,
-  // dst_until: null,
-  // raw_offset: 0,
   timezone: 'Europe/London',
-  // unixtime: 1710611520,
-  // utc_datetime: '2024-03-16T17:52:00.384357+00:00',
-  // utc_offset: '+00:00',
   week_number: 11,
 };
 
