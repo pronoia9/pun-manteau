@@ -42,22 +42,23 @@ export const defaultTime = {
 export async function fetchTime() {
   try {
     const response = await axios.get('http://worldtimeapi.org/api/ip');
-    return response.data ? response.data : defaultTime;
+    return response.data;
   } catch (error) {
     console.error('Error getting time', error);
+    return defaultTime;
   }
 }
 
 export const defaultIpBase = {
   location: {
     country: {
-      alpha2: null, // 'GB',
-      alpha3: null, // 'GBR',
-      name: null, // 'United Kingdom',
-      fips: null, // 'UK',
+      alpha2: 'GB',
+      alpha3: 'GBR',
+      name: 'United Kingdom',
+      fips: 'UK',
     },
     city: {
-      name: null, // 'London',
+      name: 'London',
     },
   },
 };
@@ -66,9 +67,10 @@ export const defaultIpBase = {
 export async function fetchIpBase() {
   try {
     const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
-    return response?.data?.data || defaultIpBase;
+    return response?.data?.data;
   } catch (error) {
     console.error('Error fetching from Ipbase', error);
+    return defaultIpBase;
   }
 }
 
