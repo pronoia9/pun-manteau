@@ -5,7 +5,7 @@ import { SplitText } from '../components';
 import { timeMotion } from '../motion';
 import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem } from '../utils';
 
-export const Time = ({ time, ipBase }) => {
+export const Time = ({ time, ipbase }) => {
   return (
     <Container className='time-container' layout {...timeMotion.container}>
       <Text className='time-text'>
@@ -20,7 +20,7 @@ export const Time = ({ time, ipBase }) => {
         <motion.h5 {...timeMotion.zone}>{time.abbreviation}</motion.h5>
       </Clock>
 
-      <SplitText elementType='h3' text={`In ${ipBase.location.city.name}, ${ipBase.location.country.fips}`} />
+      <SplitText elementType='h3' text={ipbase ? `In ${ipbase.location.city.name}, ${ipbase.location.country.fips}` : 'ipbase API Error'} />
     </Container>
   );
 };

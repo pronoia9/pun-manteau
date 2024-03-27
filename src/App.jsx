@@ -9,7 +9,7 @@ import { getTheme, fetchTime, fetchIpBase, rem } from './utils';
 
 export default function App() {
   const [time, setTime] = useState(null);
-  const [ipBase, setIpBase] = useState(null);
+  const [ipbase, setIpBase] = useState(null);
   const [showOverlay, setShowOverlay] = useState(false);
   const [, setIntervalId] = useState(null);
 
@@ -36,13 +36,13 @@ export default function App() {
       <GlobalStyles />
 
       <Container className='app-container' {...appMotion.container}>
-        {time && ipBase && (
+        {time && (
           <>
             <Flexbox className='app-flexbox' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
               <Quote showOverlay={showOverlay} />
 
               <BottomPart className='app-bottom-part' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
-                <Time time={time} ipBase={ipBase} />
+                <Time time={time} ipbase={ipbase} />
                 <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
               </BottomPart>
             </Flexbox>
