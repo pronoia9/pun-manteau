@@ -9,14 +9,14 @@ export const Time = ({ time, ipBase }) => {
   return (
     <Container className='time-container' layout {...timeMotion.container}>
       <Text className='time-text'>
-        <motion.img src={`/icons/icon-${getTimeOfDayIcon(time)}.svg`} {...timeMotion.icon} />
-        <SplitText text={`Good ${getTimeOfDayString(time)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
+        <motion.img src={`/icons/icon-${getTimeOfDayIcon(time.datetime)}.svg`} {...timeMotion.icon} />
+        <SplitText text={`Good ${getTimeOfDayString(time.datetime)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
           , it&apos;s currently
         </SplitText>
       </Text>
 
       <Clock className='time-clock'>
-        <SplitText elementType='h1' key={time} text={`${getTimeHours(time)}:${getTimeMinutes(time)}`} />{' '}
+        <SplitText elementType='h1' key={time} text={`${getTimeHours(time.datetime)}:${getTimeMinutes(time.datetime)}`} />{' '}
         <motion.h5 {...timeMotion.zone}>{time.abbreviation}</motion.h5>
       </Clock>
 
