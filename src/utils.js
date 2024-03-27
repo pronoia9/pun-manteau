@@ -49,28 +49,13 @@ export async function fetchTime() {
   }
 }
 
-export const defaultIpBase = {
-  location: {
-    country: {
-      alpha2: 'GB',
-      alpha3: 'GBR',
-      name: 'United Kingdom',
-      fips: 'UK',
-    },
-    city: {
-      name: 'London',
-    },
-  },
-};
-
-// TODO: Temporarily disabled api calls
 export async function fetchIpBase() {
   try {
     const response = await axios.get(`https://api.ipbase.com/v2/info?apikey=${import.meta.env.VITE_IPBASE_API_KEY}`);
     return response?.data?.data;
   } catch (error) {
     console.error('Error fetching from Ipbase', error);
-    return defaultIpBase;
+    return null;
   }
 }
 
