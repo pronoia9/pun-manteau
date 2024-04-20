@@ -115,28 +115,38 @@ const Item = styled(motion.div)`
 
   /* Title */
   h6 {
-    font-weight: normal;
-    text-transform: uppercase;
+    &,
+    span {
+      font-weight: normal;
+      text-transform: uppercase;
 
-    @media (max-width: ${rem(1000)}) {
-      font-size: ${rem(13)};
-      line-height: 2ch;
-    }
+      @media (max-width: ${rem(1000)}) {
+        font-size: ${rem(13)};
+        line-height: 2ch;
+      }
 
-    @media (max-width: ${rem(560)}) {
-      font-size: ${rem(10)};
+      @media (max-width: ${rem(560)}) {
+        font-size: ${rem(10)};
+      }
     }
   }
 
   /* Subtitle */
   h2 {
-    @media (max-width: ${rem(1000)}) {
-      font-size: ${rem(40)};
-      line-height: 2ch;
-    }
+    &,
+    span {
+      @media (max-width: ${rem(1000)}) {
+        font-size: ${rem(40)};
+        line-height: 2ch;
+      }
 
-    @media (max-width: ${rem(560)}) {
-      font-size: ${rem(20)};
+      @media (max-width: ${rem(768)}) {
+        font-size: ${rem(32)};
+      }
+
+      @media (max-width: ${rem(560)}) {
+        font-size: ${rem(20)};
+      }
     }
   }
 `;
