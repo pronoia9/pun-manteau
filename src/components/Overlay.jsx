@@ -18,7 +18,7 @@ export const Overlay = ({ time, showOverlay }) => {
       {showOverlay && (
         <Container className='overlay-container' layout {...overlayMotion.container}>
           <Group className='overlay-group' {...overlayMotion.group}>
-            <GroupItem title='Current Timezone' subtitle={time.timezone} />
+            <GroupItem title='Current Timezone' subtitle={time.timezone.replace('_', ' ')} />
             <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
           </Group>
 
