@@ -35,13 +35,26 @@ export const Overlay = ({ time, showOverlay }) => {
 };
 
 const Container = styled(motion.div)`
+  padding: ${rem(74)} ${rem(165)}; /* Top/Bottom space + Right group's left space */
   display: flex;
-  flex-direction: row;
   position: relative;
+  flex-direction: row;
+  gap: ${rem(94)};
   color: var(--c-font);
   z-index: 1;
 
+  @media (max-width: ${rem(1000)}) {
+    padding: ${rem(119)} ${rem(32)};
+    gap: ${rem(32)};
+  }
+
+  @media (max-width: ${rem(768)}) {
+    padding: ${rem(119)} ${rem(64)};
+    gap: ${rem(80)};
+  }
+
   @media (max-width: ${rem(560)}) {
+    padding: ${rem(28)} ${rem(26)};
     flex-direction: column;
     gap: ${rem(16)};
   }
@@ -70,38 +83,19 @@ const Container = styled(motion.div)`
 `;
 
 const Group = styled(motion.div)`
-  margin: ${rem(74)} 0; /* Top/Bottom space */
-  padding: 0 ${rem(94)}; /* Right group's left space */
+  height: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: ${rem(42)};
 
   @media (max-width: ${rem(1000)}) {
-    margin: ${rem(119)} 0;
-    padding: 0 ${rem(32)}; /* Right group's left space */
     gap: ${rem(48)};
   }
 
   @media (max-width: ${rem(560)}) {
-    margin: 0 0 ${rem(48)} 0;
-    padding: 0 ${rem(26)} !important;
     gap: ${rem(16)};
-  }
-
-  /* Left group's left space */
-  &:first-child {
-    padding: 0 0 0 ${rem(165)};
-
-    @media (max-width: ${rem(1230)}) {
-      &:first-child {
-        padding: 0 0 0 ${rem(64)};
-      }
-    }
-
-    @media (max-width: ${rem(560)}) {
-      margin: ${rem(48)} 0 0 0;
-    }
   }
 `;
 
