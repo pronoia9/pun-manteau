@@ -41,7 +41,7 @@ export const defaultTime = {
 
 export async function fetchTime() {
   try {
-    const response = await axios.get('http://worldtimeapi.org/api/ip');
+    const response = await axios.get('https://worldtimeapi.org/api/ip');
     return response.data;
   } catch (error) {
     // console.error('Error getting time', error);
