@@ -35,7 +35,8 @@ const Container = styled(motion.div)`
   }
 
   /* Into text */
-  h4 {
+  h4,
+  h4 > span {
     @media (max-width: ${rem(768)}) {
       font-size: ${rem(18)};
     }
@@ -52,7 +53,12 @@ const Container = styled(motion.div)`
   }
 
   /* Time */
-  h1 {
+  h1,
+  h1 > span {
+    @media (max-width: ${rem(768)}) {
+      font-size: ${rem(175)};
+    }
+
     @media (max-width: ${rem(700)}) {
       font-size: ${rem(150)};
       line-height: ${rem(150)};
@@ -65,7 +71,8 @@ const Container = styled(motion.div)`
   }
 
   /* IDK, daylight savings? */
-  h5 {
+  h5,
+  h5 > span {
     font-size: ${rem(40)};
     font-weight: lighter;
     line-height: ${rem(28 * 2)};
@@ -80,7 +87,8 @@ const Container = styled(motion.div)`
   }
 
   /* Location */
-  h3 {
+  h3,
+  h3 > span {
     @media (max-width: ${rem(1000)}) {
       font-size: ${rem(18)};
     }
