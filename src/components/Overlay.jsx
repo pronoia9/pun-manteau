@@ -45,7 +45,7 @@ const Container = styled(motion.div)`
 
   @media (max-width: ${rem(1000)}) {
     padding: ${rem(119)} ${rem(32)};
-    gap: ${rem(32)};
+    gap: ${rem(80)};
   }
 
   @media (max-width: ${rem(768)}) {
