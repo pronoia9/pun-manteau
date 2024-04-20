@@ -90,6 +90,10 @@ const Group = styled(motion.div)`
   justify-content: space-between;
   gap: ${rem(42)};
 
+  &:first-child {
+    justify-content: start;
+  }
+
   @media (max-width: ${rem(1000)}) {
     gap: ${rem(48)};
   }
@@ -114,39 +118,38 @@ const Item = styled(motion.div)`
   }
 
   /* Title */
-  h6 {
-    &,
-    span {
-      font-weight: normal;
-      text-transform: uppercase;
+  h6,
+  h6 > span {
+    font-size: ${rem(13)};
+    font-weight: normal;
+    text-transform: uppercase;
 
-      @media (max-width: ${rem(1000)}) {
-        font-size: ${rem(13)};
-        line-height: 2ch;
-      }
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(13)};
+      line-height: 2ch;
+    }
 
-      @media (max-width: ${rem(560)}) {
-        font-size: ${rem(10)};
-      }
+    @media (max-width: ${rem(560)}) {
+      font-size: ${rem(10)};
     }
   }
 
   /* Subtitle */
-  h2 {
-    &,
-    span {
-      @media (max-width: ${rem(1000)}) {
-        font-size: ${rem(40)};
-        line-height: 2ch;
-      }
+  h2,
+  h2 > span {
+    font-size: ${rem(40)};
 
-      @media (max-width: ${rem(768)}) {
-        font-size: ${rem(32)};
-      }
+    @media (max-width: ${rem(1000)}) {
+      font-size: ${rem(40)};
+      line-height: 2ch;
+    }
 
-      @media (max-width: ${rem(560)}) {
-        font-size: ${rem(20)};
-      }
+    @media (max-width: ${rem(768)}) {
+      font-size: ${rem(32)};
+    }
+
+    @media (max-width: ${rem(560)}) {
+      font-size: ${rem(20)};
     }
   }
 `;
