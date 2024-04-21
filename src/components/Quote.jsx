@@ -27,7 +27,7 @@ export const Quote = ({ showOverlay, height = window.innerHeight }) => {
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
   return (
-    data && (
+    data && (showOverlay && height > 1280) && (
       <Container className='quote-container' $showOverlay={showOverlay} $height={height} {...quoteMotion.container}>
         <div>
           <SplitText
