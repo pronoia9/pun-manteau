@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { Quote, Time, Button, Overlay } from './components';
@@ -45,7 +45,7 @@ export default function App() {
       <Container className='app-container' {...appMotion.container}>
         {time && (
           <>
-            <Flexbox className='app-flexbox' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
+            <Flexbox className='app-flexbox' $showOverlay={showOverlay} $height={height} layout {...appMotion.wrapper}>
               <Quote showOverlay={showOverlay} height={height} />
 
               <BottomPart className='app-bottom-part' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
@@ -72,7 +72,6 @@ const Container = styled(motion.div)`
 
 const Flexbox = styled(motion.div)`
   margin: ${rem(56)} ${rem(165)} ${({ $showOverlay }) => ($showOverlay ? rem(56) : rem(98))};
-  /* margin: ${({ $showOverlay }) => ($showOverlay ? 'auto' : rem(56))} ${rem(165)}; */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -81,13 +80,23 @@ const Flexbox = styled(motion.div)`
 
   @media (max-width: ${rem(1230)}) {
     margin: ${rem(80)} ${rem(64)} ${rem(64)};
-    /* margin: ${({ $showOverlay }) => ($showOverlay ? 'auto' : rem(80))} ${rem(64)} ${({ $showOverlay }) => ($showOverlay ? 'auto' : rem(64))}; */
   }
 
   @media (max-width: ${rem(560)}) {
     margin: ${rem(31.67)} ${rem(26)} ${rem(40)};
-    /* margin: ${({ $showOverlay }) => ($showOverlay ? 'auto' : rem(31.67))} ${rem(26)} ${({ $showOverlay }) => ($showOverlay ? 'auto' : rem(40))}; */
   }
+
+  ${({ $showOverlay, $height }) =>
+    $showOverlay && $height < 660 &&
+    css`
+      margin-top: auto !important;
+      margin-bottom: auto !important;
+      justify-content: center;
+
+      & > div {
+        flex: 0;
+      }
+    `}
 `;
 
 const BottomPart = styled(motion.div)`
