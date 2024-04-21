@@ -49,7 +49,7 @@ export default function App() {
               <Quote showOverlay={showOverlay} height={height} />
 
               <BottomPart className='app-bottom-part' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
-                <Time time={time} ipbase={ipbase} />
+                <Time time={time} ipbase={ipbase} height={height} />
                 <Button showOverlay={showOverlay} setShowOverlay={setShowOverlay} />
               </BottomPart>
             </Flexbox>
