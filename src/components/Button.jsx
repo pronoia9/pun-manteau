@@ -44,6 +44,7 @@ const Container = styled(motion.button)`
 
   background: rgb(255, 255, 255);
   border-radius: ${rem(28)};
+  border: none;
 
   cursor: pointer;
 
