@@ -54,7 +54,7 @@ export default function App() {
               </BottomPart>
             </Flexbox>
 
-            <Overlay time={time} showOverlay={showOverlay} />
+            <Overlay time={time} showOverlay={showOverlay} height={height} />
           </>
         )}
         <Background className='app-background' {...appMotion.background} />
