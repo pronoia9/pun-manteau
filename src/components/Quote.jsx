@@ -28,8 +28,6 @@ export const Quote = ({ showOverlay }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {console.log(height);}, [height])
-
   // useEffect(() => { !data && updateQuote(setData); }, [data]);
 
   return (
