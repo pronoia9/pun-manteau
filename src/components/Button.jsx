@@ -1,10 +1,10 @@
+import { useRef } from 'react';
 import styled from 'styled-components';
 import { motion, animate } from 'framer-motion';
 
 import { SplitText } from '../components';
 import { buttonMotion } from '../motion';
 import { rem } from '../utils';
-import { useRef } from 'react';
 
 export const Button = ({ showOverlay, setShowOverlay }) => {
   const imgRef = useRef();
