@@ -1,13 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { SplitText } from '../components';
 import { timeMotion } from '../motion';
 import { getTimeOfDayIcon, getTimeOfDayString, getTimeHours, getTimeMinutes, rem } from '../utils';
 
-export const Time = ({ time, ipbase }) => {
+export const Time = ({ time, ipbase, height }) => {
   return (
-    <Container className='time-container' layout {...timeMotion.container}>
+    <Container className='time-container' $height={height} layout {...timeMotion.container}>
       <Text className='time-text'>
         <motion.img src={`/icons/icon-${getTimeOfDayIcon(time.datetime)}.svg`} {...timeMotion.icon} />
         <SplitText text={`Good ${getTimeOfDayString(time.datetime)}`} elementType='h4' childrenProps={{ className: 'extra' }}>
@@ -45,6 +45,12 @@ const Container = styled(motion.div)`
       font-size: ${rem(15)};
     }
 
+    ${({ $height }) =>
+      $height < 815 &&
+      css`
+        font-size: ${rem(15)};
+      `}
+
     .extra {
       @media (max-width: ${rem(600)}) {
         display: none;
@@ -68,6 +74,13 @@ const Container = styled(motion.div)`
       font-size: ${rem(100)};
       line-height: ${rem(125)};
     }
+
+    ${({ $height }) =>
+      $height < 815 &&
+      css`
+        font-size: ${rem(100)};
+        line-height: ${rem(125)};
+      `}
   }
 
   /* IDK, daylight savings? */
@@ -84,6 +97,12 @@ const Container = styled(motion.div)`
     @media (max-width: ${rem(560)}) {
       font-size: ${rem(15)};
     }
+
+    ${({ $height }) =>
+      $height < 815 &&
+      css`
+        font-size: ${rem(15)};
+      `}
   }
 
   /* Location */
@@ -96,6 +115,12 @@ const Container = styled(motion.div)`
     @media (max-width: ${rem(560)}) {
       font-size: ${rem(15)};
     }
+
+    ${({ $height }) =>
+      $height < 815 &&
+      css`
+        font-size: ${rem(15)};
+      `}
   }
 `;
 
