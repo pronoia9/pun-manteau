@@ -155,9 +155,8 @@ const Item = styled(motion.div)`
 `;
 
 const HR = styled(motion.div)`
-  margin-top: ${rem(74)};
-  margin-bottom: ${rem(74)};
-  width: 1px;
+  width: 2px;
+  height: 100%;
   background-color: var(--c-secondary);
   opacity: 0.2;
 
