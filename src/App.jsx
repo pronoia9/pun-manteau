@@ -8,9 +8,9 @@ import { GlobalStyles } from './styles';
 import { getTheme, fetchTime, fetchIpBase, rem } from './utils';
 
 export default function App() {
-  const [time, setTime] = useState(null);
-  const [ipbase, setIpBase] = useState(null);
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [time, setTime] = useState(null),
+    [ipbase, setIpBase] = useState(null),
+    [showOverlay, setShowOverlay] = useState(false);
   const [, setIntervalId] = useState(null);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const BottomPart = styled(motion.div)`
   flex-direction: row;
   align-items: end;
   justify-content: space-between;
-  
+
   @media (max-width: ${rem(1000)}) {
     flex-direction: column;
     align-items: start;
