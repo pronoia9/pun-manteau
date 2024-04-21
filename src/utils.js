@@ -77,8 +77,8 @@ export const getTimeOfDayString = (datetime) => {
   const hour = getTimeHours(datetime);
   if (hour >= 5 && hour < 12) return 'morning';
   if (hour >= 12 && hour < 18) return 'afternoon';
-  if (hour >= 18 && hour < 5) return 'afternoon';
-  return 'ERR';
+  if (hour >= 18 || hour < 5) return 'afternoon';
+  return 'afternoon';
 };
 
 // THEME RELATED
