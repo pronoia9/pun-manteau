@@ -10,7 +10,8 @@ import { getTheme, fetchTime, fetchIpBase, rem } from './utils';
 export default function App() {
   const [time, setTime] = useState(null),
     [ipbase, setIpBase] = useState(null),
-    [showOverlay, setShowOverlay] = useState(false);
+    [showOverlay, setShowOverlay] = useState(false),
+    [height, setHeight] = useState(window.innerHeight);
   const [, setIntervalId] = useState(null);
 
   useEffect(() => {
@@ -31,6 +32,12 @@ export default function App() {
     return () => void clearInterval(id); // Clean up the interval when the component unmounts
   }, []);
 
+  useEffect(() => {
+    const resize = () => void setHeight(window.innerHeight);
+    window.addEventListener('resize', resize);
+    return () => void window.removeEventListener('resize', resize);
+  }, []);
+
   return (
     <ThemeProvider theme={getTheme(time)}>
       <GlobalStyles />
@@ -39,7 +46,7 @@ export default function App() {
         {time && (
           <>
             <Flexbox className='app-flexbox' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
-              <Quote showOverlay={showOverlay} />
+              <Quote showOverlay={showOverlay} height={height} />
 
               <BottomPart className='app-bottom-part' $showOverlay={showOverlay} layout {...appMotion.wrapper}>
                 <Time time={time} ipbase={ipbase} />

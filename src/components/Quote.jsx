@@ -6,8 +6,8 @@ import { SplitText } from '../components';
 import { quoteMotion } from '../motion';
 import { defaultQuote, rem, updateQuote } from '../utils';
 
-export const Quote = ({ showOverlay }) => {
-  const [data, setData] = useState(defaultQuote), [height, setHeight] = useState(window.innerHeight);
+export const Quote = ({ showOverlay, height = window.innerHeight }) => {
+  const [data, setData] = useState(defaultQuote);
   const [initialMotion, setInitialMotion] = useState('hidden');
   const [showAuthor, setShowAuthor] = useState(false);
   const controls = useAnimationControls();
@@ -21,10 +21,6 @@ export const Quote = ({ showOverlay }) => {
   useEffect(() => {
     controls.start('show');
     setInitialMotion('show'); // using state to set the initial from hidden to show after 1st animation cause after click/tap/etc it goes back to hidden if its not set to show as default
-
-    const resize = () => void setHeight(window.innerHeight);
-    window.addEventListener('resize', resize);
-    return () => void window.removeEventListener('resize', resize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
