@@ -75,7 +75,7 @@ const Container = styled(motion.div)`
   h5 > span {
     font-size: ${rem(40)};
     font-weight: lighter;
-    line-height: ${rem(28 * 2)};
+    line-height: 5rem; // ${rem(28 * 2)};
 
     @media (max-width: ${rem(1000)}) {
       font-size: ${rem(32)};
