@@ -5,28 +5,28 @@ import { SplitText } from '../components';
 import { overlayMotion } from '../motion';
 import { rem } from '../utils';
 
-export const GroupItem = ({ title, subtitle }) => (
-  <Item className='overlay-group-item' {...overlayMotion.item}>
+export const GroupItem = ({ title, subtitle, height }) => (
+  <Item className='overlay-group-item' $height={height} {...overlayMotion.item}>
     <SplitText elementType='h6' text={title} />
     <SplitText elementType='h2' text={subtitle} />
   </Item>
 );
 
-export const Overlay = ({ time, showOverlay }) => {
+export const Overlay = ({ time, showOverlay, height }) => {
   return (
     <AnimatePresence>
       {showOverlay && (
-        <Container className='overlay-container' layout {...overlayMotion.container}>
+        <Container className='overlay-container' $height={height} layout {...overlayMotion.container}>
           <Group className='overlay-group' {...overlayMotion.group}>
-            <GroupItem title='Current Timezone' subtitle={time.timezone.replace('_', ' ')} />
-            <GroupItem title='Day of the Year' subtitle={time.day_of_year} />
+            <GroupItem height={height} title='Current Timezone' subtitle={time.timezone.replace('_', ' ')} />
+            <GroupItem height={height} title='Day of the Year' subtitle={time.day_of_year} />
           </Group>
 
           <HR {...overlayMotion.hr} />
 
           <Group className='overlay-group' {...overlayMotion.group}>
-            <GroupItem title='Day of the Week' subtitle={time.day_of_week} />
-            <GroupItem title='Week Number' subtitle={time.week_number} />
+            <GroupItem height={height} title='Day of the Week' subtitle={time.day_of_week} />
+            <GroupItem height={height} title='Week Number' subtitle={time.week_number} />
           </Group>
         </Container>
       )}
@@ -35,7 +35,7 @@ export const Overlay = ({ time, showOverlay }) => {
 };
 
 const Container = styled(motion.div)`
-  padding: ${rem(74)} ${rem(165)}; /* Top/Bottom space + Right group's left space */
+  padding: ${({ $height }) => rem($height > 815 ? 74 : 32)} ${rem(165)}; /* Top/Bottom space + Right group's left space */
   display: flex;
   position: relative;
   flex-direction: row;
@@ -120,12 +120,11 @@ const Item = styled(motion.div)`
   /* Title */
   h6,
   h6 > span {
-    font-size: ${rem(13)};
+    font-size: ${({ $height }) => rem($height > 815 ? 13 : 10)};
     font-weight: normal;
     text-transform: uppercase;
 
     @media (max-width: ${rem(1000)}) {
-      font-size: ${rem(13)};
       line-height: 2ch;
     }
 
@@ -137,10 +136,9 @@ const Item = styled(motion.div)`
   /* Subtitle */
   h2,
   h2 > span {
-    font-size: ${rem(40)};
+    font-size: ${({ $height }) => rem($height > 815 ? 40 : 32)};
 
     @media (max-width: ${rem(1000)}) {
-      font-size: ${rem(40)};
       line-height: 2ch;
     }
 
