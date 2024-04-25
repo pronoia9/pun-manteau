@@ -78,8 +78,8 @@ const Container = styled(motion.div)`
     ${({ $height }) =>
       $height < 815 &&
       css`
-        font-size: ${rem(100)};
-        line-height: ${rem(125)};
+        font-size: ${rem(150)};
+        line-height: ${rem(150)};
       `}
   }
 
