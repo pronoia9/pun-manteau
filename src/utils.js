@@ -32,7 +32,7 @@ export async function updateQuote(setData) {
 // TIME
 export const defaultTime = {
   abbreviation: '',
-  datetime: new Date(),
+  time: new Date(),
   day_of_week: '??',
   day_of_year: '??',
   timezone: 'Error',
@@ -59,23 +59,23 @@ export async function fetchIpBase() {
   }
 }
 
-export const getTimeHours = (datetime) => new Date(datetime || null).getHours();
+export const getTimeHours = (time) => new Date(time?.datetime || time).getHours();
 
-export const getTimeMinutes = (datetime) => new Date(datetime || null).getMinutes().toString().padStart(2, '0');
+export const getTimeMinutes = (time) => new Date(time?.datetime || time).getMinutes().toString().padStart(2, '0');
 
-export const getTimeSeconds = (datetime) => new Date(datetime || null).getSeconds().toString().padStart(2, '0');
+export const getTimeSeconds = (time) => new Date(time?.datetime || time).getSeconds().toString().padStart(2, '0');
 
-export const isNightTime = (datetime) => {
-  const hour = getTimeHours(datetime);
+export const isNightTime = (time) => {
+  const hour = getTimeHours(time);
   if (isNaN(hour)) return;
   if (hour >= 5 && hour < 18) return false;
   return true;
 };
 
-export const getTimeOfDayIcon = (datetime) => (isNightTime(datetime) ? 'moon' : 'sun');
+export const getTimeOfDayIcon = (time) => (isNightTime(time) ? 'moon' : 'sun');
 
-export const getTimeOfDayString = (datetime) => {
-  const hour = getTimeHours(datetime);
+export const getTimeOfDayString = (time) => {
+  const hour = getTimeHours(time);
   if (hour >= 5 && hour < 12) return 'morning';
   if (hour >= 12 && hour < 18) return 'afternoon';
   if (hour >= 18 || hour < 5) return 'afternoon';
