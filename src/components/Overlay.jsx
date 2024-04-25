@@ -136,6 +136,7 @@ const Item = styled(motion.div)`
   /* Subtitle */
   h2,
   h2 > span {
+    text-align: end;
     font-size: ${({ $height }) => rem($height > 815 ? 40 : 32)};
 
     @media (max-width: ${rem(1000)}) {
