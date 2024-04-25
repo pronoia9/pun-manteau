@@ -149,6 +149,7 @@ const Item = styled(motion.div)`
 
     @media (max-width: ${rem(560)}) {
       font-size: ${rem(20)};
+      /* line-height: 1.5ch; */
     }
   }
 `;
