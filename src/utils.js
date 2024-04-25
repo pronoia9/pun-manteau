@@ -29,23 +29,20 @@ export async function updateQuote(setData) {
   }
 }
 
-// TIME
-export const defaultTime = {
-  abbreviation: '',
-  time: new Date(),
-  day_of_week: '??',
-  day_of_year: '??',
-  timezone: 'Error',
-  week_number: '??',
-};
-
 export async function fetchTime() {
   try {
     const response = await axios.get('https://worldtimeapi.org/api/ip');
     return response.data;
   } catch (error) {
-    // console.error('Error getting time', error);
-    return defaultTime;
+    console.error('Error getting time from World Time API.', error);
+    return {
+      abbreviation: 'ERR',
+      datetime: new Date(),
+      day_of_week: 0,
+      day_of_year: 0,
+      timezone: 'Err',
+      week_number: 0,
+    };
   }
 }
 
