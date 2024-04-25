@@ -120,16 +120,16 @@ const Item = styled(motion.div)`
   /* Title */
   h6,
   h6 > span {
-    align-content: center;
     font-size: ${({ $height }) => rem($height > 815 ? 13 : 10)};
     font-weight: normal;
     text-transform: uppercase;
-
+    
     @media (max-width: ${rem(1000)}) {
       line-height: 2ch;
     }
-
+    
     @media (max-width: ${rem(560)}) {
+      align-content: center;
       font-size: ${rem(10)};
     }
   }
@@ -137,19 +137,19 @@ const Item = styled(motion.div)`
   /* Subtitle */
   h2,
   h2 > span {
-    align-content: center;
-    text-align: end;
     font-size: ${({ $height }) => rem($height > 815 ? 40 : 32)};
-
+    
     @media (max-width: ${rem(1000)}) {
       line-height: 2ch;
     }
-
+    
     @media (max-width: ${rem(768)}) {
       font-size: ${rem(32)};
     }
-
+    
     @media (max-width: ${rem(560)}) {
+      text-align: end;
+      align-content: center;
       font-size: ${rem(20)};
       /* line-height: 1.5ch; */
     }
