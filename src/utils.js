@@ -67,6 +67,7 @@ export const getTimeSeconds = (datetime) => new Date(datetime || null).getSecond
 
 export const isNightTime = (datetime) => {
   const hour = getTimeHours(datetime);
+  if (isNaN(hour)) return;
   if (hour >= 5 && hour < 18) return false;
   return true;
 };
